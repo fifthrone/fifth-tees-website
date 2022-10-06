@@ -9,12 +9,12 @@ import {
 } from "firebase/firestore";
 
 const firebaseConfig = {
-	apiKey: "AIzaSyADNUj1PrxpM073Hjtic4BhOJOcF1mcTeM",
-	authDomain: "fifth-tees.firebaseapp.com",
-	projectId: "fifth-tees",
-	storageBucket: "fifth-tees.appspot.com",
-	messagingSenderId: "979434357378",
-	appId: "1:979434357378:web:0c7590c3b5a5df87d72a9b",
+	apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+	authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+	projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+	storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+	messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+	appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);
