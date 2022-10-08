@@ -1,7 +1,7 @@
 import NavBar from "../../components/nav-bar/nav-bar.component";
 import ProductCard from "../../components/product-card/product-card.component";
 import { fetchProductsAsync } from "../../store/products/products.slice";
-import { selectProductsMap } from "../../store/products/products.slice";
+import { selectTShirts } from "../../store/products/products.slice";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Footer from "../../components/footer/footer.component";
@@ -13,8 +13,7 @@ const TShirtsPage = () => {
 		dispatch(fetchProductsAsync());
 	}, []);
 
-	const { tShirts } = useSelector(selectProductsMap);
-	console.log(tShirts);
+	const tShirts = useSelector(selectTShirts);
 
 	return (
 		<>

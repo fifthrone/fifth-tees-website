@@ -6,7 +6,7 @@ import {
 	fetchProductsAsync,
 } from "../../store/products/products.slice";
 
-import ProductCard from "../product-card/product-card.component";
+import ProductCard from "../product-card/product-card";
 
 const SearchResult = () => {
 	const dispatch = useDispatch();

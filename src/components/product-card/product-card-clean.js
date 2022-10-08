@@ -4,25 +4,11 @@ import {
 	removeWishListItems,
 	selectWishListItemsIndex,
 } from "../../store/wish-list/wish-list.slice";
+import { selectProductById } from "../../store/products/products.slice";
 
-const ProductCardClean = (props) => {
-	const {
-		id,
-		imageUrl,
-		imageUrl2,
-		price,
-		titleLine1,
-		titleLine2,
-		productType,
-	} = props;
-
-	const product = {
-		id: id,
-		imageUrl: imageUrl,
-		imageUrl2: imageUrl2,
-		price: price,
-		title: titleLine1 + " " + titleLine2 + " " + productType,
-	};
+const ProductCardClean = ({ product }) => {
+	// const product = useSelector(selectProductById(productId));
+	const { id, imageMaskedUrl, price, title, type } = product;
 
 	const dispatch = useDispatch();
 	const wishListItemsIndex = useSelector(selectWishListItemsIndex);
@@ -32,7 +18,7 @@ const ProductCardClean = (props) => {
 		<div className="relative p-5 w-full h-full rounded-3xl shadow-xl -z-20 bg-gray-700">
 			<img
 				className="absolute bottom-0 -right-5 rotate-2 -z-10 w-[230px]"
-				src={imageUrl2}
+				src={imageMaskedUrl}
 				alt=""
 			/>
 			<button
@@ -49,14 +35,11 @@ const ProductCardClean = (props) => {
 					<i className="text-white fa-solid fa-heart scale-100 hover:scale-110 duration-200"></i>
 				)}
 			</button>
-			<h2 className="text-white font-poppins font-semibold  leading-tight text-md">
-				{titleLine1}
-			</h2>
-			<h2 className="text-white font-poppins pt-0.5 font-semibold leading-tight text-md">
-				{titleLine2}
+			<h2 className="text-white font-poppins font-semibold  leading-tight text-md w-[calc(100%-25px)]">
+				{title}
 			</h2>
 			<h3 className="text-white pt-2 text-xs font-poppins font-extralight">
-				{productType}
+				{type}
 			</h3>
 			<h3 className="text-white pt-2 font-poppins font-semibold text-sm">
 				{`$${price}`}

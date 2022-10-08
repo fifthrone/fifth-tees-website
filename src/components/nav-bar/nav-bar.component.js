@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import Cart from "../cart/cart.component";
+import Cart from "../cart/cart";
 import WishList from "../wish-list/wish-list.component";
 
 import { useSelector, useDispatch } from "react-redux";

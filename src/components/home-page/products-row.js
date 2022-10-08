@@ -1,22 +1,17 @@
-import ProductCard from "../../components/product-card/product-card.component";
+import ProductCard from "../product-card/product-card";
 import { fetchProductsAsync } from "../../store/products/products.slice";
-import { selectProductsMap } from "../../store/products/products.slice";
+import { selectProducts } from "../../store/products/products.slice";
 import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-const ProductsRow = () => {
-	const dispatch = useDispatch();
-	const ref = useRef(null);
+const ProductsRow = (props) => {
+	const { products } = props;
 
-	useEffect(() => {
-		dispatch(fetchProductsAsync());
-	}, []);
+	const ref = useRef(null);
 
 	const scroll = (ref, scrollOffset) => {
 		ref.current.scrollLeft += scrollOffset;
 	};
-
-	const { tShirts } = useSelector(selectProductsMap);
 
 	return (
 		<div className="relative group">
@@ -36,13 +31,13 @@ const ProductsRow = () => {
 				className="flex flex-row w-full overflow-x-scroll scroll-smooth scrollbar-hide space-x-4 pt-1 pb-4"
 				ref={ref}
 			>
-				{tShirts &&
-					tShirts.map(
-						(tshirt, index) =>
+				{products &&
+					products.map(
+						(product, index) =>
 							index <= 6 && (
 								<ProductCard
-									key={tshirt.id}
-									tshirt={tshirt}
+									key={product.id}
+									product={product}
 									className="w-64 flex-shrink-0 translate-x-[max(2.5rem,50vw-33.5rem)]"
 								/>
 							)

@@ -1,12 +1,16 @@
+import { async } from "@firebase/util";
 import { initializeApp } from "firebase/app";
 import {
 	getFirestore,
 	getDocs,
+	setDoc,
 	collection,
 	query,
+	where,
 	writeBatch,
 	doc,
 } from "firebase/firestore";
+import { ALL_PRODUCTS, FEATURED, HERO } from "../../products-data";
 
 const firebaseConfig = {
 	apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -20,6 +24,25 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 export const db = getFirestore();
+
+const productRef = collection(db, "product");
+
+export const addProduct = async () => {
+	for (const product of ALL_PRODUCTS) {
+		await setDoc(doc(productRef, product.id.toString()), product);
+	}
+};
+export const addHero = async () => {
+	HERO.forEach(async (item, index) => {
+		await setDoc(doc(collection(db, "hero"), index.toString()), item);	
+	});
+};
+
+export const addFeatured = async () => {
+	FEATURED.forEach(async (item, index) => {
+		await setDoc(doc(collection(db, "featured"), index.toString()), item);	
+	});
+};
 
 export const addCollectionAndDocuments = async (
 	collectionKey,
@@ -37,14 +60,24 @@ export const addCollectionAndDocuments = async (
 	console.log("done");
 };
 
-export const getProducts = async () => {
-	const collectionRef = collection(db, "products");
+export const getData = async (collectionKey) => {
+	const collectionRef = collection(db, collectionKey);
 	const q = query(collectionRef);
 
 	const querySnapshot = await getDocs(q);
-	const productsMap = querySnapshot.docs.map((docSnapshot) =>
-		docSnapshot.data()
-	);
+	const data = querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
 
-	return productsMap;
+	return data;
 };
+
+// export const getProducts = async () => {
+// 	const collectionRef = collection(db, "products");
+// 	const q = query(collectionRef);
+
+// 	const querySnapshot = await getDocs(q);
+// 	const productsMap = querySnapshot.docs.map((docSnapshot) =>
+// 		docSnapshot.data()
+// 	);
+
+// 	return productsMap;
+// };

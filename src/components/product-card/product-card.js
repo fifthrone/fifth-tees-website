@@ -7,8 +7,9 @@ import {
 	selectWishListItemsIndex,
 } from "../../store/wish-list/wish-list.slice";
 
-const ProductCard = ({ tshirt, className }) => {
-	const { id, imageUrl, imageUrl2, price, title } = tshirt;
+const ProductCard = (props) => {
+	const {product, className} = props;
+	const { id, imageUrl, price, title, type } = product;
 
 	const dispatch = useDispatch();
 	const wishListItemsIndex = useSelector(selectWishListItemsIndex);
@@ -39,7 +40,7 @@ const ProductCard = ({ tshirt, className }) => {
 							className="rounded-xl object-contain hover:scale-100 duration-200"
 						/>
 						<div className="px-3 space-y-1">
-							<h2 className="text-sm">{title} T-Shirts</h2>
+							<h2 className="text-sm">{title} {type}</h2>
 							<p className="text-gray-600 text-sm">HK${price}</p>
 						</div>
 					</a>

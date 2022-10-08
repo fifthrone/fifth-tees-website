@@ -1,4 +1,4 @@
-const PRODUCTS_DATA = [
+export const PRODUCTS_DATA = [
 	{
 		title: "tShirts",
 		items: [
@@ -63,7 +63,8 @@ const PRODUCTS_DATA = [
 				imageUrl: "productImages/trickOrCheese.jpg",
 				imageUrl2: "productImages/trickOrCheese2.jpg",
 				price: 120,
-				title: "Funny Cartoon Halloween Pizza Ghost with Extra Melting Cheese Trick or Cheese",
+				title:
+					"Funny Cartoon Halloween Pizza Ghost with Extra Melting Cheese Trick or Cheese",
 			},
 			{
 				id: 10,
@@ -83,4 +84,269 @@ const PRODUCTS_DATA = [
 	},
 ];
 
-export default PRODUCTS_DATA
+export const ALL_PRODUCTS = [
+	{
+		id: 1,
+		imageUrl: "productImages/coffeeMattersTshirt.jpg",
+		imageMaskedUrl: "productImages/coffeeMattersTshirtMasked.png",
+		imageModelUrl: "productImages/coffeeMattersTshirtModel.jpg",
+		price: 120,
+		title: "Coffee Matters Science",
+		description: "",
+		type: "T-Shirt",
+		otherTypeId: [2, 13, 15],
+		relatedId: [3, 5, 12],
+	},
+	{
+		id: 2,
+		imageUrl: "productImages/dadLiftDinosaurTshirt.jpg",
+		imageMaskedUrl: "productImages/dadLiftDinosaurTshirtMasked.png",
+		imageModelUrl: "productImages/dadLiftDinosaurTshirtModel.jpg",
+		price: 120,
+		title: "Dad Lifts Dinosaur Deadlifting",
+		description: "",
+		type: "T-Shirt",
+		otherTypeId: [2, 13, 15],
+		relatedId: [3, 5, 12],
+	},
+	{
+		id: 3,
+		imageUrl: "productImages/dogtorTshirt.jpg",
+		imageMaskedUrl: "productImages/dogtorTshirtMasked.png",
+		imageModelUrl: "productImages/dogtorTshirtModel.jpg",
+		price: 120,
+		title: "Trust Me, I'm a Dogtor",
+		description: "",
+		type: "T-Shirt",
+		otherTypeId: [2, 13, 15],
+		relatedId: [3, 5, 12],
+	},
+	{
+		id: 4,
+		imageUrl: "productImages/friendsBeerTshirt.jpg",
+		imageMaskedUrl: "productImages/friendsBeerTshirtMasked.png",
+		imageModelUrl: "productImages/friendsBeerTshirtModel.jpg",
+		price: 120,
+		title: "Friend and Beer Is All I Need",
+		description: "",
+		type: "T-Shirt",
+		otherTypeId: [2, 13, 15],
+		relatedId: [3, 5, 12],
+	},
+	{
+		id: 5,
+		imageUrl: "productImages/geezTshirt.jpg",
+		imageMaskedUrl: "productImages/geezTshirtMasked.png",
+		imageModelUrl: "productImages/geezTshirtModel.jpg",
+		price: 120,
+		title: "Geez Catchphrase",
+		description: "",
+		type: "T-Shirt",
+		otherTypeId: [2, 13, 15],
+		relatedId: [3, 5, 12],
+	},
+	{
+		id: 6,
+		imageUrl: "productImages/geometryPizzaTshirt.jpg",
+		imageMaskedUrl: "productImages/geometryPizzaTshirtMasked.png",
+		imageModelUrl: "productImages/geometryPizzaTshirtModel.jpg",
+		price: 120,
+		title: "Learn Geometry and Eat More Pizza",
+		description: "",
+		type: "T-Shirt",
+		otherTypeId: [2, 13, 15],
+		relatedId: [3, 5, 12],
+	},
+	{
+		id: 7,
+		imageUrl: "productImages/hippoDontCareTshirt.jpg",
+		imageMaskedUrl: "productImages/hippoDontCareTshirtMasked.png",
+		imageModelUrl: "productImages/hippoDontCareTshirtModel.jpg",
+		price: 120,
+		title: "Hippo Meme Cute Hippo Don't Care",
+		description: "",
+		type: "T-Shirt",
+		otherTypeId: [2, 13, 15],
+		relatedId: [3, 5, 12],
+	},
+	{
+		id: 8,
+		imageUrl: "productImages/huskyTshirt.jpg",
+		imageMaskedUrl: "productImages/huskyTshirtMasked.png",
+		imageModelUrl: "productImages/huskyTshirtModel.jpg",
+		price: 120,
+		title: "Siberian Husky Dog Lover",
+		description: "",
+		type: "T-Shirt",
+		otherTypeId: [2, 13, 15],
+		relatedId: [3, 5, 12],
+	},
+	{
+		id: 9,
+		imageUrl: "productImages/meltIceCreamTshirt.jpg",
+		imageMaskedUrl: "productImages/meltIceCreamTshirtMasked.png",
+		imageModelUrl: "productImages/meltIceCreamTshirtModel.jpg",
+		price: 120,
+		title: "You Melt My Ice Cream",
+		description: "",
+		type: "T-Shirt",
+		otherTypeId: [2, 13, 15],
+		relatedId: [3, 5, 12],
+	},
+	{
+		id: 10,
+		imageUrl: "productImages/outlawCowboyMinimalTshirt.jpg",
+		imageMaskedUrl: "productImages/outlawCowboyMinimalTshirtMasked.png",
+		imageModelUrl: "productImages/outlawCowboyMinimalTshirtModel.jpg",
+		price: 120,
+		title: "Outlaw Cowboy Minimal Logo",
+		description: "",
+		type: "T-Shirt",
+		otherTypeId: [2, 13, 15],
+		relatedId: [3, 5, 12],
+	},
+	{
+		id: 11,
+		imageUrl: "productImages/outlawCowboyTshirt.jpg",
+		imageMaskedUrl: "productImages/outlawCowboyTshirtMasked.png",
+		imageModelUrl: "productImages/outlawCowboyTshirtTshirt.jpg",
+		price: 120,
+		title: "Outlaw Cowboy Minimal Logo",
+		description: "",
+		type: "T-Shirt",
+		otherTypeId: [2, 13, 15],
+		relatedId: [3, 5, 12],
+	},
+	{
+		id: 12,
+		imageUrl: "productImages/pizzaGhostSticker.jpg",
+		imageMaskedUrl: "productImages/pizzaGhostStickerMasked.png",
+		imageModelUrl: "productImages/pizzaGhostStickerModel.jpg",
+		price: 8,
+		title: "Halloween Pizza Ghost Melting Cheese",
+		description: "",
+		type: "Sticker",
+		otherTypeId: [2, 13, 15],
+		relatedId: [3, 5, 12],
+	},
+	{
+		id: 13,
+		imageUrl: "productImages/shibaInuTshirt.jpg",
+		imageMaskedUrl: "productImages/shibaInuTshirtMasked.png",
+		imageModelUrl: "productImages/shibaInuTshirtModel.jpg",
+		price: 120,
+		title: "Shiba Inu Dog Lover",
+		description: "",
+		type: "T-Shirt",
+		otherTypeId: [2, 13, 15],
+		relatedId: [3, 5, 12],
+	},
+	{
+		id: 14,
+		imageUrl: "productImages/staffordshireBullTerrierTshirt.jpg",
+		imageMaskedUrl: "productImages/staffordshireBullTerrierTshirtMasked.png",
+		imageModelUrl: "productImages/staffordshireBullTerrierTshirtModel.jpg",
+		price: 120,
+		title: "Staffordshire Bull Terrier Lover",
+		description: "",
+		type: "T-Shirt",
+		otherTypeId: [2, 13, 15],
+		relatedId: [3, 5, 12],
+	},
+	{
+		id: 15,
+		imageUrl: "productImages/trickOrCheeseTshirt.jpg",
+		imageMaskedUrl: "productImages/trickOrCheeseTshirtMasked.png",
+		imageModelUrl: "productImages/trickOrCheeseTshirtModel.jpg",
+		price: 120,
+		title: "Halloween Pizza Ghost Melting Cheese",
+		description: "",
+		type: "T-Shirt",
+		otherTypeId: [2, 13, 15],
+		relatedId: [3, 5, 12],
+	},
+	{
+		id: 16,
+		imageUrl: "productImages/triggHoundTshirt.jpg",
+		imageMaskedUrl: "productImages/triggHoundTshirtMasked.png",
+		imageModelUrl: "productImages/triggHoundTshirtModel.jpg",
+		price: 120,
+		title: "Trigg Hound Dog Lover",
+		description: "",
+		type: "T-Shirt",
+		otherTypeId: [2, 13, 15],
+		relatedId: [3, 5, 12],
+	},
+	{
+		id: 17,
+		imageUrl: "productImages/wetOwlSticker.jpg",
+		imageMaskedUrl: "productImages/wetOwlStickerMasked.png",
+		imageModelUrl: "productImages/wetOwlStickerModel.jpg",
+		price: 8,
+		title: "Wet Owl Meme",
+		description: "",
+		type: "Sticker",
+		otherTypeId: [2, 13, 15],
+		relatedId: [3, 5, 12],
+	},
+	{
+		id: 18,
+		imageUrl: "productImages/wetOwlTshirt.jpg",
+		imageMaskedUrl: "productImages/wetOwlTshirtMasked.png",
+		imageModelUrl: "productImages/wetOwlTshirtModel.jpg",
+		price: 120,
+		title: "Wet Owl Meme",
+		description: "",
+		type: "T-Shirt",
+		otherTypeId: [2, 13, 15],
+		relatedId: [3, 5, 12],
+	},
+]
+
+// export const HOME_PRODUCTS = {
+// 	foodie: [],
+// 	meme: [],
+// };
+export const HOME_PRODUCTS = {
+	hero: [
+		{ title: "Meme", productsId: [1, 2, 3] },
+		// { title: "Dog", productsId: [1, 2, 3] },
+		// { title: "Foodie", productsId: [1, 2, 3] },
+	],
+	featured: [
+		{ title: "Featured", productsId: [1, 2, 3, 4, 5, 6] },
+		{ title: "Best Selling", productsId: [1, 2, 3] },
+		{ title: "Meme is life", productsId: [1, 2, 3] },
+	],
+};
+
+export const HERO = [
+	{
+		title: "Meme",
+		productIds: [3, 12, 5]
+	},
+	{
+		title: "Dog",
+		productIds: [13, 8, 14]
+	},
+	{
+		title: "Foodie",
+		productIds: [4, 9, 1]
+	},
+]
+
+export const FEATURED = [
+	{
+		title: "Featured",
+		productIds: [7, 15, 12, 6, 2, 10, 9]
+	},
+	{
+		title: "Best Selling",
+		productIds: [10, 11, 14, 16, 1, 4, 5]
+	},
+	{
+		title: "Meme is life",
+		productIds: [8, 18, 17, 6, 1, 4, 7]
+	},
+]
+
