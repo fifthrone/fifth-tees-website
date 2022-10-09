@@ -1,4 +1,4 @@
-import NavBar from "../components/nav-bar/nav-bar.component";
+import NavBar from "../components/nav-bar/nav-bar";
 import SearchResult from "../components/search-result/search-result";
 import "animate.css/animate.min.css";
 import { useState, useEffect, useRef } from "react";
@@ -10,10 +10,10 @@ import {
 	addProduct,
 } from "../utils/firebase/firebase.utils";
 import PRODUCTS_DATA from "../products-data.js";
-import HeroTransition from "../components/hero/hero-transition";
+import HeroTransition from "../components/home-page/hero-transition";
 import ProductsRow from "../components/home-page/products-row";
 import Footer from "../components/footer/footer";
-import HeroSection from "../components/hero/hero-section";
+import HeroSection from "../components/home-page/hero-section";
 import { useDispatch, useSelector } from "react-redux";
 import {
 	fetchProductsAsync,
@@ -122,22 +122,12 @@ const Home = () => {
 					</Parallax>
 				</div>
 			</div>
+
 			{featured.length &&
 				featured.map(({ title, products }) => (
 					<FeaturedSection key={title} title={title} products={products} />
 				))}
-			{/* <div className="relative max-w-6xl px-10 mx-auto mt-8">
-				<h1 className="pb-2 text-5xl font-poppins font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
-					Best Selling
-				</h1>
-			</div>
-			<ProductsRow />
-			<div className="max-w-6xl px-10 mx-auto mt-8">
-				<h1 className="pb-2 text-5xl font-poppins font-bold  text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
-					Meme is life
-				</h1>
-			</div>
-			<ProductsRow /> */}
+
 			<Footer />
 		</>
 	);

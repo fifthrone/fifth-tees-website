@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { selectWishListItems } from "../../store/wish-list/wish-list.slice";
 
-import WishListItem from "./wish-list-item.component";
+import WishListItem from "./wish-list-item";
 
 const wishList = () => {
 	const items = useSelector(selectWishListItems);

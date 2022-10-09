@@ -1,10 +1,10 @@
-import NavBar from "../../components/nav-bar/nav-bar.component";
-import ProductCard from "../../components/product-card/product-card.component";
+import NavBar from "../../components/nav-bar/nav-bar";
+import ProductCard from "../../components/product-card/product-card";
 import { fetchProductsAsync } from "../../store/products/products.slice";
 import { selectTShirts } from "../../store/products/products.slice";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Footer from "../../components/footer/footer.component";
+import Footer from "../../components/footer/footer";
 
 const TShirtsPage = () => {
 	const dispatch = useDispatch();
@@ -22,7 +22,7 @@ const TShirtsPage = () => {
 				<div className="p-8 grid gap-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
 					{tShirts &&
 						tShirts.map((tshirt) => (
-							<ProductCard key={tshirt.id} tshirt={tshirt} />
+							<ProductCard key={tshirt.id} product={tshirt} />
 						))}
 				</div>
 			</div>

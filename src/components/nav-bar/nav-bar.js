@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import Cart from "../cart/cart";
-import WishList from "../wish-list/wish-list.component";
+import WishList from "../wish-list/wish-list";
 
 import { useSelector, useDispatch } from "react-redux";
 import { selectIsOpen, toggleCart } from "../../store/cart/cart.slice";

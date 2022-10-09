@@ -21,8 +21,8 @@ const ProductCard = (props) => {
 				<button
 					onClick={() => {
 						isInWishList
-							? dispatch(removeWishListItems(tshirt))
-							: dispatch(addWishListItems(tshirt));
+							? dispatch(removeWishListItems(product))
+							: dispatch(addWishListItems(product));
 					}}
 					className="bg-white absolute top-5 right-5 h-10 w-10 rounded-full flex items-center justify-center shadow-md hover:-translate-y-0.5 duration-200 group-heart z-10"
 				>
