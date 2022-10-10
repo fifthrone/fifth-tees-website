@@ -20,7 +20,7 @@ const StickersPage = () => {
 			<NavBar />
 			<div className="flex items-center justify-center max-w-6xl mx-auto">
 				<div className="p-8 grid gap-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-					{stickers &&
+					{stickers.length &&
 						stickers.map((sticker) => (
 							<ProductCard key={sticker.id} product={sticker} />
 						))}
