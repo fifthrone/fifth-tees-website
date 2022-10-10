@@ -25,11 +25,11 @@ const app = initializeApp(firebaseConfig);
 
 export const db = getFirestore();
 
-const productRef = collection(db, "product");
+const productRef = collection(db, "products");
 
 export const addProduct = async () => {
 	for (const product of ALL_PRODUCTS) {
-		await setDoc(doc(productRef, product.id.toString()), product);
+		await setDoc(doc(productRef, product.id), product);
 	}
 };
 export const addHero = async () => {

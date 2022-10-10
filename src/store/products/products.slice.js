@@ -43,7 +43,7 @@ export const {
 export const fetchProductsAsync = () => async (dispatch, getState) => {
 	dispatch(fetchStart);
 	try {
-		const products = await getData("product");
+		const products = await getData("products");
 		console.log("fetch reducer", products);
 		dispatch(fetchProductsSuccess(products));
 	} catch (error) {
@@ -55,7 +55,7 @@ export const fetchProductsAsync = () => async (dispatch, getState) => {
 export const fetchAllAsync = () => async (dispatch) => {
 	dispatch(fetchStart);
 	try {
-		const products = getData("product");
+		const products = getData("products");
 		const hero = getData("hero");
 		const featured = getData("featured");
 		const results = await Promise.all([products, hero, featured]);

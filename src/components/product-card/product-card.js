@@ -32,7 +32,7 @@ const ProductCard = (props) => {
 						<i className="text-gray-400 fa-lg fa-regular fa-heart group-heart-hover:scale-110 group-heart-hover:text-red-200 duration-200"></i>
 					)}
 				</button>
-				<Link href={`/`}>
+				<Link href={`/${id}`}>
 					<a className="p-3 flex flex-col bg-white rounded-2xl shadow-lg space-y-3 relative">
 						<img
 							src={imageUrl}

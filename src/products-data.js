@@ -1,6 +1,6 @@
 export const ALL_PRODUCTS = [
 	{
-		id: "coffee-matters-tshirt",
+		id: "coffee-matters-tshirt", //1
 		imageUrl: "productImages/coffeeMattersTshirt.jpg",
 		imageMaskedUrl: "productImages/coffeeMattersTshirtMasked.png",
 		imageModelUrl: "productImages/coffeeMattersTshirtModel.jpg",
@@ -8,11 +8,11 @@ export const ALL_PRODUCTS = [
 		title: "Coffee Matters Science",
 		description: "",
 		type: "T-Shirt",
-		otherTypeId: [2, 13, 15],
-		relatedId: [3, 5, 12],
+		otherTypeId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
+		relatedId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
 	},
 	{
-		id: 2,
+		id: "dad-lifts-dinosaur-tshirt", //2
 		imageUrl: "productImages/dadLiftDinosaurTshirt.jpg",
 		imageMaskedUrl: "productImages/dadLiftDinosaurTshirtMasked.png",
 		imageModelUrl: "productImages/dadLiftDinosaurTshirtModel.jpg",
@@ -20,11 +20,11 @@ export const ALL_PRODUCTS = [
 		title: "Dad Lifts Dinosaur Deadlifting",
 		description: "",
 		type: "T-Shirt",
-		otherTypeId: [2, 13, 15],
-		relatedId: [3, 5, 12],
+		otherTypeId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
+		relatedId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
 	},
 	{
-		id: 3,
+		id: "trust-me-im-a-dogtor-tshirt",
 		imageUrl: "productImages/dogtorTshirt.jpg",
 		imageMaskedUrl: "productImages/dogtorTshirtMasked.png",
 		imageModelUrl: "productImages/dogtorTshirtModel.jpg",
@@ -32,11 +32,11 @@ export const ALL_PRODUCTS = [
 		title: "Trust Me, I'm a Dogtor",
 		description: "",
 		type: "T-Shirt",
-		otherTypeId: [2, 13, 15],
-		relatedId: [3, 5, 12],
+		otherTypeId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
+		relatedId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
 	},
 	{
-		id: 4,
+		id: "friends-and-beer-is-all-i-need-tshirt", //4
 		imageUrl: "productImages/friendsBeerTshirt.jpg",
 		imageMaskedUrl: "productImages/friendsBeerTshirtMasked.png",
 		imageModelUrl: "productImages/friendsBeerTshirtModel.jpg",
@@ -44,11 +44,11 @@ export const ALL_PRODUCTS = [
 		title: "Friend and Beer Is All I Need",
 		description: "",
 		type: "T-Shirt",
-		otherTypeId: [2, 13, 15],
-		relatedId: [3, 5, 12],
+		otherTypeId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
+		relatedId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
 	},
 	{
-		id: 5,
+		id: "geez-tshirt",
 		imageUrl: "productImages/geezTshirt.jpg",
 		imageMaskedUrl: "productImages/geezTshirtMasked.png",
 		imageModelUrl: "productImages/geezTshirtModel.jpg",
@@ -56,11 +56,11 @@ export const ALL_PRODUCTS = [
 		title: "Geez Catchphrase",
 		description: "",
 		type: "T-Shirt",
-		otherTypeId: [2, 13, 15],
-		relatedId: [3, 5, 12],
+		otherTypeId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
+		relatedId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
 	},
 	{
-		id: 6,
+		id: "learn-geometry-and-eat-more-pizza-tshirt", //6
 		imageUrl: "productImages/geometryPizzaTshirt.jpg",
 		imageMaskedUrl: "productImages/geometryPizzaTshirtMasked.png",
 		imageModelUrl: "productImages/geometryPizzaTshirtModel.jpg",
@@ -68,11 +68,11 @@ export const ALL_PRODUCTS = [
 		title: "Learn Geometry and Eat More Pizza",
 		description: "",
 		type: "T-Shirt",
-		otherTypeId: [2, 13, 15],
-		relatedId: [3, 5, 12],
+		otherTypeId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
+		relatedId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
 	},
 	{
-		id: 7,
+		id: "hippo-dont-care-tshirt",
 		imageUrl: "productImages/hippoDontCareTshirt.jpg",
 		imageMaskedUrl: "productImages/hippoDontCareTshirtMasked.png",
 		imageModelUrl: "productImages/hippoDontCareTshirtModel.jpg",
@@ -80,11 +80,11 @@ export const ALL_PRODUCTS = [
 		title: "Hippo Meme Cute Hippo Don't Care",
 		description: "",
 		type: "T-Shirt",
-		otherTypeId: [2, 13, 15],
-		relatedId: [3, 5, 12],
+		otherTypeId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
+		relatedId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
 	},
 	{
-		id: 8,
+		id: "just-a-girl-who-loves-siberian-husky-tshirt", //8
 		imageUrl: "productImages/huskyTshirt.jpg",
 		imageMaskedUrl: "productImages/huskyTshirtMasked.png",
 		imageModelUrl: "productImages/huskyTshirtModel.jpg",
@@ -92,11 +92,11 @@ export const ALL_PRODUCTS = [
 		title: "Siberian Husky Dog Lover",
 		description: "",
 		type: "T-Shirt",
-		otherTypeId: [2, 13, 15],
-		relatedId: [3, 5, 12],
+		otherTypeId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
+		relatedId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
 	},
 	{
-		id: 9,
+		id: "you-melt-my-ice-cream-tshirt",
 		imageUrl: "productImages/meltIceCreamTshirt.jpg",
 		imageMaskedUrl: "productImages/meltIceCreamTshirtMasked.png",
 		imageModelUrl: "productImages/meltIceCreamTshirtModel.jpg",
@@ -104,11 +104,11 @@ export const ALL_PRODUCTS = [
 		title: "You Melt My Ice Cream",
 		description: "",
 		type: "T-Shirt",
-		otherTypeId: [2, 13, 15],
-		relatedId: [3, 5, 12],
+		otherTypeId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
+		relatedId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
 	},
 	{
-		id: 10,
+		id: "outlaw-cowboy-minimal-tshirt", //10
 		imageUrl: "productImages/outlawCowboyMinimalTshirt.jpg",
 		imageMaskedUrl: "productImages/outlawCowboyMinimalTshirtMasked.png",
 		imageModelUrl: "productImages/outlawCowboyMinimalTshirtModel.jpg",
@@ -116,11 +116,11 @@ export const ALL_PRODUCTS = [
 		title: "Outlaw Cowboy Minimal Logo",
 		description: "",
 		type: "T-Shirt",
-		otherTypeId: [2, 13, 15],
-		relatedId: [3, 5, 12],
+		otherTypeId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
+		relatedId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
 	},
 	{
-		id: 11,
+		id: "outlaw-cowboy-tshirt",
 		imageUrl: "productImages/outlawCowboyTshirt.jpg",
 		imageMaskedUrl: "productImages/outlawCowboyTshirtMasked.png",
 		imageModelUrl: "productImages/outlawCowboyTshirtTshirt.jpg",
@@ -128,23 +128,23 @@ export const ALL_PRODUCTS = [
 		title: "Outlaw Cowboy Minimal Logo",
 		description: "",
 		type: "T-Shirt",
-		otherTypeId: [2, 13, 15],
-		relatedId: [3, 5, 12],
+		otherTypeId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
+		relatedId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
 	},
 	{
-		id: 12,
-		imageUrl: "productImages/pizzaGhostSticker.jpg",
+		id: "pizza-ghost-sticker",
+		imageUrl: "productImages/pizzaGhostSticker.jpg", //12
 		imageMaskedUrl: "productImages/pizzaGhostStickerMasked.png",
 		imageModelUrl: "productImages/pizzaGhostStickerModel.jpg",
 		price: 8,
 		title: "Halloween Pizza Ghost Melting Cheese",
 		description: "",
 		type: "Sticker",
-		otherTypeId: [2, 13, 15],
-		relatedId: [3, 5, 12],
+		otherTypeId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
+		relatedId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
 	},
 	{
-		id: 13,
+		id: "just-a-girl-who-loves-shiba-inu-tshirt",
 		imageUrl: "productImages/shibaInuTshirt.jpg",
 		imageMaskedUrl: "productImages/shibaInuTshirtMasked.png",
 		imageModelUrl: "productImages/shibaInuTshirtModel.jpg",
@@ -152,11 +152,11 @@ export const ALL_PRODUCTS = [
 		title: "Shiba Inu Dog Lover",
 		description: "",
 		type: "T-Shirt",
-		otherTypeId: [2, 13, 15],
-		relatedId: [3, 5, 12],
+		otherTypeId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
+		relatedId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
 	},
 	{
-		id: 14,
+		id: "just-a-girl-who-loves-staffordshire-bull-terrier-tshirt", //14
 		imageUrl: "productImages/staffordshireBullTerrierTshirt.jpg",
 		imageMaskedUrl: "productImages/staffordshireBullTerrierTshirtMasked.png",
 		imageModelUrl: "productImages/staffordshireBullTerrierTshirtModel.jpg",
@@ -164,11 +164,11 @@ export const ALL_PRODUCTS = [
 		title: "Staffordshire Bull Terrier Lover",
 		description: "",
 		type: "T-Shirt",
-		otherTypeId: [2, 13, 15],
-		relatedId: [3, 5, 12],
+		otherTypeId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
+		relatedId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
 	},
 	{
-		id: 15,
+		id: "trick-or-chesse-tshirt",
 		imageUrl: "productImages/trickOrCheeseTshirt.jpg",
 		imageMaskedUrl: "productImages/trickOrCheeseTshirtMasked.png",
 		imageModelUrl: "productImages/trickOrCheeseTshirtModel.jpg",
@@ -176,11 +176,11 @@ export const ALL_PRODUCTS = [
 		title: "Halloween Pizza Ghost Melting Cheese",
 		description: "",
 		type: "T-Shirt",
-		otherTypeId: [2, 13, 15],
-		relatedId: [3, 5, 12],
+		otherTypeId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
+		relatedId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
 	},
 	{
-		id: 16,
+		id: "just-a-girl-who-loves-trigg-hound-tshirt", //16
 		imageUrl: "productImages/triggHoundTshirt.jpg",
 		imageMaskedUrl: "productImages/triggHoundTshirtMasked.png",
 		imageModelUrl: "productImages/triggHoundTshirtModel.jpg",
@@ -188,11 +188,11 @@ export const ALL_PRODUCTS = [
 		title: "Trigg Hound Dog Lover",
 		description: "",
 		type: "T-Shirt",
-		otherTypeId: [2, 13, 15],
-		relatedId: [3, 5, 12],
+		otherTypeId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
+		relatedId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
 	},
 	{
-		id: 17,
+		id: "wet-owl-sticker",
 		imageUrl: "productImages/wetOwlSticker.jpg",
 		imageMaskedUrl: "productImages/wetOwlStickerMasked.png",
 		imageModelUrl: "productImages/wetOwlStickerModel.jpg",
@@ -200,11 +200,11 @@ export const ALL_PRODUCTS = [
 		title: "Wet Owl Meme",
 		description: "",
 		type: "Sticker",
-		otherTypeId: [2, 13, 15],
-		relatedId: [3, 5, 12],
+		otherTypeId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
+		relatedId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
 	},
 	{
-		id: 18,
+		id: "wet-owl-tshirt", //18
 		imageUrl: "productImages/wetOwlTshirt.jpg",
 		imageMaskedUrl: "productImages/wetOwlTshirtMasked.png",
 		imageModelUrl: "productImages/wetOwlTshirtModel.jpg",
@@ -212,55 +212,73 @@ export const ALL_PRODUCTS = [
 		title: "Wet Owl Meme",
 		description: "",
 		type: "T-Shirt",
-		otherTypeId: [2, 13, 15],
-		relatedId: [3, 5, 12],
+		otherTypeId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
+		relatedId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
 	},
-]
-
-// export const HOME_PRODUCTS = {
-// 	foodie: [],
-// 	meme: [],
-// };
-export const HOME_PRODUCTS = {
-	hero: [
-		{ title: "Meme", productsId: [1, 2, 3] },
-		// { title: "Dog", productsId: [1, 2, 3] },
-		// { title: "Foodie", productsId: [1, 2, 3] },
-	],
-	featured: [
-		{ title: "Featured", productsId: [1, 2, 3, 4, 5, 6] },
-		{ title: "Best Selling", productsId: [1, 2, 3] },
-		{ title: "Meme is life", productsId: [1, 2, 3] },
-	],
-};
+];
 
 export const HERO = [
 	{
 		title: "Meme",
-		productIds: [3, 12, 5]
+		productIds: [
+			"trust-me-im-a-dogtor-tshirt",
+			"pizza-ghost-sticker",
+			"geez-tshirt",
+		],
 	},
 	{
 		title: "Dog",
-		productIds: [13, 8, 14]
+		productIds: [
+			"just-a-girl-who-loves-shiba-inu-tshirt",
+			"just-a-girl-who-loves-siberian-husky-tshirt",
+			"just-a-girl-who-loves-staffordshire-bull-terrier-tshirt",
+		],
 	},
 	{
 		title: "Foodie",
-		productIds: [4, 9, 1]
+		productIds: [
+			"friends-and-beer-is-all-i-need-tshirt",
+			"you-melt-my-ice-cream-tshirt",
+			"coffee-matters-tshirt",
+		],
 	},
-]
+];
 
 export const FEATURED = [
 	{
 		title: "Featured",
-		productIds: [7, 15, 12, 6, 2, 10, 9]
+		productIds: [
+			"hippo-dont-care-tshirt",
+			"trick-or-chesse-tshirt",
+			"pizza-ghost-sticker",
+			"learn-geometry-and-eat-more-pizza-tshirt",
+			"dad-lifts-dinosaur-tshirt",
+			"outlaw-cowboy-minimal-tshirt",
+			"you-melt-my-ice-cream-tshirt",
+		],
 	},
 	{
 		title: "Best Selling",
-		productIds: [10, 11, 14, 16, 1, 4, 5]
+		productIds: [
+			"outlaw-cowboy-minimal-tshirt",
+			"outlaw-cowboy-tshirt",
+			"just-a-girl-who-loves-staffordshire-bull-terrier-tshirt",
+			"just-a-girl-who-loves-trigg-hound-tshirt",
+			"coffee-matters-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+			"geez-tshirt",
+		],
 	},
 	{
 		title: "Meme is life",
-		productIds: [8, 18, 17, 6, 1, 4, 7]
+		productIds: [
+			"just-a-girl-who-loves-siberian-husky-tshirt",
+			"wet-owl-tshirt",
+			"wet-owl-sticker",
+			"learn-geometry-and-eat-more-pizza-tshirt",
+			"coffee-matters-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+			"hippo-dont-care-tshirt",
+		],
 	},
-]
-
+];

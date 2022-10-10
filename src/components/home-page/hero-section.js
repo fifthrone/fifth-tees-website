@@ -49,35 +49,36 @@ const HeroSection = (props) => {
 				className="absolute bottom-0 w-full border1 p-6 flex flex-row space-x-6 overflow-x-scroll scroll-smooth scrollbar-hide"
 				ref={ref}
 			>
-				{products.map((product, index) => (
-					<HeroTransition
-						key={product.id}
-						className="h-72 w-full min-w-[180px]"
-						scrollPosition={scrollPosition}
-						inPosition={inPosition}
-						outPosition={outPosition}
-						transitionStyle="slideHorizontal"
-						delay={index * 50}
-						mountOnEnter
-						unmountOnExit
-						onEntered={
-							index === products.length - 1
-								? () => {
-										setIsSectionCardsEntered(true);
-								  }
-								: () => {}
-						}
-						onExit={
-							index === products.length - 1
-								? () => {
-										setIsSectionCardsEntered(false);
-								  }
-								: () => {}
-						}
-					>
-						<ProductCardClean product={product} />
-					</HeroTransition>
-				))}
+				{products.length &&
+					products.map((product, index) => (
+						<HeroTransition
+							key={product.id}
+							className="h-72 w-full min-w-[180px]"
+							scrollPosition={scrollPosition}
+							inPosition={inPosition}
+							outPosition={outPosition}
+							transitionStyle="slideHorizontal"
+							delay={index * 50}
+							mountOnEnter
+							unmountOnExit
+							onEntered={
+								index === products.length - 1
+									? () => {
+											setIsSectionCardsEntered(true);
+									  }
+									: () => {}
+							}
+							onExit={
+								index === products.length - 1
+									? () => {
+											setIsSectionCardsEntered(false);
+									  }
+									: () => {}
+							}
+						>
+							<ProductCardClean product={product} />
+						</HeroTransition>
+					))}
 			</div>
 		</>
 	);

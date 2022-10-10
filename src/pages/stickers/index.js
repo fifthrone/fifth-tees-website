@@ -10,7 +10,7 @@ const StickersPage = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		dispatch(fetchProductsAsync());
+		// dispatch(fetchProductsAsync());
 	}, []);
 
 	const stickers = useSelector(selectStickers);

@@ -44,8 +44,8 @@ const Home = () => {
 		dispatch(fetchAllAsync());
 
 		// const addAsync = async () => {
-		// 	// await addProduct();
-		// 	// await addHero();
+		// 	await addProduct();
+		// 	await addHero();
 		// 	await addFeatured();
 		// }
 		// addAsync();
