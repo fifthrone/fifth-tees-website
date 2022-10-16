@@ -69,6 +69,15 @@ export const getData = async (collectionKey) => {
 
 	return data;
 };
+export const getProduct = async (id) => {
+	const productRef = collection(db, "products");
+	const q = query(productRef, where("id", "==", id));
+
+	const querySnapshot = await getDocs(q);
+	const product = querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
+
+	return product;
+};
 
 // export const getProducts = async () => {
 // 	const collectionRef = collection(db, "products");

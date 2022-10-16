@@ -67,6 +67,19 @@ export const fetchAllAsync = () => async (dispatch) => {
 		console.log("fail to fetch", error);
 	}
 };
+export const fetchHeroAndFeaturedAsync = () => async (dispatch) => {
+	dispatch(fetchStart);
+	try {
+		const hero = getData("hero");
+		const featured = getData("featured");
+		const results = await Promise.all([hero, featured]);
+		dispatch(fetchHeroSuccess(results[0]));
+		dispatch(fetchFeaturedSuccess(results[1]));
+	} catch (error) {
+		dispatch(fetchFail(error));
+		console.log("fail to fetch", error);
+	}
+};
 
 export const selectIsLoading = (state) => state.products.isLoading;
 
@@ -81,7 +94,7 @@ export const selectStickers = (state) =>
 export const selectProductById = (id) => (state) => {
 	const filtered = state.products.products.find((product) => id === product.id);
 	// const filtered = state.products.products.filter((product) => id === product.id);
-	return filtered ? filtered : {};
+	return filtered ? filtered : undefined;
 };
 
 export const selectHero = (state) => {

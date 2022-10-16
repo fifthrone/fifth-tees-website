@@ -19,7 +19,7 @@ const TShirtsPage = () => {
 		<>
 			<NavBar />
 			<div className="flex items-center justify-center max-w-6xl mx-auto">
-				<div className="p-8 grid gap-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+				<div className="p-8 grid gap-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
 					{tShirts.length &&
 						tShirts.map((tshirt) => (
 							<ProductCard key={tshirt.id} product={tshirt} />

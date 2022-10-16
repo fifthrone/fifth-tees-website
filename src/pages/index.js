@@ -19,6 +19,7 @@ import {
 	fetchProductsAsync,
 	selectIsLoading,
 	fetchAllAsync,
+	fetchHeroAndFeaturedAsync,
 	selectHero,
 	selectFeatured,
 } from "../store/products/products.slice";

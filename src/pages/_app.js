@@ -7,6 +7,7 @@ import Script from "next/script";
 import { ParallaxProvider } from "react-scroll-parallax";
 
 function MyApp({ Component, pageProps }) {
+
 	return (
 		<>
 			<Head>
