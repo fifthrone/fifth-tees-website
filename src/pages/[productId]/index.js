@@ -134,8 +134,8 @@ const ProductPage = () => {
 					id="hero"
 					className="flex flex-col items-center justify-center max-w-6xl mx-auto px-10 border1 pb-8"
 				>
-					<div className="w-full bg-white rounded-3xl shadow-2xl mt-8 p-8 grid gap-6 md:grid-cols-2  auto-rows-min">
-						<div className="md:pl-2 md:pt-12 space-y-1 md:space-y-4 border1 border-black">
+					<div className="w-full bg-white rounded-3xl shadow-2xl mt-8 p-8 grid gap-20 md:grid-cols-2  auto-rows-min">
+						<div className="md:px-8 md:pt-12 space-y-1 md:space-y-4 border1 border-black">
 							<div className="text-3xl font-poppins font-semibold">
 								{title} {type}
 							</div>
@@ -147,7 +147,7 @@ const ProductPage = () => {
 						<div className="border1 border-black md:row-span-2 h-90">
 							<ImageGallery imageUrls={[imageUrl, imageModelUrl]} />
 						</div>
-						<div className="border1 md:row-span-2 space-y-4">
+						<div className="border1 md:row-span-2 space-y-4 md:px-8">
 							<div className="flex flex-col md:flex-row space-y-4 md:space-y-0 justify-between space-x-0 md:space-x-4 font-poppins">
 								<button className="bg-black rounded-xl w-full text-white py-3">
 									Add to Cart
