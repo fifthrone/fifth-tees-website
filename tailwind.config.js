@@ -12,6 +12,10 @@ module.exports = {
 				josefin: ["Josefin Sans", "sans-serif"],
 				poppins: ["Poppins", "sans-serif"],
 			},
+			colors:{
+				blueGray:'#334155',
+			}
+	
 		},
 	},
 	plugins: [
