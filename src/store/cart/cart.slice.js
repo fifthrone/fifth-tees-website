@@ -32,21 +32,22 @@ export const selectTotalPrice = (state) => {
 		0
 	);
 
-    return totalPrice
+	return totalPrice;
 };
 
 export const addItems = (item) => (dispatch, getState) => {
 	const currentItems = selectItems(getState());
 
 	const existingItem = currentItems.find(
-		(currentItem) => currentItem.id === item.id
+		(currentItem) =>
+			currentItem.id === item.id && currentItem.size === item.size
 	);
 
 	console.log(existingItem);
 
 	if (existingItem) {
 		const newItems = currentItems.map((currentItem) =>
-			currentItem.id === item.id
+			currentItem.id === item.id && currentItem.size === item.size
 				? { ...currentItem, qty: currentItem.qty + 1 }
 				: currentItem
 		);

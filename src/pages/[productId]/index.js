@@ -15,6 +15,9 @@ import {
 import FeaturedSection from "../../components/home-page/featured-section";
 import ImageGallery from "../../components/image-gallery/image-gallery";
 import SizePicker from "../../components/size-picker/size-picker";
+import ProductFeatures from "../../components/product-features/product-features";
+import { addItems } from "../../store/cart/cart.slice";
+import { addWishListItems } from "../../store/wish-list/wish-list.slice";
 
 const ProductPage = () => {
 	const router = useRouter();
@@ -25,8 +28,8 @@ const ProductPage = () => {
 	const product = useSelector(selectProduct);
 	console.log("product:", product);
 
-	const [size, setSize] = useState("M");
-	const [sizeGuideIsOpen, setSizeGuideIsOpen] = useState(false);
+	const [tShirtSize, setTShirtSize] = useState("M");
+	const [isSizeGuideOpen, setIsSizeGuideOpen] = useState(false);
 
 	const {
 		imageUrl,
@@ -35,6 +38,7 @@ const ProductPage = () => {
 		title,
 		description,
 		type,
+		size,
 		otherTypeId,
 		relatedId,
 	} = product;
@@ -125,7 +129,6 @@ const ProductPage = () => {
 	useEffect(() => {
 		dispatch(clearProduct);
 		if (router.isReady) {
-			console.log("useeffect id", id);
 			dispatch(fetchProductAsync(id));
 		}
 	}, [router.isReady, id]);
@@ -150,15 +153,29 @@ const ProductPage = () => {
 										<h2 className="font-poppins text-lg">Size</h2>
 										<SizePicker
 											sizes={["S", "M", "L", "XL", "2XL"]}
-											currentSize={size}
-											setCurrentSize={setSize}
+											currentSize={tShirtSize}
+											setCurrentSize={setTShirtSize}
 										/>
-										<div className="flex flex-row space-x-1.5 items-center pt-1">
+										<button
+											onClick={() => {
+												setIsSizeGuideOpen(true);
+											}}
+											className="flex flex-row space-x-1.5 items-center pt-1 group"
+										>
 											<i className="pl-1 fa-solid fa-ruler text-blue-500 border1"></i>
-											<button className="pt-0.5 border1 self-start font-poppins text-sm text-blue-500 hover:underline">
+											<button className="pt-0.5 border1 self-start font-poppins text-sm text-blue-500 group-hover:underline">
 												View size guide
 											</button>
-										</div>
+										</button>
+									</div>
+								)}
+
+								{type === "Sticker" && (
+									<div className="flex flex-col space-y-0 justify-start pt-2">
+										<h2 className="font-poppins text-lg">Size</h2>
+										<h2 className="font-poppins text-xl font-semibold">
+											Small ({size})
+										</h2>
 									</div>
 								)}
 							</div>
@@ -167,11 +184,27 @@ const ProductPage = () => {
 							</div>
 							<div className="border1 md:row-span-1 space-y-4">
 								<div className="flex flex-col md:flex-row space-y-4 md:space-y-0 justify-between space-x-0 md:space-x-4 font-poppins">
-									<button className="flex flex-row items-center justify-center bg-black rounded-xl w-full text-white py-3 space-x-2 px-2">
+									<button
+										onClick={() => {
+											dispatch(
+												addItems({
+													...product,
+													size: type === "T-Shirt" ? tShirtSize : size,
+													qty: 1,
+												})
+											);
+										}}
+										className="flex flex-row items-center justify-center bg-black rounded-xl w-full text-white py-3 space-x-2 px-2"
+									>
 										<i className="pl-1 fa-solid fa-shopping-cart border1"></i>
 										<p>Add to Cart</p>
 									</button>
-									<button className="flex flex-row items-center justify-center bg-black rounded-xl w-full text-white py-3 space-x-2 px-2">
+									<button
+										onClick={() => {
+											dispatch(addWishListItems(product));
+										}}
+										className="flex flex-row items-center justify-center bg-black rounded-xl w-full text-white py-3 space-x-2 px-2"
+									>
 										<i className="pl-1 fa-solid fa-heart border1"></i>
 										<p>Add to Wish List</p>
 									</button>
@@ -182,9 +215,9 @@ const ProductPage = () => {
 								</button>
 							</div>
 						</div>
-						<div className="border-t-2 border-gray-300 my-16"></div>
+						<div className="border-t-2 border-gray-300 my-12"></div>
 						<div className="grid gap-6 md:grid-cols-4 font-poppins">
-							<div className="font-semibold text-xl">Features</div>
+							<div className="font-semibold text-xl">Description</div>
 							<div className="col-span-3 space-y-2">
 								<p>Heavyweight 8.25 oz. (~280 gsm) cotton-rich fleece</p>
 								<p>80% cotton, 20% polyester</p>
@@ -196,6 +229,13 @@ const ProductPage = () => {
 								<p>Note: If you like your hoodies baggy go 2 sizes up</p>
 							</div>
 						</div>
+						<div className="border-t-2 border-gray-300 my-12"></div>
+						<div className="grid gap-6 md:grid-cols-4 font-poppins mb-8">
+							<div className="font-semibold text-xl">Features</div>
+							<div className="col-span-3">
+								<ProductFeatures type={type} />
+							</div>
+						</div>
 					</div>
 				</div>
 			)}
@@ -204,6 +244,18 @@ const ProductPage = () => {
 				products={relatedProducts}
 			/>
 			<Footer />
+			{isSizeGuideOpen && (
+				<>
+					<div className="fixed inset-0 flex items-center justify-center">
+						<div className="w-full h-full bg-black opacity-50"
+							onClick={() => {
+								setIsSizeGuideOpen(false);
+							}}
+						></div>
+						<div className="absolute p-8 bg-white rounded-2xl">testing</div>
+					</div>
+				</>
+			)}
 		</>
 	);
 };

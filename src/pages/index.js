@@ -46,8 +46,8 @@ const Home = () => {
 
 		// const addAsync = async () => {
 		// 	await addProduct();
-		// 	await addHero();
-		// 	await addFeatured();
+		// 	// await addHero();
+		// 	// await addFeatured();
 		// }
 		// addAsync();
 
