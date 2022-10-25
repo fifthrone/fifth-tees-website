@@ -14,6 +14,7 @@ module.exports = {
 			},
 			colors:{
 				blueGray:'#334155',
+				lightBlueGray:'#475569',
 			}
 	
 		},

@@ -13,6 +13,7 @@ const ImageGallery = ({ imageUrls }) => {
 			<div className="flex flex-row items-center justify-center space-x-4">
 				{imageUrls.map((imageUrl) => (
 					<div
+						key={imageUrl}
 						onClick={() => {
                             setCurrentImageUrl(imageUrl)
                         }}
@@ -20,7 +21,6 @@ const ImageGallery = ({ imageUrls }) => {
 					>
 						<img
 							className="h-14 rounded-md"
-							key={imageUrl}
 							src={imageUrl}
 							alt=""
 						/>

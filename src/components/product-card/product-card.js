@@ -4,7 +4,7 @@ import { addItems } from "../../store/cart/cart.slice";
 import {
 	addWishListItems,
 	removeWishListItems,
-	selectWishListItemsIndex,
+	selectWishListItemIds,
 } from "../../store/wish-list/wish-list.slice";
 
 const ProductCard = (props) => {
@@ -12,8 +12,8 @@ const ProductCard = (props) => {
 	const { id, imageUrl, price, title, type } = product;
 
 	const dispatch = useDispatch();
-	const wishListItemsIndex = useSelector(selectWishListItemsIndex);
-	const isInWishList = wishListItemsIndex.includes(id);
+	const wishListItemIds = useSelector(selectWishListItemIds);
+	const isInWishList = wishListItemIds.includes(id);
 
 	return (
 		<div className={`${className}`}>

@@ -65,7 +65,7 @@ export const removeItems = (item) => (dispatch, getState) => {
 
 	const newItems = currentItems.reduce(
 		(acc, currentItem) =>
-			currentItem.id === item.id
+			currentItem.id === item.id && currentItem.size === item.size
 				? currentItem.qty === 1
 					? acc
 					: [...acc, { ...currentItem, qty: currentItem.qty - 1 }]

@@ -5,7 +5,6 @@ const WishListItem = ({ item }) => {
 	const dispatch = useDispatch();
 
 	const { id, imageUrl, imageUrl2, title, price } = item;
-	console.log(item);
 
 	return (
 		<div className="flex flex-row space-x-3">

@@ -1,4 +1,5 @@
 import NavBar from "../components/nav-bar/nav-bar";
+import Link from "next/link";
 import SearchResult from "../components/search-result/search-result";
 import "animate.css/animate.min.css";
 import { useState, useEffect, useRef } from "react";
@@ -106,9 +107,11 @@ const Home = () => {
 								<div className="h-1 w-1 rounded-full bg-white"></div>
 								<p className="tracking-wide">Stickers</p>
 							</div>
-							<button className="absolute top-120 text-white text-2xl p-3 px-6 bg-gray-900 rounded-full hover:-translate-y-1 duration-200 shadow-xl hover:shadow-2xl">
-								Shop All
-							</button>
+							<Link href={"/products"}> 
+								<a className="absolute top-120 text-white text-2xl p-3 px-6 bg-gray-900 rounded-full hover:-translate-y-1 duration-200 shadow-xl hover:shadow-2xl">
+									Shop All
+								</a>
+							</Link>
 						</div>
 					</div>
 					<Parallax

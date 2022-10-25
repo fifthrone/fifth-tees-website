@@ -8,8 +8,18 @@ export const ALL_PRODUCTS = [
 		title: "Coffee Matters Science",
 		description: "",
 		type: "T-Shirt",
-		otherTypeId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
-		relatedId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
+		otherTypeId: [
+			"dad-lifts-dinosaur-tshirt",
+			"trust-me-im-a-dogtor-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+		],
+		relatedId: [
+			"dad-lifts-dinosaur-tshirt",
+			"trust-me-im-a-dogtor-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+		],
+		redbubbleUrl:
+			"https://www.redbubble.com/i/t-shirt/Coffee-Matters-Science-T-shirt-by-FifthTees/104556924.FB110",
 	},
 	{
 		id: "dad-lifts-dinosaur-tshirt", //2
@@ -20,8 +30,18 @@ export const ALL_PRODUCTS = [
 		title: "Dad Lifts Dinosaur Deadlifting",
 		description: "",
 		type: "T-Shirt",
-		otherTypeId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
-		relatedId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
+		otherTypeId: [
+			"dad-lifts-dinosaur-tshirt",
+			"trust-me-im-a-dogtor-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+		],
+		relatedId: [
+			"dad-lifts-dinosaur-tshirt",
+			"trust-me-im-a-dogtor-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+		],
+		redbubbleUrl:
+			"https://www.redbubble.com/i/t-shirt/Dad-Lifts-Dinosaur-Deadlifting-Cute-Jr-T-shirt-by-FifthTees/102442393.FB110",
 	},
 	{
 		id: "trust-me-im-a-dogtor-tshirt",
@@ -32,8 +52,16 @@ export const ALL_PRODUCTS = [
 		title: "Trust Me, I'm a Dogtor",
 		description: "",
 		type: "T-Shirt",
-		otherTypeId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
-		relatedId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
+		otherTypeId: [
+			"dad-lifts-dinosaur-tshirt",
+			"trust-me-im-a-dogtor-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+		],
+		relatedId: [
+			"dad-lifts-dinosaur-tshirt",
+			"trust-me-im-a-dogtor-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+		],
 	},
 	{
 		id: "friends-and-beer-is-all-i-need-tshirt", //4
@@ -44,8 +72,18 @@ export const ALL_PRODUCTS = [
 		title: "Friend and Beer Is All I Need",
 		description: "",
 		type: "T-Shirt",
-		otherTypeId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
-		relatedId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
+		otherTypeId: [
+			"dad-lifts-dinosaur-tshirt",
+			"trust-me-im-a-dogtor-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+		],
+		relatedId: [
+			"dad-lifts-dinosaur-tshirt",
+			"trust-me-im-a-dogtor-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+		],
+		redbubbleUrl:
+			"https://www.redbubble.com/i/t-shirt/Swole-Doge-Dogtor-Meme-Shiba-Inu-Dog-by-FifthTees/84185429.FB110",
 	},
 	{
 		id: "geez-tshirt",
@@ -56,8 +94,18 @@ export const ALL_PRODUCTS = [
 		title: "Geez Catchphrase",
 		description: "",
 		type: "T-Shirt",
-		otherTypeId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
-		relatedId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
+		otherTypeId: [
+			"dad-lifts-dinosaur-tshirt",
+			"trust-me-im-a-dogtor-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+		],
+		relatedId: [
+			"dad-lifts-dinosaur-tshirt",
+			"trust-me-im-a-dogtor-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+		],
+		redbubbleUrl:
+			"https://www.redbubble.com/i/t-shirt/Geez-Oh-Geez-Catchphrase-by-FifthTees/105149909.IJ6L0",
 	},
 	{
 		id: "learn-geometry-and-eat-more-pizza-tshirt", //6
@@ -68,8 +116,18 @@ export const ALL_PRODUCTS = [
 		title: "Learn Geometry and Eat More Pizza",
 		description: "",
 		type: "T-Shirt",
-		otherTypeId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
-		relatedId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
+		otherTypeId: [
+			"dad-lifts-dinosaur-tshirt",
+			"trust-me-im-a-dogtor-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+		],
+		relatedId: [
+			"dad-lifts-dinosaur-tshirt",
+			"trust-me-im-a-dogtor-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+		],
+		redbubbleUrl:
+			"https://www.redbubble.com/i/t-shirt/Big-Cheese-Pizza-Slice-Learn-Geometry-and-Mathematics-by-FifthTees/83541434.UIIS2",
 	},
 	{
 		id: "hippo-dont-care-tshirt",
@@ -80,8 +138,18 @@ export const ALL_PRODUCTS = [
 		title: "Hippo Meme Cute Hippo Don't Care",
 		description: "",
 		type: "T-Shirt",
-		otherTypeId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
-		relatedId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
+		otherTypeId: [
+			"dad-lifts-dinosaur-tshirt",
+			"trust-me-im-a-dogtor-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+		],
+		relatedId: [
+			"dad-lifts-dinosaur-tshirt",
+			"trust-me-im-a-dogtor-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+		],
+		redbubbleUrl:
+			"https://www.redbubble.com/i/t-shirt/Hippo-Meme-Cute-Hippo-Don-t-Care-T-shirt-by-FifthTees/81759085.FB110",
 	},
 	{
 		id: "just-a-girl-who-loves-siberian-husky-tshirt", //8
@@ -92,8 +160,18 @@ export const ALL_PRODUCTS = [
 		title: "Siberian Husky Dog Lover",
 		description: "",
 		type: "T-Shirt",
-		otherTypeId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
-		relatedId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
+		otherTypeId: [
+			"dad-lifts-dinosaur-tshirt",
+			"trust-me-im-a-dogtor-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+		],
+		relatedId: [
+			"dad-lifts-dinosaur-tshirt",
+			"trust-me-im-a-dogtor-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+		],
+		redbubbleUrl:
+			"https://www.redbubble.com/i/t-shirt/Just-a-girl-who-loves-Siberian-Husky-Dog-Lover-T-shirt-by-FifthTees/93946408.FB110",
 	},
 	{
 		id: "you-melt-my-ice-cream-tshirt",
@@ -104,8 +182,18 @@ export const ALL_PRODUCTS = [
 		title: "You Melt My Ice Cream",
 		description: "",
 		type: "T-Shirt",
-		otherTypeId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
-		relatedId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
+		otherTypeId: [
+			"dad-lifts-dinosaur-tshirt",
+			"trust-me-im-a-dogtor-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+		],
+		relatedId: [
+			"dad-lifts-dinosaur-tshirt",
+			"trust-me-im-a-dogtor-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+		],
+		redbubbleUrl:
+			"https://www.redbubble.com/i/t-shirt/Cute-Ice-Cream-Melting-You-Melt-My-Ice-Cream-by-FifthTees/84184050.UIIS2",
 	},
 	{
 		id: "outlaw-cowboy-minimal-tshirt", //10
@@ -116,8 +204,18 @@ export const ALL_PRODUCTS = [
 		title: "Outlaw Cowboy Minimal Logo",
 		description: "",
 		type: "T-Shirt",
-		otherTypeId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
-		relatedId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
+		otherTypeId: [
+			"dad-lifts-dinosaur-tshirt",
+			"trust-me-im-a-dogtor-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+		],
+		relatedId: [
+			"dad-lifts-dinosaur-tshirt",
+			"trust-me-im-a-dogtor-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+		],
+		redbubbleUrl:
+			"https://www.redbubble.com/i/t-shirt/Outlaw-Cowboy-Minimal-Logo-for-dark-background-by-FifthTees/108192124.FB110",
 	},
 	{
 		id: "outlaw-cowboy-tshirt",
@@ -125,11 +223,21 @@ export const ALL_PRODUCTS = [
 		imageMaskedUrl: "productImages/outlawCowboyTshirtMasked.png",
 		imageModelUrl: "productImages/outlawCowboyTshirtTshirt.jpg",
 		price: 120,
-		title: "Outlaw Cowboy Minimal Logo",
+		title: "Outlaw Cowboy",
 		description: "",
 		type: "T-Shirt",
-		otherTypeId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
-		relatedId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
+		otherTypeId: [
+			"dad-lifts-dinosaur-tshirt",
+			"trust-me-im-a-dogtor-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+		],
+		relatedId: [
+			"dad-lifts-dinosaur-tshirt",
+			"trust-me-im-a-dogtor-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+		],
+		redbubbleUrl:
+			"https://www.redbubble.com/i/t-shirt/Outlaw-Cowboy-T-shirt-black-background-by-FifthTees/103764901.FB110",
 	},
 	{
 		id: "pizza-ghost-sticker",
@@ -141,8 +249,18 @@ export const ALL_PRODUCTS = [
 		description: "",
 		type: "Sticker",
 		size: "3 x 4 in",
-		otherTypeId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
-		relatedId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
+		otherTypeId: [
+			"dad-lifts-dinosaur-tshirt",
+			"trust-me-im-a-dogtor-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+		],
+		relatedId: [
+			"dad-lifts-dinosaur-tshirt",
+			"trust-me-im-a-dogtor-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+		],
+		redbubbleUrl:
+			"https://www.redbubble.com/i/sticker/Funny-Cartoon-Halloween-Pizza-Ghost-with-Extra-Melting-Cheese-by-FifthTees/82790285.EJUG5",
 	},
 	{
 		id: "just-a-girl-who-loves-shiba-inu-tshirt",
@@ -153,8 +271,18 @@ export const ALL_PRODUCTS = [
 		title: "Shiba Inu Dog Lover",
 		description: "",
 		type: "T-Shirt",
-		otherTypeId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
-		relatedId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
+		otherTypeId: [
+			"dad-lifts-dinosaur-tshirt",
+			"trust-me-im-a-dogtor-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+		],
+		relatedId: [
+			"dad-lifts-dinosaur-tshirt",
+			"trust-me-im-a-dogtor-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+		],
+		redbubbleUrl:
+			"https://www.redbubble.com/i/t-shirt/Just-a-girl-who-loves-Shiba-Inu-Dog-Lover-T-shirt-by-FifthTees/93827055.FB110",
 	},
 	{
 		id: "just-a-girl-who-loves-staffordshire-bull-terrier-tshirt", //14
@@ -165,8 +293,18 @@ export const ALL_PRODUCTS = [
 		title: "Staffordshire Bull Terrier Lover",
 		description: "",
 		type: "T-Shirt",
-		otherTypeId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
-		relatedId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
+		otherTypeId: [
+			"dad-lifts-dinosaur-tshirt",
+			"trust-me-im-a-dogtor-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+		],
+		relatedId: [
+			"dad-lifts-dinosaur-tshirt",
+			"trust-me-im-a-dogtor-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+		],
+		redbubbleUrl:
+			"https://www.redbubble.com/i/t-shirt/Just-a-girl-who-loves-Staffordshire-Bull-Terrier-Dog-Lover-T-shirt-by-FifthTees/93953454.FB110",
 	},
 	{
 		id: "trick-or-chesse-tshirt",
@@ -177,8 +315,18 @@ export const ALL_PRODUCTS = [
 		title: "Halloween Pizza Ghost Melting Cheese",
 		description: "",
 		type: "T-Shirt",
-		otherTypeId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
-		relatedId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
+		otherTypeId: [
+			"dad-lifts-dinosaur-tshirt",
+			"trust-me-im-a-dogtor-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+		],
+		relatedId: [
+			"dad-lifts-dinosaur-tshirt",
+			"trust-me-im-a-dogtor-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+		],
+		redbubbleUrl:
+			"https://www.redbubble.com/i/t-shirt/Funny-Cartoon-Halloween-Pizza-Ghost-with-Extra-Melting-Cheese-Trick-or-Cheese-by-FifthTees/82790714.UIIS2",
 	},
 	{
 		id: "just-a-girl-who-loves-trigg-hound-tshirt", //16
@@ -189,8 +337,18 @@ export const ALL_PRODUCTS = [
 		title: "Trigg Hound Dog Lover",
 		description: "",
 		type: "T-Shirt",
-		otherTypeId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
-		relatedId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
+		otherTypeId: [
+			"dad-lifts-dinosaur-tshirt",
+			"trust-me-im-a-dogtor-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+		],
+		relatedId: [
+			"dad-lifts-dinosaur-tshirt",
+			"trust-me-im-a-dogtor-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+		],
+		redbubbleUrl:
+			"https://www.redbubble.com/i/t-shirt/Just-a-girl-who-loves-Trigg-Hound-Dog-Lover-T-shirt-by-FifthTees/93954400.FB110",
 	},
 	{
 		id: "wet-owl-sticker",
@@ -201,9 +359,19 @@ export const ALL_PRODUCTS = [
 		title: "Wet Owl Meme",
 		description: "",
 		type: "Sticker",
-		size:"2.4 x 4 in",
-		otherTypeId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
-		relatedId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
+		size: "2.4 x 4 in",
+		otherTypeId: [
+			"dad-lifts-dinosaur-tshirt",
+			"trust-me-im-a-dogtor-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+		],
+		relatedId: [
+			"dad-lifts-dinosaur-tshirt",
+			"trust-me-im-a-dogtor-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+		],
+		redbubbleUrl:
+			"https://www.redbubble.com/i/sticker/Wet-Owl-Meme-Drawing-by-FifthTees/108887669.EJUG5",
 	},
 	{
 		id: "wet-owl-tshirt", //18
@@ -214,8 +382,18 @@ export const ALL_PRODUCTS = [
 		title: "Wet Owl Meme",
 		description: "",
 		type: "T-Shirt",
-		otherTypeId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
-		relatedId: ["dad-lifts-dinosaur-tshirt", "trust-me-im-a-dogtor-tshirt", "friends-and-beer-is-all-i-need-tshirt"],
+		otherTypeId: [
+			"dad-lifts-dinosaur-tshirt",
+			"trust-me-im-a-dogtor-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+		],
+		relatedId: [
+			"dad-lifts-dinosaur-tshirt",
+			"trust-me-im-a-dogtor-tshirt",
+			"friends-and-beer-is-all-i-need-tshirt",
+		],
+		redbubbleUrl:
+			"https://www.redbubble.com/i/t-shirt/Wet-Owl-Meme-Drawing-by-FifthTees/108887669.IJ6L0",
 	},
 ];
 

@@ -23,7 +23,7 @@ export const { toggleWishList, setWishListItems } = wishListSlice.actions;
 
 export const selectWishListItems = (state) => state.wishList.items;
 
-export const selectWishListItemsIndex = (state) =>
+export const selectWishListItemIds = (state) =>
 	state.wishList.items.map((item) => item.id);
 
 export const selectWishListIsOpen = (state) => state.wishList.isOpen;

@@ -1,8 +1,17 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import Link from "next/link";
 import Footer from "../../components/footer/footer";
 import NavBar from "../../components/nav-bar/nav-bar";
-import { useDispatch, useSelector } from "react-redux";
+import FeaturedSection from "../../components/home-page/featured-section";
+import ImageGallery from "../../components/image-gallery/image-gallery";
+import SizePicker from "../../components/size-picker/size-picker";
+import ProductFeatures from "../../components/product-features/product-features";
+import AddToWishListButton from "../../components/wish-list/add-to-wish-list-button";
+import AddToCartButton from "../../components/cart/add-to-cart-button";
+
 import {
 	selectProductById,
 	fetchProductsAsync,
@@ -12,10 +21,6 @@ import {
 	fetchProductAsync,
 	clearProduct,
 } from "../../store/product/product.slice";
-import FeaturedSection from "../../components/home-page/featured-section";
-import ImageGallery from "../../components/image-gallery/image-gallery";
-import SizePicker from "../../components/size-picker/size-picker";
-import ProductFeatures from "../../components/product-features/product-features";
 import { addItems } from "../../store/cart/cart.slice";
 import { addWishListItems } from "../../store/wish-list/wish-list.slice";
 
@@ -26,7 +31,7 @@ const ProductPage = () => {
 	const id = router.query.productId;
 
 	const product = useSelector(selectProduct);
-	console.log("product:", product);
+	// console.log("product:", product);
 
 	const [tShirtSize, setTShirtSize] = useState("M");
 	const [isSizeGuideOpen, setIsSizeGuideOpen] = useState(false);
@@ -41,6 +46,7 @@ const ProductPage = () => {
 		size,
 		otherTypeId,
 		relatedId,
+		redbubbleUrl,
 	} = product;
 
 	const relatedProducts = [
@@ -160,12 +166,12 @@ const ProductPage = () => {
 											onClick={() => {
 												setIsSizeGuideOpen(true);
 											}}
-											className="flex flex-row space-x-1.5 items-center pt-1 group"
+											className="flex flex-row space-x-1.5 items-center pt-1 group max-w-max"
 										>
 											<i className="pl-1 fa-solid fa-ruler text-blue-500 border1"></i>
-											<button className="pt-0.5 border1 self-start font-poppins text-sm text-blue-500 group-hover:underline">
+											<p className="pt-0.5 border1 self-start font-poppins text-sm text-blue-500 group-hover:underline">
 												View size guide
-											</button>
+											</p>
 										</button>
 									</div>
 								)}
@@ -183,36 +189,21 @@ const ProductPage = () => {
 								<ImageGallery imageUrls={[imageUrl, imageModelUrl]} />
 							</div>
 							<div className="border1 md:row-span-1 space-y-4">
-								<div className="flex flex-col md:flex-row space-y-4 md:space-y-0 justify-between space-x-0 md:space-x-4 font-poppins">
-									<button
-										onClick={() => {
-											dispatch(
-												addItems({
-													...product,
-													size: type === "T-Shirt" ? tShirtSize : size,
-													qty: 1,
-												})
-											);
-										}}
-										className="flex flex-row items-center justify-center bg-black rounded-xl w-full text-white py-3 space-x-2 px-2"
-									>
-										<i className="pl-1 fa-solid fa-shopping-cart border1"></i>
-										<p>Add to Cart</p>
-									</button>
-									<button
-										onClick={() => {
-											dispatch(addWishListItems(product));
-										}}
-										className="flex flex-row items-center justify-center bg-black rounded-xl w-full text-white py-3 space-x-2 px-2"
-									>
-										<i className="pl-1 fa-solid fa-heart border1"></i>
-										<p>Add to Wish List</p>
-									</button>
+								<div className="grid grid-cols-1 md:grid-cols-5 gap-4 font-poppins">
+									<AddToCartButton
+										className="md:col-span-3"
+										product={product}
+										tShirtSize={tShirtSize}
+									/>
+									<AddToWishListButton
+										className="md:col-span-2"
+										product={product}
+									/>
 								</div>
-								<button className="bg-red-900 rounded-xl w-full py-3 text-white font-poppins flex flex-row items-center justify-center space-x-2 px-2">
+								<a href={redbubbleUrl} className="bg-red-900 rounded-xl w-full py-3 text-white font-poppins flex flex-row items-center justify-center space-x-2 px-2 hover:bg-red-800">
 									<img className="h-12" src="redbubbleLogo.png" alt="" />
 									<p>Buy it on Redbubble</p>
-								</button>
+								</a>
 							</div>
 						</div>
 						<div className="border-t-2 border-gray-300 my-12"></div>
@@ -247,7 +238,8 @@ const ProductPage = () => {
 			{isSizeGuideOpen && (
 				<>
 					<div className="fixed inset-0 flex items-center justify-center">
-						<div className="w-full h-full bg-black opacity-50"
+						<div
+							className="w-full h-full bg-black opacity-50"
 							onClick={() => {
 								setIsSizeGuideOpen(false);
 							}}
