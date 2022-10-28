@@ -8,7 +8,7 @@ import {
 import WishListItem from "./wish-list-item";
 import Link from "next/link";
 
-const wishList = (props) => {
+const WishList = (props) => {
 	const { wishListButtonRef } = props;
 
 	const items = useSelector(selectWishListItems);
@@ -56,4 +56,4 @@ const wishList = (props) => {
 	);
 };
 
-export default wishList;
+export default WishList;

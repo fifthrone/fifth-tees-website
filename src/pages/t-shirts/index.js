@@ -1,5 +1,6 @@
 import NavBar from "../../components/nav-bar/nav-bar";
-import ProductCard from "../../components/product-card/product-card";
+import ProductListing from "../../components/product-listing/product-listing";
+
 import { fetchProductsAsync } from "../../store/products/products.slice";
 import { selectTShirts } from "../../store/products/products.slice";
 import { useEffect } from "react";
@@ -18,13 +19,9 @@ const TShirtsPage = () => {
 	return (
 		<>
 			<NavBar />
-			<div className="flex items-center justify-center max-w-6xl mx-auto">
-				<div className="p-8 grid gap-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-					{tShirts.length &&
-						tShirts.map((tshirt) => (
-							<ProductCard key={tshirt.id} product={tshirt} />
-						))}
-				</div>
+			<div className="flex flex-col items-center justify-center max-w-6xl mx-auto">
+				<div className="text-3xl text-orange-900 font-poppins pt-4 font-semibold">T-Shirts</div>
+				<ProductListing products={tShirts} />
 			</div>
 			<Footer />
 			{/* search bar */}
