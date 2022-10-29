@@ -63,11 +63,11 @@ const Home = () => {
 			{/* <p className="fixed z-40">{scrollPosition}</p> */}
 			<div
 				id="hero"
-				className="flex flex-col items-center justify-center max-w-6xl mx-auto px-10"
+				className="flex flex-col items-center justify-center max-w-6xl mx-auto sm:px-10 px-0"
 			>
-				<div className="relative w-full h-[calc(1440px+100vh)] border1">
-					<div className="sticky top-0 py-8 border1 w-full h-screen">
-						<div className="relative w-full h-full rounded-[50px] border-[15px] border-white flex items-center justify-center overflow-hidden shadow-[0_0_15px_rgba(0,0,0,0.25)]">
+				<div className="hidden tall:block relative w-full h-[calc(1440px+100vh)] border1">
+					<div className="tall:sticky top-0 sm:py-8 0py-4 border1 w-full h-screen min-1h-[800px]">
+						<div className="relative w-full h-full 1rounded-[50px] sm:rounded-[50px] border-0 border-white flex items-center justify-center overflow-hidden sm:shadow-[0_0_20px_rgba(0,0,0,0.5)]">
 							<HeroTransition
 								className="absolute left-0 top-0 h-[2200px] w-[2200px]"
 								scrollPosition={scrollPosition}
@@ -102,13 +102,13 @@ const Home = () => {
 									/>
 								</>
 							)}
-							<div className="absolute top-80 text-white text-2xl flex flex-row space-x-5 items-center justify-center">
+							<div className="absolute top-[40%] text-white text-2xl flex flex-row space-x-5 items-center justify-center border1 font-poppins">
 								<p className="tracking-wide">T-Shirts</p>
 								<div className="h-1 w-1 rounded-full bg-white"></div>
 								<p className="tracking-wide">Stickers</p>
 							</div>
-							<Link href={"/products"}> 
-								<a className="absolute top-120 text-white text-2xl p-3 px-6 bg-gray-900 rounded-full hover:-translate-y-1 duration-200 shadow-xl hover:shadow-2xl">
+							<Link href={"/products"}>
+								<a className="absolute top-[50%] text-white text-2xl p-2 px-6 bg-gray-900 rounded-full hover:-translate-y-1 duration-200 shadow-xl hover:shadow-2xl border1">
 									Shop All
 								</a>
 							</Link>
@@ -125,6 +125,44 @@ const Home = () => {
 						/>
 					</Parallax>
 				</div>
+				{hero.map(({ title, products }, index) => (
+					<div
+						key={title}
+						className="tall:hidden sm:py-8 0py-4 border1 w-full h-[750px]"
+					>
+						<div
+							className={`relative w-full h-full 1rounded-[50px] sm:rounded-[50px] border-0 border-white flex items-center justify-center overflow-hidden sm:shadow-[0_0_20px_rgba(0,0,0,0.5)] bg-gradient-to-br ${[
+								"from-orange-600 to-blue-300",
+								"from-blue-300 to-purple-300",
+								"from-purple-300 to-green-300",
+								"from-green-300 to-red-300",
+								"from-red-300 to-amber-300",
+							][index]}`}
+						>
+							{hero.length && (
+								<>
+									<HeroSection
+										scrollPosition={scrollPosition}
+										title={title}
+										products={products}
+										inPosition={-10}
+										outPosition={1000000}
+									/>
+								</>
+							)}
+							<div className="absolute top-[33%] text-white text-xl sm:text-2xl flex flex-row space-x-5 items-center justify-center border1 font-poppins">
+								<p className="tracking-wide">T-Shirts</p>
+								<div className="h-1 w-1 rounded-full bg-white"></div>
+								<p className="tracking-wide">Stickers</p>
+							</div>
+							<Link href={"/products"}>
+								<a className="absolute top-[45%] text-white text-2xl md:py-3 p-2 px-6 bg-gray-900 rounded-full hover:-translate-y-1 duration-200 shadow-xl hover:shadow-2xl border1">
+									Shop All
+								</a>
+							</Link>
+						</div>
+					</div>
+				))}
 			</div>
 
 			{featured.length &&
