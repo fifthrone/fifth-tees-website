@@ -102,13 +102,13 @@ const Home = () => {
 									/>
 								</>
 							)}
-							<div className="absolute top-[40%] text-white text-2xl flex flex-row space-x-5 items-center justify-center border1 font-poppins">
+							<div className="absolute top-[32%] text-white text-2xl flex flex-row space-x-5 items-center justify-center border1 font-poppins">
 								<p className="tracking-wide">T-Shirts</p>
 								<div className="h-1 w-1 rounded-full bg-white"></div>
 								<p className="tracking-wide">Stickers</p>
 							</div>
 							<Link href={"/products"}>
-								<a className="absolute top-[50%] text-white text-2xl p-2 px-6 bg-gray-900 rounded-full hover:-translate-y-1 duration-200 shadow-xl hover:shadow-2xl border1">
+								<a className="absolute top-[41%] text-white text-2xl p-2 px-6 bg-gray-900 rounded-full hover:-translate-y-1 duration-200 shadow-xl hover:shadow-2xl border1">
 									Shop All
 								</a>
 							</Link>
@@ -150,13 +150,13 @@ const Home = () => {
 									/>
 								</>
 							)}
-							<div className="absolute top-[33%] text-white text-xl sm:text-2xl flex flex-row space-x-5 items-center justify-center border1 font-poppins">
+							<div className="absolute top-[35%] text-white text-xl sm:text-2xl flex flex-row space-x-5 items-center justify-center border1 font-poppins">
 								<p className="tracking-wide">T-Shirts</p>
 								<div className="h-1 w-1 rounded-full bg-white"></div>
 								<p className="tracking-wide">Stickers</p>
 							</div>
 							<Link href={"/products"}>
-								<a className="absolute top-[45%] text-white text-2xl md:py-3 p-2 px-6 bg-gray-900 rounded-full hover:-translate-y-1 duration-200 shadow-xl hover:shadow-2xl border1">
+								<a className="absolute top-[42%] text-white text-2xl p-2 px-6 bg-gray-900 rounded-full hover:-translate-y-1 duration-200 shadow-xl hover:shadow-2xl border1">
 									Shop All
 								</a>
 							</Link>

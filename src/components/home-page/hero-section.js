@@ -36,7 +36,7 @@ const HeroSection = (props) => {
 				</>
 			)}
 			<HeroTransition
-				className="border1 absolute top-[6%] tall:top-[15%] text-white sm:text-[150px] text-[120px]"
+				className="border1 absolute top-[6%] tall:top-[2%] text-white sm:text-[150px] text-[120px]"
 				scrollPosition={scrollPosition}
 				inPosition={inPosition}
 				outPosition={outPosition}
