@@ -55,9 +55,9 @@ const Cart = (props) => {
 				<div className="flex items-center justify-center flex-col w-60 h-60 space-y-4">
 					<div className="">Your Cart is empty.</div>
 					<Link href="/products">
-						<a className="bg-black rounded-full p-2 px-3 text-white shadow-xl" onClick={()=>{dispatch(toggleCart())}}>
+						<p className="bg-black rounded-full p-2 px-3 text-white shadow-xl" onClick={()=>{dispatch(toggleCart())}}>
 							Shop Now
-						</a>
+						</p>
 					</Link>
 				</div>
 			)}

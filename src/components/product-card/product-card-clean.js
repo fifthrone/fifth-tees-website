@@ -38,9 +38,9 @@ const ProductCardClean = ({ product }) => {
 			</button>
 			<div className="w-[calc(100%-25px)]">
 				<Link href={`/${id}`}>
-					<a className="text-white font-poppins font-semibold  leading-tight text-md w-[calc(100%-25px)] hover:underline">
+					<p className="text-white font-poppins font-semibold  leading-tight text-md w-[calc(100%-25px)] hover:underline">
 						{title}
-					</a>
+					</p>
 				</Link>
 			</div>
 			<h3 className="text-white pt-2 text-xs font-poppins font-extralight">
@@ -50,9 +50,9 @@ const ProductCardClean = ({ product }) => {
 				{`$${price}`}
 			</h3>
 			<Link href={`/${id}`}>
-				<a className="absolute p-1 px-5 bg-white bottom-5 left-5 rounded-full font-poppins text-black font-semibold text-md hover:-translate-y-0.5 duration-200 shadow-xl hover:shadow-2xl">
+				<p className="absolute p-1 px-5 bg-white bottom-5 left-5 rounded-full font-poppins text-black font-semibold text-md hover:-translate-y-0.5 duration-200 shadow-xl hover:shadow-2xl">
 					Buy
-				</a>
+				</p>
 			</Link>
 		</div>
 	);

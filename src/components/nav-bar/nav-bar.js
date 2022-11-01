@@ -35,9 +35,7 @@ const NavBar = () => {
 		<div className="bg-white shadow-lg shadow-gray-9001">
 			<div className="max-w-6xl w-full flex justify-between items-center flex-row mx-auto sm:px-10 px-2">
 				<Link href="/">
-					<a>
 						<img className="h-16 p-2" src="./fifthTees.png" alt="" />
-					</a>
 				</Link>
 				<button
 					className="flex md:hidden border1 flex-col space-y-1 p-4"
@@ -74,37 +72,37 @@ const NavBar = () => {
 									<i className="fa-lg fa-solid fa-xmark"></i>
 								</button>
 								<Link href="/products">
-									<a className="p-2 text-black hover:bg-gray-300 rounded-xl">
+									<p className="p-2 text-black hover:bg-gray-300 rounded-xl">
 										<p>All Products</p>
-									</a>
+									</p>
 								</Link>
 								<Link href="/t-shirts">
-									<a className="p-2 text-black">
+									<p className="p-2 text-black">
 										<p>T-Shirts</p>
-									</a>
+									</p>
 								</Link>
 								<Link href="/stickers">
-									<a className="p-2 text-black">
+									<p className="p-2 text-black">
 										<p>Stickers</p>
-									</a>
+									</p>
 								</Link>
 								<Link href="/cart">
-									<a className="p-2 text-black flex flex-row items-center space-x-2 text-sm">
+									<div className="p-2 text-black flex flex-row items-center space-x-2 text-sm">
 										<i className="fa-lg fa-solid fa-cart-shopping"></i>
 										<p className="text-base">My Cart</p>
-									</a>
+									</div>
 								</Link>
 								<Link href="/wish-list">
-									<a className="p-2 text-black flex flex-row items-center space-x-2 text-sm">
+									<div className="p-2 text-black flex flex-row items-center space-x-2 text-sm">
 										<i className="fa-lg fa-solid fa-heart"></i>
 										<p className="text-base">Wish List</p>
-									</a>
+									</div>
 								</Link>
 								<Link href="/account">
-									<a className="p-2 text-black flex flex-row items-center space-x-2 text-sm">
+									<div className="p-2 text-black flex flex-row items-center space-x-2 text-sm">
 										<i className="fa-lg fa-solid fa-user"></i>
 										<p className="text-base">Account</p>
-									</a>
+									</div>
 								</Link>
 							</div>
 						</div>
@@ -113,19 +111,19 @@ const NavBar = () => {
 				<div className="hidden md:flex items-center">
 					<div className="font-medium text-orange-900 flex items-center space-x-2 mr-4">
 						<Link href="/products">
-							<a className="relative flex px-5 items-center justify-center h-12 rounded-full hover:bg-gray-100 group duration-300 font-poppins text-sm">
+							<p className="relative flex px-5 items-center justify-center h-12 rounded-full hover:bg-gray-100 group duration-300 font-poppins text-sm">
 								All Products
-							</a>
+							</p>
 						</Link>
 						<Link href="/t-shirts">
-							<a className="relative flex px-5 items-center justify-center h-12 rounded-full hover:bg-gray-100 group duration-300 font-poppins text-sm">
+							<p className="relative flex px-5 items-center justify-center h-12 rounded-full hover:bg-gray-100 group duration-300 font-poppins text-sm">
 								T-Shirts
-							</a>
+							</p>
 						</Link>
 						<Link href="/stickers">
-							<a className="relative flex px-5 items-center justify-center h-12 rounded-full hover:bg-gray-100 group duration-300 font-poppins text-sm">
+							<p className="relative flex px-5 items-center justify-center h-12 rounded-full hover:bg-gray-100 group duration-300 font-poppins text-sm">
 								Stickers
-							</a>
+							</p>
 						</Link>
 					</div>
 					<div className="text-orange-800 flex items-center space-x-2">

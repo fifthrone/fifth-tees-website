@@ -108,9 +108,9 @@ const Home = () => {
 								<p className="tracking-wide">Stickers</p>
 							</div>
 							<Link href={"/products"}>
-								<a className="absolute top-[41%] text-white text-2xl p-2 px-6 bg-gray-900 rounded-full hover:-translate-y-1 duration-200 shadow-xl hover:shadow-2xl border1">
+								<p className="absolute top-[41%] text-white text-2xl p-2 px-6 bg-gray-900 rounded-full hover:-translate-y-1 duration-200 shadow-xl hover:shadow-2xl border1">
 									Shop All
-								</a>
+								</p>
 							</Link>
 						</div>
 					</div>
@@ -156,9 +156,9 @@ const Home = () => {
 								<p className="tracking-wide">Stickers</p>
 							</div>
 							<Link href={"/products"}>
-								<a className="absolute top-[42%] text-white text-2xl p-2 px-6 bg-gray-900 rounded-full hover:-translate-y-1 duration-200 shadow-xl hover:shadow-2xl border1">
+								<p className="absolute top-[42%] text-white text-2xl p-2 px-6 bg-gray-900 rounded-full hover:-translate-y-1 duration-200 shadow-xl hover:shadow-2xl border1">
 									Shop All
-								</a>
+								</p>
 							</Link>
 						</div>
 					</div>

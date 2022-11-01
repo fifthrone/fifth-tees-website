@@ -33,7 +33,7 @@ const ProductCard = (props) => {
 					)}
 				</button>
 				<Link href={`/${id}`}>
-					<a className="p-3 flex flex-col bg-white rounded-2xl shadow-lg space-y-3 relative">
+					<p className="p-3 flex flex-col bg-white rounded-2xl shadow-lg space-y-3 relative">
 						<img
 							src={imageUrl}
 							alt="t-shirt"
@@ -43,7 +43,7 @@ const ProductCard = (props) => {
 							<h2 className="text-sm">{title} {type}</h2>
 							<p className="text-gray-600 text-sm">HK${price}</p>
 						</div>
-					</a>
+					</p>
 				</Link>
 			</div>
 		</div>
