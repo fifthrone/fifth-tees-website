@@ -1,3 +1,5 @@
+"use client"
+
 import HeroTransition from "./hero-transition";
 import { useRef, useState } from "react";
 import { useIsOverflow } from "../hook/useIsOverflow";

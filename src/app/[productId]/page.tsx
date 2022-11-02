@@ -1,10 +1,9 @@
+"use client"
+
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import Link from "next/link";
-import Footer from "../../components/footer/footer";
-import NavBar from "../../components/nav-bar/nav-bar";
 import FeaturedSection from "../../components/home-page/featured-section";
 import ImageGallery from "../../components/image-gallery/image-gallery";
 import SizePicker from "../../components/size-picker/size-picker";
@@ -132,16 +131,15 @@ const ProductPage = () => {
 		},
 	];
 
-	useEffect(() => {
-		dispatch(clearProduct);
-		if (router.isReady) {
-			dispatch(fetchProductAsync(id));
-		}
-	}, [router.isReady, id]);
+	// useEffect(() => {
+	// 	dispatch(clearProduct);
+	// 	if (router.isReady) {
+	// 		dispatch(fetchProductAsync(id));
+	// 	}
+	// }, [router.isReady, id]);
 
 	return (
 		<>
-			<NavBar />
 			{product && (
 				<div className="flex flex-col items-center justify-center max-w-6xl mx-auto px-10 border1 pb-8">
 					<div className="w-full bg-white rounded-3xl shadow-2xl mt-8 p-12">
@@ -234,7 +232,6 @@ const ProductPage = () => {
 				title="Products you may also like"
 				products={relatedProducts}
 			/>
-			<Footer />
 			{isSizeGuideOpen && (
 				<>
 					<div className="fixed inset-0 flex items-center justify-center">

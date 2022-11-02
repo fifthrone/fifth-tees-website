@@ -79,6 +79,15 @@ export const getProduct = async (id) => {
 	return product;
 };
 
+export const getProducts = async (ids) => {
+	const productRef = collection(db, "products");
+	const q = query(productRef, where("id", "in", ids));
+
+	const querySnapshot = await getDocs(q);
+	const products = querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
+
+	return products;
+};
 // export const getProducts = async () => {
 // 	const collectionRef = collection(db, "products");
 // 	const q = query(collectionRef);

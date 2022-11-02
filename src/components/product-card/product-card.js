@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { addItems } from "../../store/cart/cart.slice";
