@@ -35,7 +35,7 @@ const NavBar = () => {
 
 	return (
 		<div className="bg-white shadow-lg shadow-gray-9001">
-			<div className="max-w-6xl w-full flex justify-between items-center flex-row mx-auto sm:px-10 px-2">
+			<nav className="max-w-6xl w-full flex justify-between items-center flex-row mx-auto sm:px-10 px-2">
 				<Link href="/">
 						<img className="h-16 p-2" src="./fifthTees.png" alt="" />
 				</Link>
@@ -175,7 +175,7 @@ const NavBar = () => {
 						</div>
 					</div>
 				</div>
-			</div>
+			</nav>
 		</div>
 	);
 };

@@ -3,10 +3,10 @@ import FeaturedSection from "../components/home-page/featured-section";
 
 import { getData, getProducts } from "../utils/firebase/firebase.utils";
 
-export const dynamic = 'force-dynamic',
+export const dynamic = 'auto',
   dynamicParams = true,
-  revalidate = 0,
-  fetchCache = 'force-no-store',
+  revalidate = 20,
+  fetchCache = 'auto',
   runtime = 'nodejs',
   preferredRegion = 'auto'
 

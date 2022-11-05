@@ -1,39 +1,27 @@
-"use client"
-
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-
 import FeaturedSection from "../../components/home-page/featured-section";
 import ImageGallery from "../../components/image-gallery/image-gallery";
 import SizePicker from "../../components/size-picker/size-picker";
 import ProductFeatures from "../../components/product-features/product-features";
 import AddToWishListButton from "../../components/wish-list/add-to-wish-list-button";
 import AddToCartButton from "../../components/cart/add-to-cart-button";
+import SizeGuide from "../../components/size-guide/size-guide";
 
-import {
-	selectProductById,
-	fetchProductsAsync,
-} from "../../store/products/products.slice";
-import {
-	selectProduct,
-	fetchProductAsync,
-	clearProduct,
-} from "../../store/product/product.slice";
-import { addItems } from "../../store/cart/cart.slice";
-import { addWishListItems } from "../../store/wish-list/wish-list.slice";
+import { getProduct } from "../../utils/firebase/firebase.utils";
 
-const ProductPage = () => {
-	const router = useRouter();
-	const dispatch = useDispatch();
+import { Product } from "../../ts/types";
 
-	const id = router.query.productId;
+interface ProductPageProps {
+	params: { productId: string };
+}
 
-	const product = useSelector(selectProduct);
+const ProductPage = async ({ params }: ProductPageProps) => {
+	const product: Product = await getProduct(params.productId);
+
+	// const router = useRouter();
+	// const dispatch = useDispatch();
+	// const id = router.query.productId;
+	// const product = useSelector(selectProduct);
 	// console.log("product:", product);
-
-	const [tShirtSize, setTShirtSize] = useState("M");
-	const [isSizeGuideOpen, setIsSizeGuideOpen] = useState(false);
 
 	const {
 		imageUrl,
@@ -155,22 +143,8 @@ const ProductPage = () => {
 								{type === "T-Shirt" && (
 									<div className="flex flex-col space-y-1 justify-start">
 										<h2 className="font-poppins text-lg">Size</h2>
-										<SizePicker
-											sizes={["S", "M", "L", "XL", "2XL"]}
-											currentSize={tShirtSize}
-											setCurrentSize={setTShirtSize}
-										/>
-										<button
-											onClick={() => {
-												setIsSizeGuideOpen(true);
-											}}
-											className="flex flex-row space-x-1.5 items-center pt-1 group max-w-max"
-										>
-											<i className="pl-1 fa-solid fa-ruler text-blue-500 border1"></i>
-											<p className="pt-0.5 border1 self-start font-poppins text-sm text-blue-500 group-hover:underline">
-												View size guide
-											</p>
-										</button>
+										<SizePicker />
+										<SizeGuide />
 									</div>
 								)}
 
@@ -191,14 +165,16 @@ const ProductPage = () => {
 									<AddToCartButton
 										className="md:col-span-3"
 										product={product}
-										tShirtSize={tShirtSize}
 									/>
 									<AddToWishListButton
 										className="md:col-span-2"
 										product={product}
 									/>
 								</div>
-								<a href={redbubbleUrl} className="bg-red-900 rounded-xl w-full py-3 text-white font-poppins flex flex-row items-center justify-center space-x-2 px-2 hover:bg-red-800">
+								<a
+									href={redbubbleUrl}
+									className="bg-red-900 rounded-xl w-full py-3 text-white font-poppins flex flex-row items-center justify-center space-x-2 px-2 hover:bg-red-800"
+								>
 									<img className="h-12" src="redbubbleLogo.png" alt="" />
 									<p>Buy it on Redbubble</p>
 								</a>
@@ -232,19 +208,6 @@ const ProductPage = () => {
 				title="Products you may also like"
 				products={relatedProducts}
 			/>
-			{isSizeGuideOpen && (
-				<>
-					<div className="fixed inset-0 flex items-center justify-center">
-						<div
-							className="w-full h-full bg-black opacity-50"
-							onClick={() => {
-								setIsSizeGuideOpen(false);
-							}}
-						></div>
-						<div className="absolute p-8 bg-white rounded-2xl">testing</div>
-					</div>
-				</>
-			)}
 		</>
 	);
 };

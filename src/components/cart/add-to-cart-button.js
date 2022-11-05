@@ -1,19 +1,27 @@
+"use client";
+
 import { useDispatch, useSelector } from "react-redux";
 
 import { useState } from "react";
 
 import { addItems, toggleCart } from "../../store/cart/cart.slice";
+import { selectSize } from "../../store/size/size.slice";
+
+const wait = async (ms) => (
+	new Promise((resolve) => setTimeout(resolve, ms))
+);
 
 const AddToCartButton = (props) => {
-	const { product, className, tShirtSize } = props;
+	const { product, className } = props;
 	const { type, size } = product;
+	const tShirtSize = useSelector(selectSize);
 
 	const [buttonState, setButtonState] = useState("await");
 	const dispatch = useDispatch();
 
 	const clickHandler = async () => {
 		setButtonState("loading");
-		await new Promise((resolve) => setTimeout(resolve, 700));
+		await wait(700);
 		dispatch(
 			addItems({
 				...product,
@@ -23,7 +31,7 @@ const AddToCartButton = (props) => {
 		);
 		dispatch(toggleCart());
 		setButtonState("added");
-		await new Promise((resolve) => setTimeout(resolve, 2000));
+		await wait(1000);
 		setButtonState("await");
 	};
 

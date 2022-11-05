@@ -12,6 +12,8 @@ import {
 } from "firebase/firestore";
 import { ALL_PRODUCTS, FEATURED, HERO } from "../../products-data";
 
+import {Product } from "../../ts/types"
+
 const firebaseConfig = {
 	apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
 	authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
@@ -34,18 +36,18 @@ export const addProduct = async () => {
 };
 export const addHero = async () => {
 	HERO.forEach(async (item, index) => {
-		await setDoc(doc(collection(db, "hero"), index.toString()), item);	
+		await setDoc(doc(collection(db, "hero"), index.toString()), item);
 	});
 };
 
 export const addFeatured = async () => {
 	FEATURED.forEach(async (item, index) => {
-		await setDoc(doc(collection(db, "featured"), index.toString()), item);	
+		await setDoc(doc(collection(db, "featured"), index.toString()), item);
 	});
 };
 
 export const addCollectionAndDocuments = async (
-	collectionKey,
+	collectionKey: string,
 	objectsToAdd
 ) => {
 	const collectionRef = collection(db, collectionKey);
@@ -60,7 +62,7 @@ export const addCollectionAndDocuments = async (
 	console.log("done");
 };
 
-export const getData = async (collectionKey) => {
+export const getData = async (collectionKey: string) => {
 	const collectionRef = collection(db, collectionKey);
 	const q = query(collectionRef);
 
@@ -69,19 +71,29 @@ export const getData = async (collectionKey) => {
 
 	return data;
 };
-export const getProduct = async (id) => {
+export const getProduct = async (id: string): Promise<Product> => {
 	const productRef = collection(db, "products");
 	const q = query(productRef, where("id", "==", id));
 
-	const querySnapshot = await getDocs(q);
-	const product = querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
+	const querySnapshot: any = await getDocs(q);
+	const products: Product[] = querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
 
-	return product;
+	return products[0];
 };
 
-export const getProducts = async (ids) => {
+export const getProducts = async (ids: string) => {
 	const productRef = collection(db, "products");
 	const q = query(productRef, where("id", "in", ids));
+
+	const querySnapshot = await getDocs(q);
+	const products = querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
+
+	return products;
+};
+
+export const getProductsByType = async (type: string) => {
+	const productRef = collection(db, "products");
+	const q = query(productRef, where("type", "==", type));
 
 	const querySnapshot = await getDocs(q);
 	const products = querySnapshot.docs.map((docSnapshot) => docSnapshot.data());

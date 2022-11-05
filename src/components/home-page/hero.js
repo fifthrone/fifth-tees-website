@@ -40,7 +40,7 @@ const Hero = (props) => {
 						>
 							<div className="w-full h-full bg-gradient-to-br from-orange-600 via-blue-300  to-purple-500"></div>
 						</HeroTransition>
-						{hero.length && (
+						{hero.length >= 3 && (
 							<>
 								<HeroSection
 									scrollPosition={scrollPosition}

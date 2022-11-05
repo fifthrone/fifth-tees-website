@@ -20,17 +20,21 @@ export default function RootLayout({
 				<script
 					src="https://kit.fontawesome.com/7a727a5d0a.js"
 					crossOrigin="anonymous"
-                    async
+					async
 				></script>
+				<link
+					href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500&family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
+					rel="stylesheet"
+				/>
 			</head>
 			<body>
 				<div className="bg-orange-100 min-h-screen">
 					<Provider store={store}>
 						<ParallaxProvider>
-                            <NavBar />
-                            {children}
-                            <Footer />
-                            </ParallaxProvider>
+							<NavBar />
+							{children}
+							<Footer />
+						</ParallaxProvider>
 					</Provider>
 				</div>
 			</body>
