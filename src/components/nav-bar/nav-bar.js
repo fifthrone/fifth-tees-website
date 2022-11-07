@@ -188,7 +188,7 @@ const NavBar = () => {
 								</div>
 							</button>
 							{accountIsOpen && (
-								<div className="bg-white top-16 right-0 absolute p-4 w-max z-50 rounded-md shadow-2xl">
+								<div className="bg-white top-16 right-0 absolute p-4 w-max z-50 rounded-md shadow-2xl max-w-sm">
 									<Account accountButtonRef={accountButtonRef} />
 								</div>
 							)}

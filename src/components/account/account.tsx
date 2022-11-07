@@ -39,7 +39,7 @@ const Account = (props) => {
 
 	return (
 		<div ref={ref}>
-			<div className="flex items-center justify-center flex-col w-80 space-y-8">
+			<div className="flex items-center justify-center flex-col space-y-8 p-4">
 				{user ? <div>Hi! {user}</div> : null}
 				{user ? (
 					<button
@@ -52,7 +52,7 @@ const Account = (props) => {
 				) : (
 					<>
 						<SignInForm />
-						<SignUpForm />
+						{/* <SignUpForm /> */}
 					</>
 				)}
 			</div>

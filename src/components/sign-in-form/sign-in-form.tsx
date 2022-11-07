@@ -1,80 +1,123 @@
-"use client"
+"use client";
 
-import { useState } from 'react';
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useRouter, usePathname } from "next/navigation";
 
-import FormInput from '../form-input/form-input';
+import FormInput from "../form-input/form-input";
 
 import {
-  signInAuthUserWithEmailAndPassword,
-  signInWithGooglePopup,
-  createUserDocumentFromAuth,
-} from '../../utils/firebase/firebase.utils';
+	signInAuthUserWithEmailAndPassword,
+	signInWithGooglePopup,
+	createUserDocumentFromAuth,
+} from "../../utils/firebase/firebase.utils";
+import Link from "next/link";
+
+import {
+	closeAccountTab,
+	selectUser,
+	openAccountTab,
+} from "../../store/account/account.slice";
 
 const defaultFormFields = {
-  email: '',
-  password: '',
+	email: "",
+	password: "",
 };
 
 const SignInForm = () => {
-  const [formFields, setFormFields] = useState(defaultFormFields);
-  const { email, password } = formFields;
+	const dispatch = useDispatch();
+	const router = useRouter();
+	const pathname = usePathname();
 
-  const resetFormFields = () => {
-    setFormFields(defaultFormFields);
-  };
+	const [formFields, setFormFields] = useState(defaultFormFields);
+	const { email, password } = formFields;
 
-  const signInWithGoogle = async () => {
-    await signInWithGooglePopup();
-  };
+	const resetFormFields = () => {
+		setFormFields(defaultFormFields);
+	};
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+	const signInWithGoogle = async () => {
+		const res = await signInWithGooglePopup();
+		console.log(res);
+		if (pathname === "/account") {
+			console.log("redirect trigger");
+			router.back();
+			dispatch(openAccountTab());
+		}
+	};
 
-    try {
-      await signInAuthUserWithEmailAndPassword(email, password);
-      resetFormFields();
-    } catch (error) {
-      console.log('user sign in failed', error);
-    }
-  };
+	const handleSubmit = async (event) => {
+		event.preventDefault();
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
+		try {
+			await signInAuthUserWithEmailAndPassword(email, password);
+			resetFormFields();
+		} catch (error) {
+			console.log("user sign in failed", error);
+		}
+	};
 
-    setFormFields({ ...formFields, [name]: value });
-  };
+	const handleChange = (event) => {
+		const { name, value } = event.target;
 
-  return (
-    <div className='sign-in-container'>
-      <h2>Already have an account?</h2>
-      <span>Sign in with your email and password</span>
-      <form onSubmit={handleSubmit}>
-        <FormInput
-          label='Email'
-          type='email'
-          required
-          onChange={handleChange}
-          name='email'
-          value={email}
-        />
+		setFormFields({ ...formFields, [name]: value });
+	};
 
-        <FormInput
-          label='Password'
-          type='password'
-          required
-          onChange={handleChange}
-          name='password'
-          value={password}
-        />
-        <div className='buttons-container'>
-          <button type='submit'>Sign In</button>
-          <button type='button' onClick={signInWithGoogle}>
-            Sign In With Google
-          </button>
-        </div>
-      </form>
-    </div>
-  );
+	return (
+		<div className="w-full flex flex-col space-y-3">
+			<h2 className="text-black font-bold text-xl">
+				Got an Account? Sign in to view your saved products
+			</h2>
+			<form onSubmit={handleSubmit} className="space-y-6">
+				<FormInput
+					label="Email"
+					type="email"
+					required
+					onChange={handleChange}
+					name="email"
+					value={email}
+				/>
+				<FormInput
+					label="Password"
+					type="password"
+					required
+					onChange={handleChange}
+					name="password"
+					value={password}
+				/>
+				<div className="flex flex-col space-y-4">
+					<button className="p-2 bg-black rounded-xl text-white" type="submit">
+						Sign In
+					</button>
+					<div className="flex flex-row items-center space-x-2">
+						<hr className="w-full border-gray-300" />
+						<p className="text-gray-400 text-sm">or</p>
+						<hr className="w-full border-gray-300" />
+					</div>
+
+					<button
+						className="p-3 bg-black rounded-xl text-white flex flex-row items-center justify-center space-x-3"
+						type="button"
+						onClick={signInWithGoogle}
+					>
+						<img className="h-5" src="googleLogo.png" alt="G" />
+						<p>Sign In With Google</p>
+					</button>
+				</div>
+				<div>
+					<Link
+						href="/account"
+						className="text-center text-sm text-blueGray hover:underline pt-6"
+						onClick={() => {
+							dispatch(closeAccountTab());
+						}}
+					>
+						Don't have an account? Sign up
+					</Link>
+				</div>
+			</form>
+		</div>
+	);
 };
 
 export default SignInForm;

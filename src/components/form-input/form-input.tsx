@@ -1,18 +1,10 @@
 const FormInput = ({ label, ...otherProps }) => {
-    return (
-      <div className='group'>
-        <input className='form-input' {...otherProps} />
-        {label && (
-          <label
-            className={`${
-              otherProps.value.length ? 'shrink' : ''
-            } form-input-label`}
-          >
-            {label}
-          </label>
-        )}
-      </div>
-    );
-  };
-  
-  export default FormInput;
+	return (
+		<div className="flex flex-col space-y-1">
+      <p className="text-sm text-blueGray">{label}</p>
+			<input className="p-2 border border-blueGray rounded-lg text-black" {...otherProps} />
+		</div>
+	);
+};
+
+export default FormInput;

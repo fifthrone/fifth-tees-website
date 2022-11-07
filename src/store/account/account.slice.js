@@ -12,13 +12,19 @@ const accountSlice = createSlice({
 		toggleAccount: (state) => {
 			state.accountIsOpen = !state.accountIsOpen;
 		},
+		openAccountTab: (state) => {
+			state.accountIsOpen = true;
+		},
+		closeAccountTab: (state) => {
+			state.accountIsOpen = false;
+		},
 		setUser: (state, action) => {
 			state.user = action.payload;
 		},
 	},
 });
 
-export const { toggleAccount, setUser } = accountSlice.actions;
+export const { toggleAccount, openAccountTab, closeAccountTab, setUser } = accountSlice.actions;
 
 export const selectAccountIsOpen = (state) => state.account.accountIsOpen;
 

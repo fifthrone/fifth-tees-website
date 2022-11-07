@@ -1,12 +1,16 @@
+"use client";
+
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import {
 	onAuthStateChangedListener,
 	createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.utils";
 
-import { setUser } from "../../store/account/account.slice";
+import {
+	setUser,
+} from "../../store/account/account.slice";
 
 const UserSubscriber = ({ children }) => {
 	const dispatch = useDispatch();
@@ -15,7 +19,7 @@ const UserSubscriber = ({ children }) => {
 		const unsubscribe = onAuthStateChangedListener((user) => {
 			if (user) {
 				createUserDocumentFromAuth(user);
-				console.log(user)
+				console.log(user);
 				dispatch(setUser(user.displayName));
 			} else {
 				dispatch(setUser(null));
