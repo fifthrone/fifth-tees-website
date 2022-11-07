@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Link from "next/link";
 
@@ -6,10 +6,15 @@ import { useRef, useState } from "react";
 
 import Cart from "../cart/cart";
 import WishList from "../wish-list/wish-list";
+import Account from "../account/account";
 import { Transition } from "react-transition-group";
 
 import { useSelector, useDispatch } from "react-redux";
 import { selectIsOpen, toggleCart } from "../../store/cart/cart.slice";
+import {
+	selectAccountIsOpen,
+	toggleAccount,
+} from "../../store/account/account.slice";
 import {
 	selectWishListIsOpen,
 	toggleWishList,
@@ -27,9 +32,11 @@ const NavBar = () => {
 
 	const cartIsOpen = useSelector(selectIsOpen);
 	const wishListIsOpen = useSelector(selectWishListIsOpen);
+	const accountIsOpen = useSelector(selectAccountIsOpen);
 
 	const wishListButtonRef = useRef(null);
 	const cartButtonRef = useRef(null);
+	const accountButtonRef = useRef(null);
 
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -37,7 +44,7 @@ const NavBar = () => {
 		<div className="bg-white shadow-lg shadow-gray-9001">
 			<nav className="max-w-6xl w-full flex justify-between items-center flex-row mx-auto sm:px-10 px-2">
 				<Link href="/">
-						<img className="h-16 p-2" src="./fifthTees.png" alt="" />
+					<img className="h-16 p-2" src="./fifthTees.png" alt="" />
 				</Link>
 				<button
 					className="flex md:hidden border1 flex-col space-y-1 p-4"
@@ -167,11 +174,24 @@ const NavBar = () => {
 								</div>
 							)}
 						</div>
-						<div className="relative flex items-center justify-center w-12 h-12 rounded-full hover:bg-gray-100 group duration-300">
-							<i className="fa-lg fa-solid fa-user"></i>
-							<div className="opacity-0 text-center w-max p-1 px-2 text-xs top-12 absolute bg-yellow-900 text-white rounded-xl group-hover:opacity-100 duration-300">
-								Account
-							</div>
+						<div className="relative">
+							<button
+								ref={accountButtonRef}
+								onClick={() => {
+									dispatch(toggleAccount());
+								}}
+								className="relative flex items-center justify-center w-12 h-12 rounded-full hover:bg-gray-100 group duration-300"
+							>
+								<i className="fa-lg fa-solid fa-user"></i>
+								<div className="opacity-0 text-center w-max p-1 px-2 text-xs top-12 absolute bg-yellow-900 text-white rounded-xl group-hover:opacity-100 duration-300">
+									Account
+								</div>
+							</button>
+							{accountIsOpen && (
+								<div className="bg-white top-16 right-0 absolute p-4 w-max z-50 rounded-md shadow-2xl">
+									<Account accountButtonRef={accountButtonRef} />
+								</div>
+							)}
 						</div>
 					</div>
 				</div>

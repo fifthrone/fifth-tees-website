@@ -6,7 +6,11 @@ import AddToWishListButton from "../../components/wish-list/add-to-wish-list-but
 import AddToCartButton from "../../components/cart/add-to-cart-button";
 import SizeGuide from "../../components/size-guide/size-guide";
 
-import { getProduct } from "../../utils/firebase/firebase.utils";
+import {
+	getData,
+	getProduct,
+	getProducts,
+} from "../../utils/firebase/firebase.utils";
 
 import { Product } from "../../ts/types";
 
@@ -211,5 +215,11 @@ const ProductPage = async ({ params }: ProductPageProps) => {
 		</>
 	);
 };
+
+export async function generateStaticParams() {
+	const products = await getData("products");
+
+	return products.map((product) => ({ productId: product.id }));
+}
 
 export default ProductPage;

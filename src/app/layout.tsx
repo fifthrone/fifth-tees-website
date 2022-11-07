@@ -1,12 +1,12 @@
-"use client";
-
 import "../../styles/globals.css";
 
-import { Provider } from "react-redux";
-import { store } from "../store/store";
-import { ParallaxProvider } from "react-scroll-parallax";
+import { Poppins } from "@next/font/google";
+
 import NavBar from "../components/nav-bar/nav-bar";
 import Footer from "../components/footer/footer";
+import Providers from "./providers";
+
+const poppins = Poppins({ weight: "400" });
 
 export default function RootLayout({
 	children,
@@ -22,20 +22,18 @@ export default function RootLayout({
 					crossOrigin="anonymous"
 					async
 				></script>
-				<link
+				{/* <link
 					href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500&family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
 					rel="stylesheet"
-				/>
+				/> */}
 			</head>
 			<body>
-				<div className="bg-orange-100 min-h-screen">
-					<Provider store={store}>
-						<ParallaxProvider>
-							<NavBar />
-							{children}
-							<Footer />
-						</ParallaxProvider>
-					</Provider>
+				<div className={`bg-orange-100 min-h-screen`}>
+					<Providers>
+						<NavBar />
+						{children}
+						<Footer />
+					</Providers>
 				</div>
 			</body>
 		</html>
