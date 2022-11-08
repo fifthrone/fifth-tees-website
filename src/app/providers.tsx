@@ -4,13 +4,16 @@ import { Provider } from "react-redux";
 import { store } from "../store/store";
 import { ParallaxProvider } from "react-scroll-parallax";
 import UserSubscriber from "../components/account/user-subscriber";
+import { ThemeProvider } from "next-themes";
 
 export default function Providers({ children }) {
 	return (
 		<Provider store={store}>
-			<ParallaxProvider>
-				<UserSubscriber>{children}</UserSubscriber>
-			</ParallaxProvider>
+			<ThemeProvider enableSystem={true} attribute="class">
+				<ParallaxProvider>
+					<UserSubscriber>{children}</UserSubscriber>
+				</ParallaxProvider>
+			</ThemeProvider>
 		</Provider>
 	);
 }

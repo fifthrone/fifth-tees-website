@@ -27,14 +27,12 @@ export default function RootLayout({
 					rel="stylesheet"
 				/> */}
 			</head>
-			<body>
-				<div className={`bg-orange-100 min-h-screen`}>
-					<Providers>
-						<NavBar />
-						{children}
-						<Footer />
-					</Providers>
-				</div>
+			<body className="bg-orange-100 dark:bg-neutral-900">
+				<Providers>
+					<NavBar />
+					{children}
+					<Footer />
+				</Providers>
 			</body>
 		</html>
 	);

@@ -3,13 +3,14 @@
 import Link from "next/link";
 
 import { useRef, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useTheme } from "next-themes";
 
 import Cart from "../cart/cart";
 import WishList from "../wish-list/wish-list";
 import Account from "../account/account";
 import { Transition } from "react-transition-group";
 
-import { useSelector, useDispatch } from "react-redux";
 import { selectIsOpen, toggleCart } from "../../store/cart/cart.slice";
 import {
 	selectAccountIsOpen,
@@ -29,6 +30,7 @@ const transitionStyles = {
 
 const NavBar = () => {
 	const dispatch = useDispatch();
+	const { theme, setTheme } = useTheme();
 
 	const cartIsOpen = useSelector(selectIsOpen);
 	const wishListIsOpen = useSelector(selectWishListIsOpen);
@@ -41,7 +43,7 @@ const NavBar = () => {
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
 	return (
-		<div className="bg-white shadow-lg shadow-gray-9001">
+		<div className="bg-white dark:bg-neutral-800 shadow-lg shadow-gray-9001">
 			<nav className="max-w-6xl w-full flex justify-between items-center flex-row mx-auto sm:px-10 px-2">
 				<Link href="/">
 					<img className="h-16 p-2" src="./fifthTees.png" alt="" />
@@ -118,7 +120,7 @@ const NavBar = () => {
 					)}
 				</Transition>
 				<div className="hidden md:flex items-center">
-					<div className="font-medium text-orange-900 flex items-center space-x-2 mr-4">
+					<div className="font-medium text-orange-900 dark:text-white flex items-center space-x-2 mr-4">
 						<Link href="/products">
 							<p className="relative flex px-5 items-center justify-center h-12 rounded-full hover:bg-gray-100 group duration-300 font-poppins text-sm">
 								All Products
@@ -135,7 +137,7 @@ const NavBar = () => {
 							</p>
 						</Link>
 					</div>
-					<div className="text-orange-800 flex items-center space-x-2">
+					<div className="text-orange-800 dark:text-white flex items-center space-x-2">
 						<div className="relative">
 							<button
 								ref={wishListButtonRef}
@@ -193,6 +195,13 @@ const NavBar = () => {
 								</div>
 							)}
 						</div>
+						<button
+							onClick={() => {
+								theme === "dark" ? setTheme("light") : setTheme("dark");
+							}}
+						>
+							d/l
+						</button>
 					</div>
 				</div>
 			</nav>
