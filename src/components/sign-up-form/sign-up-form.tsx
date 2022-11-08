@@ -58,7 +58,7 @@ const SignUpForm = () => {
 	return (
 		<div className="w-full flex flex-col space-y-5">
 			<div>
-				<h2 className="text-black font-bold text-xl">Don't have an account?</h2>
+				<h2 className="text-black font-bold text-xl">Don&apos;t have an account?</h2>
 				<h2 className="text-blue-600 font-bold text-xl">
 					Sign up with your e-mail and password
 				</h2>
