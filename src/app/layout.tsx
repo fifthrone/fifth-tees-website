@@ -21,6 +21,11 @@ export default function RootLayout({
 		<html lang="en" className={poppins.variable}>
 			<head>
 				<title>Fifth Tees</title>
+				<meta charSet="UTF-8" />
+				<meta name="description" content="Merch" />
+				<meta name="keywords" content="Meme, T-Shirts, Stickers" />
+				<meta name="author" content="Marco Liu" />
+				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 				<script
 					src="https://kit.fontawesome.com/7a727a5d0a.js"
 					crossOrigin="anonymous"
