@@ -6,7 +6,11 @@ import NavBar from "../components/nav-bar/nav-bar";
 import Footer from "../components/footer/footer";
 import Providers from "./providers";
 
-const poppins = Poppins({ weight: "400" });
+const poppins = Poppins({
+	weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+	style: ["normal", "italic"],
+	variable: "--font-poppins",
+});
 
 export default function RootLayout({
 	children,
@@ -14,7 +18,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en">
+		<html lang="en" className={poppins.variable}>
 			<head>
 				<title>Fifth Tees</title>
 				<script
@@ -22,10 +26,6 @@ export default function RootLayout({
 					crossOrigin="anonymous"
 					async
 				></script>
-				{/* <link
-					href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500&family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
-					rel="stylesheet"
-				/> */}
 			</head>
 			<body className="bg-orange-100 dark:bg-neutral-900">
 				<Providers>

@@ -9,8 +9,7 @@ module.exports = {
 		groups: ["heart"],
 		extend: {
 			fontFamily: {
-				josefin: ["Josefin Sans", "sans-serif"],
-				poppins: ["Poppins", "sans-serif"],
+				poppins: ["var(--font-poppins)", "sans-serif"],
 			},
 			colors: {
 				blueGray: "#334155",
