@@ -19,7 +19,7 @@ const ProductsRow = (props) => {
 		<div className="relative group">
 			<button
 				onClick={() => scroll(ref, -260)}
-				className="absolute bottom-[50%] left-2 bg-gray-500 z-40 rounded-full p-5 bg-opacity-10 opacity-0 group-hover:opacity-100 duration-500"
+				className="absolute bottom-[50%] left-2 bg-gray-500 dark:bg-gray-300 z-40 rounded-full p-5 bg-opacity-10 dark:bg-opacity-10 opacity-0 group-hover:opacity-100 duration-500"
 			>
 				<i className="text-gray-500 fa-xl fa-solid fa-angle-left"></i>
 			</button>

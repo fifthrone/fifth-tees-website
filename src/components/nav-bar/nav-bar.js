@@ -122,17 +122,17 @@ const NavBar = () => {
 				<div className="hidden md:flex items-center">
 					<div className="font-medium text-orange-900 dark:text-white flex items-center space-x-2 mr-4">
 						<Link href="/products">
-							<p className="relative flex px-5 items-center justify-center h-12 rounded-full hover:bg-gray-100 group duration-300 font-poppins text-sm">
+							<p className="relative flex px-5 items-center justify-center h-12 rounded-full hover:bg-gray-100 dark:hover:bg-neutral-700 group duration-300 font-poppins text-sm">
 								All Products
 							</p>
 						</Link>
 						<Link href="/t-shirts">
-							<p className="relative flex px-5 items-center justify-center h-12 rounded-full hover:bg-gray-100 group duration-300 font-poppins text-sm">
+							<p className="relative flex px-5 items-center justify-center h-12 rounded-full hover:bg-gray-100 dark:hover:bg-neutral-700 group duration-300 font-poppins text-sm">
 								T-Shirts
 							</p>
 						</Link>
 						<Link href="/stickers">
-							<p className="relative flex px-5 items-center justify-center h-12 rounded-full hover:bg-gray-100 group duration-300 font-poppins text-sm">
+							<p className="relative flex px-5 items-center justify-center h-12 rounded-full hover:bg-gray-100 dark:hover:bg-neutral-700 group duration-300 font-poppins text-sm">
 								Stickers
 							</p>
 						</Link>
@@ -144,7 +144,7 @@ const NavBar = () => {
 								onClick={() => {
 									dispatch(toggleWishList());
 								}}
-								className="relative flex items-center justify-center w-12 h-12 rounded-full hover:bg-gray-100 group duration-300"
+								className="relative flex items-center justify-center w-12 h-12 rounded-full hover:bg-gray-100 dark:hover:bg-neutral-700 group duration-300"
 							>
 								<i className="fa-lg fa-solid fa-heart"></i>
 								<div className="opacity-0 text-center w-max p-1 px-2 text-xs top-12 absolute bg-yellow-900 text-white rounded-xl group-hover:opacity-100 duration-300">
@@ -152,7 +152,7 @@ const NavBar = () => {
 								</div>
 							</button>
 							{wishListIsOpen && (
-								<div className="bg-white top-16 right-0 absolute w-max z-50 rounded-md shadow-2xl">
+								<div className="bg-white dark:bg-neutral-800 top-16 right-0 absolute w-max z-50 rounded-md shadow-2xl">
 									<WishList wishListButtonRef={wishListButtonRef} />
 								</div>
 							)}
@@ -163,7 +163,7 @@ const NavBar = () => {
 								onClick={() => {
 									dispatch(toggleCart());
 								}}
-								className="relative flex items-center justify-center w-12 h-12 rounded-full hover:bg-gray-100 group duration-300"
+								className="relative flex items-center justify-center w-12 h-12 rounded-full hover:bg-gray-100 dark:hover:bg-neutral-700 group duration-300"
 							>
 								<i className="fa-lg fa-solid fa-cart-shopping"></i>
 								<div className="opacity-0 text-center w-max p-1 px-2 text-xs top-12 absolute bg-yellow-900 text-white rounded-xl group-hover:opacity-100 duration-300">
@@ -171,7 +171,7 @@ const NavBar = () => {
 								</div>
 							</button>
 							{cartIsOpen && (
-								<div className="bg-white top-16 right-0 absolute p-4 w-max z-50 rounded-md shadow-2xl">
+								<div className="bg-white dark:bg-neutral-800 top-16 right-0 absolute p-4 w-max z-50 rounded-md shadow-2xl">
 									<Cart cartButtonRef={cartButtonRef} />
 								</div>
 							)}
@@ -182,7 +182,7 @@ const NavBar = () => {
 								onClick={() => {
 									dispatch(toggleAccount());
 								}}
-								className="relative flex items-center justify-center w-12 h-12 rounded-full hover:bg-gray-100 group duration-300"
+								className="relative flex items-center justify-center w-12 h-12 rounded-full hover:bg-gray-100 dark:hover:bg-neutral-700 group duration-300"
 							>
 								<i className="fa-lg fa-solid fa-user"></i>
 								<div className="opacity-0 text-center w-max p-1 px-2 text-xs top-12 absolute bg-yellow-900 text-white rounded-xl group-hover:opacity-100 duration-300">
@@ -190,7 +190,7 @@ const NavBar = () => {
 								</div>
 							</button>
 							{accountIsOpen && (
-								<div className="bg-white top-16 right-0 absolute p-4 w-max z-50 rounded-md shadow-2xl max-w-sm">
+								<div className="bg-white dark:bg-neutral-800 top-16 right-0 absolute p-4 w-max z-50 rounded-md shadow-2xl max-w-sm">
 									<Account accountButtonRef={accountButtonRef} />
 								</div>
 							)}

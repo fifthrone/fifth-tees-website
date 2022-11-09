@@ -21,9 +21,9 @@ const SizePicker = () => {
 					key={size}
 					className={
 						(currentSize === size
-							? "bg-blueGray text-white"
-							: "hover:border-gray-400 duration-200") +
-						" border rounded-full h-10 w-10 flex items-center justify-center"
+							? "bg-blueGray dark:bg-lightBlueGray text-white"
+							: "hover:border-gray-400 dark:hover:border-lightBlueGray duration-200") +
+						" border dark:border-neutral-700 rounded-full h-10 w-10 flex items-center justify-center"
 					}
 					onClick={() => {
 						dispatch(setSize(size));

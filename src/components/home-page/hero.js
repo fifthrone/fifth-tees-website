@@ -38,7 +38,7 @@ const Hero = (props) => {
 							outPosition={1050}
 							transitionStyle="slideDiagonal"
 						>
-							<div className="w-full h-full bg-gradient-to-br from-orange-600 via-blue-300  to-purple-500"></div>
+							<div className="w-full h-full bg-gradient-to-br from-orange-600 via-blue-300  to-purple-500 dark:from-orange-800 dark:via-blue-700 dark:to-purple-700"></div>
 						</HeroTransition>
 						{hero.length >= 3 && (
 							<>

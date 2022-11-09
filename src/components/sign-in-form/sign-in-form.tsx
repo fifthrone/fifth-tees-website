@@ -65,7 +65,7 @@ const SignInForm = () => {
 
 	return (
 		<div className="w-full flex flex-col space-y-3">
-			<h2 className="text-black font-bold text-xl">
+			<h2 className="font-bold text-xl">
 				Got an Account? Sign in to view your saved products
 			</h2>
 			<form onSubmit={handleSubmit} className="space-y-6">
@@ -107,7 +107,7 @@ const SignInForm = () => {
 				<div>
 					<Link
 						href="/account"
-						className="text-center text-sm text-blueGray hover:underline pt-6"
+						className="text-center text-sm text-blueGray dark:text-blue-200 hover:underline pt-6"
 						onClick={() => {
 							dispatch(closeAccountTab());
 						}}

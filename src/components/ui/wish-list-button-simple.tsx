@@ -25,7 +25,7 @@ const WishListButtonSimple = ({ product }: WishListButtonSimpleProps) => {
 					? dispatch<any>(removeWishListItems(product))
 					: dispatch<any>(addWishListItems(product));
 			}}
-			className="bg-white absolute top-5 right-5 h-10 w-10 rounded-full flex items-center justify-center shadow-md hover:-translate-y-0.5 duration-200 group-heart z-10"
+			className="bg-white dark:bg-neutral-600 absolute top-5 right-5 h-10 w-10 rounded-full flex items-center justify-center shadow-md hover:-translate-y-0.5 duration-200 group-heart z-10"
 		>
 			{isInWishList ? (
 				<i className="text-red-200 fa-lg fa-solid fa-heart group-heart-hover:scale-110 group-heart-hover:text-red-200 duration-200"></i>

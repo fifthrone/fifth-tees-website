@@ -134,7 +134,7 @@ const ProductPage = async ({ params }: ProductPageProps) => {
 		<>
 			{product && (
 				<div className="flex flex-col items-center justify-center max-w-6xl mx-auto px-10 border1 pb-8">
-					<div className="w-full bg-white rounded-3xl shadow-2xl mt-8 p-12">
+					<div className="w-full bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl mt-8 p-12">
 						<div className="border1 grid gap-14 md:grid-cols-2  auto-rows-min">
 							<div className="md:pt-12 space-y-1 md:space-y-4 border1 border-black">
 								<div className="text-3xl font-poppins font-semibold">
