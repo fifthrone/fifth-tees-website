@@ -13,7 +13,7 @@ import CartItem from "./cart-item";
 import Link from "next/link";
 
 const Cart = (props) => {
-	const { cartButtonRef } = props;
+	const { cartButtonRef, themeButtonRef } = props;
 
 	const ref = useRef(null);
 	const dispatch = useDispatch();
@@ -26,7 +26,8 @@ const Cart = (props) => {
 			if (
 				ref.current &&
 				!ref.current.contains(event.target) &&
-				!cartButtonRef.current.contains(event.target)
+				!cartButtonRef.current.contains(event.target) &&
+				!themeButtonRef.current.contains(event.target)
 			) {
 				// alert("You clicked outside of me!");
 				dispatch(toggleCart());
@@ -39,10 +40,10 @@ const Cart = (props) => {
 	}, [ref]);
 
 	return (
-		<div ref={ref}>
+		<div ref={ref} className="p-4">
 			{items.length ? (
 				<div className="space-y-3 pb-1">
-					<h2 className="p-2">My Cart</h2>
+					<h2 className="p-2 text-black dark:text-white">My Cart</h2>
 					{items.map((item) => (
 						<CartItem key={item.id} item={item} />
 					))}

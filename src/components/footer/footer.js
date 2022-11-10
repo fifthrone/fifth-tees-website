@@ -1,6 +1,6 @@
 const Footer = () => {
 	return (
-		<div className="mt-24 bg-white dark:bg-neutral-800 shadow-[0_-5px_20px_rgba(0,0,0,0.25)]">
+		<div className="mt-12 sm:mt-24 bg-white dark:bg-neutral-800 shadow-[0_-5px_20px_rgba(0,0,0,0.25)]">
 			<div className="max-w-6xl px-10 mx-auto">
 				{/* <div className="mt-8 border-t-[1px] border-gray-400 w-full"></div> */}
 				<div className="py-8 flex flex-col md:flex-row space-y-16 md:space-y-0 justify-center border1">

@@ -13,7 +13,7 @@ import SignUpForm from "../sign-up-form/sign-up-form";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 
 const Account = (props) => {
-	const { accountButtonRef } = props;
+	const { accountButtonRef, themeButtonRef } = props;
 
 	const ref = useRef(null);
 	const dispatch = useDispatch();
@@ -25,7 +25,8 @@ const Account = (props) => {
 			if (
 				ref.current &&
 				!ref.current.contains(event.target) &&
-				!accountButtonRef.current.contains(event.target)
+				!accountButtonRef.current.contains(event.target) &&
+				!themeButtonRef.current.contains(event.target)
 			) {
 				// alert("You clicked outside of me!");
 				dispatch(toggleAccount());
@@ -39,8 +40,8 @@ const Account = (props) => {
 
 	return (
 		<div ref={ref}>
-			<div className="flex items-center justify-center flex-col space-y-8 p-4">
-				{user ? <div>Hi! {user}</div> : null}
+			<div className="flex items-center justify-center flex-col space-y-8 p-8">
+				{user ? <div>Welcome! {user}</div> : null}
 				{user ? (
 					<button
 						onClick={() => {

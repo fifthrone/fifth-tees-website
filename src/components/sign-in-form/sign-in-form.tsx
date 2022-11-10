@@ -65,7 +65,7 @@ const SignInForm = () => {
 
 	return (
 		<div className="w-full flex flex-col space-y-3">
-			<h2 className="font-bold text-xl">
+			<h2 className="font-bold text-xl text-black dark:text-white">
 				Got an Account? Sign in to view your saved products
 			</h2>
 			<form onSubmit={handleSubmit} className="space-y-6">

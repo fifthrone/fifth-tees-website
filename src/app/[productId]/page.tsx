@@ -133,15 +133,15 @@ const ProductPage = async ({ params }: ProductPageProps) => {
 	return (
 		<>
 			{product && (
-				<div className="flex flex-col items-center justify-center max-w-6xl mx-auto px-10 border1 pb-8">
-					<div className="w-full bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl mt-8 p-12">
+				<div className="flex flex-col items-center justify-center max-w-6xl mx-auto sm:px-10 px-2 border1 pb-4">
+					<div className="w-full bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl mt-2 sm:mt-8 p-6 sm:p-12">
 						<div className="border1 grid gap-14 md:grid-cols-2  auto-rows-min">
-							<div className="md:pt-12 space-y-1 md:space-y-4 border1 border-black">
-								<div className="text-3xl font-poppins font-semibold">
+							<div className="md:pt-12 space-y-2 md:space-y-4 border1 border-black">
+								<div className="text-xl sm:text-3xl font-poppins font-semibold">
 									{title} {type}
 								</div>
-								<div className="font-light">{product.type}</div>
-								<div className="text-2xl font-poppins font-semibold">
+								<div className="text-xs sm:text-base font-light">{product.type}</div>
+								<div className="text-lg sm:text-2xl font-poppins font-semibold">
 									${product.price}
 								</div>
 								{type === "T-Shirt" && (

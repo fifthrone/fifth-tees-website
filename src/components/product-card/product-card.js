@@ -10,14 +10,14 @@ const ProductCard = (props) => {
 			<div className="relative hover:scale-[101%] duration-500">
 				<WishListButtonSimple product={product} />
 				<Link href={`/${id}`}>
-					<div className="p-3 flex flex-col bg-white dark:bg-neutral-600 rounded-2xl shadow-lg space-y-3 relative">
+					<div className="p-2 sm:p-3 flex flex-col bg-white dark:bg-neutral-600 rounded-2xl shadow-lg space-y-3 relative">
 						<img
 							src={imageUrl}
 							alt="t-shirt"
 							className="rounded-xl object-contain hover:scale-100 duration-200"
 						/>
 						<div className="px-3 space-y-1 font-poppins">
-							<h2 className="text-sm">
+							<h2 className="text-xs sm:text-sm">
 								{title} {type}
 							</h2>
 							<p className="text-gray-600 dark:text-neutral-300 text-sm">HK${price}</p>

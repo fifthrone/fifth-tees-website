@@ -40,11 +40,11 @@ const ProductsRow = (props) => {
 								<ProductCard
 									key={product.id}
 									product={product}
-									className="w-64 flex-shrink-0 translate-x-[max(2.5rem,50vw-33.5rem)]"
+									className="w-40 sm:w-64 flex-shrink-0 translate-x-2 sm:translate-x-[max(2.5rem,50vw-33.5rem)]"
 								/>
 							)
 					)}
-				<div className="w-6 flex-shrink-0 translate-x-[max(2.5rem,50vw-33.5rem)]"></div>
+				<div className="w-6 flex-shrink-0 translate-x-2 sm:translate-x-[max(2.5rem,50vw-33.5rem)]"></div>
 			</div>
 		</div>
 	);

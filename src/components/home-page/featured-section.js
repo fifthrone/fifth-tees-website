@@ -5,8 +5,8 @@ const FeaturedSection = (props) => {
 
 	return (
 		<>
-			<div className="max-w-6xl px-10 mx-auto mt-8">
-				<h1 className="pb-2 text-5xl font-poppins font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+			<div className="max-w-6xl px-2 sm:px-10 mx-auto mt-4 sm:mt-8">
+				<h1 className="pb-2 text-3xl sm:text-5xl font-poppins font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
 					{title}
 				</h1>
 			</div>

@@ -9,7 +9,7 @@ import WishListItem from "./wish-list-item";
 import Link from "next/link";
 
 const WishList = (props) => {
-	const { wishListButtonRef } = props;
+	const { wishListButtonRef, themeButtonRef } = props;
 
 	const items = useSelector(selectWishListItems);
 	const dispatch = useDispatch();
@@ -20,7 +20,8 @@ const WishList = (props) => {
 			if (
 				ref.current &&
 				!ref.current.contains(event.target) &&
-				!wishListButtonRef.current.contains(event.target)
+				!wishListButtonRef.current.contains(event.target) &&
+				!themeButtonRef.current.contains(event.target)
 			) {
 				// alert("You clicked outside of me!");
 				dispatch(toggleWishList());
@@ -36,7 +37,7 @@ const WishList = (props) => {
 		<div ref={ref} className="p-4">
 			{items.length ? (
 				<div className="space-y-3 pb-1">
-					<h2 className="p-2 text-black">Wish List</h2>
+					<h2 className="p-2 text-black dark:text-white">Wish List</h2>
 					{items.map((item) => (
 						<WishListItem key={item.id} item={item} />
 					))}
