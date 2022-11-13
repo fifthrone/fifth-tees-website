@@ -3,18 +3,17 @@ import FeaturedSection from "../components/home-page/featured-section";
 
 import { getData, getProducts } from "../utils/firebase/firebase.utils";
 
-export const dynamic = 'auto',
-  dynamicParams = true,
-  revalidate = 20,
-  fetchCache = 'auto',
-  runtime = 'nodejs',
-  preferredRegion = 'auto'
+// export const dynamic = 'auto',
+//   dynamicParams = true,
+//   revalidate = 20,
+//   fetchCache = 'auto',
+//   runtime = 'nodejs',
+//   preferredRegion = 'auto'
 
 // 'auto' | 'force-dynamic' | 'error' | 'force-static'
 
 
 const getProductsMap = async (collectionKey: string) => {
-	console.log("fetching")
 	const featured = await getData(collectionKey);
 	const promises = featured.map(async ({ title, productIds }) => {
 		const products = await getProducts(productIds);
@@ -32,8 +31,6 @@ const getProductsMap = async (collectionKey: string) => {
 const Home = async () => {
 	const featured = await getProductsMap("featured");
 	const hero = await getProductsMap("hero");
-
-	console.log(featured.length);
 
 	return (
 		<>

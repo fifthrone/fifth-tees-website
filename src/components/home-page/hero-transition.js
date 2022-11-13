@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Transition } from "react-transition-group";
 
 const transitionStyles = {
@@ -38,16 +38,18 @@ const transitionStyles = {
 	},
 	slideDiagonal: {
 		in: {
-			entering: { transform: "translate(-500px, -500px)" },
-			entered: { transform: "translate(-500px, -500px)" },
-			exiting: { transform: "translate(0px, 0px)" },
-			exited: { transform: "translate(0px, 0px)" },
+			entering: { transform: "translate(-100vw, -100vh)" },
+			entered: { transform: "translate(-100vw, -100vh)" },
+			// entering: { transform: "translate(-500px, -500px)" },
+			// entered: { transform: "translate(-500px, -500px)" },
+			exiting: { transform: "translate(0vw, 0vh)" },
+			exited: { transform: "translate(0vw, 0vh)" },
 		},
 		out: {
-			entering: { transform: "translate(-500px, -500px)" },
-			entered: { transform: "translate(-500px, -500px)" },
-			exiting: { transform: "translate(-1000px, -1000px)" },
-			exited: { transform: "translate(-1000px, -1000px)" },
+			entering: { transform: "translate(-100vw, -100vh)" },
+			entered: { transform: "translate(-100vw, -100vh)" },
+			exiting: { transform: "translate(-200vw, -200vh)" },
+			exited: { transform: "translate(-200vw, -200vh)" },
 		},
 	},
 };
@@ -66,6 +68,8 @@ const HeroTransition = (props) => {
 		onEntered,
 		onExit,
 	} = props;
+
+	const nodeRef = useRef(null);
 
 	const [toggleTransition, setToggleTransition] = useState();
 
@@ -86,11 +90,12 @@ const HeroTransition = (props) => {
 	return (
 		<Transition
 			in={toggleTransition}
-			timeout={700+delay}
+			timeout={700 + delay}
 			mountOnEnter={mountOnEnter}
 			unmountOnExit={unmountOnExit}
 			onEntered={onEntered}
 			onExit={onExit}
+			nodeRef={nodeRef}
 		>
 			{(state) => (
 				<div

@@ -12,13 +12,16 @@ const cartSlice = createSlice({
 		toggleCart: (state) => {
 			state.isOpen = !state.isOpen;
 		},
+		closeCart: (state) => {
+			state.isOpen = false;
+		},
 		setItems: (state, action) => {
 			state.items = action.payload;
 		},
 	},
 });
 
-export const { toggleCart, setItems } = cartSlice.actions;
+export const { toggleCart, closeCart, setItems } = cartSlice.actions;
 
 export const selectIsOpen = (state) => state.cart.isOpen;
 
@@ -33,6 +36,16 @@ export const selectTotalPrice = (state) => {
 	);
 
 	return totalPrice;
+};
+export const selectItemsCount = (state) => {
+	const allItems = state.cart.items;
+
+	const count = allItems.reduce(
+		(acc, currentItem) => acc + currentItem.qty,
+		0
+	);
+
+	return count;
 };
 
 export const addItems = (item) => (dispatch, getState) => {

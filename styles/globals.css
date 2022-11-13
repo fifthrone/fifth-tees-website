@@ -19,3 +19,18 @@ a {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* @layer components {
+  .slide-in-entering {
+    transform: translateX(0%)
+  }
+  .slide-in-entered {
+    transform: translateX(0%)
+  }
+  .slide-in-exiting {
+    transform: translateX(100%)
+  }
+  .slide-in-exited {
+    transform: translateX(100%)
+  }
+} */

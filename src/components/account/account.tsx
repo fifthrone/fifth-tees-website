@@ -2,7 +2,7 @@
 
 import { useSelector, useDispatch } from "react-redux";
 
-import { toggleAccount, selectUser } from "../../store/account/account.slice";
+import { toggleAccount, selectUser, closeAccountTab } from "../../store/account/account.slice";
 
 import { useRef, useEffect } from "react";
 
@@ -29,7 +29,7 @@ const Account = (props) => {
 				!themeButtonRef.current.contains(event.target)
 			) {
 				// alert("You clicked outside of me!");
-				dispatch(toggleAccount());
+				dispatch(closeAccountTab());
 			}
 		}
 		document.addEventListener("mousedown", handleClickOutside);
@@ -39,7 +39,7 @@ const Account = (props) => {
 	}, [ref]);
 
 	return (
-		<div ref={ref}>
+		<div className="md:w-96 max-w-xs" ref={ref}>
 			<div className="flex items-center justify-center flex-col space-y-8 p-8">
 				{user ? <div>Welcome! {user}</div> : null}
 				{user ? (

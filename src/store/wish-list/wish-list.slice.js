@@ -13,13 +13,16 @@ export const wishListSlice = createSlice({
 		toggleWishList: (state) => {
 			state.isOpen = !state.isOpen;
 		},
+		closeWishListTab: (state) => {
+			state.isOpen = false;
+		},
 		setWishListItems: (state, action) => {
 			state.items = action.payload;
 		},
 	},
 });
 
-export const { toggleWishList, setWishListItems } = wishListSlice.actions;
+export const { toggleWishList, setWishListItems, closeWishListTab } = wishListSlice.actions;
 
 export const selectWishListItems = (state) => state.wishList.items;
 

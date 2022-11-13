@@ -9,9 +9,15 @@ import { useTheme } from "next-themes";
 import Cart from "../cart/cart";
 import WishList from "../wish-list/wish-list";
 import Account from "../account/account";
-import { Transition } from "react-transition-group";
+import NavTab from "./nav-tab";
+import NavButton from "./nav-button";
+import NavLink from "./nav-link";
 
-import { selectIsOpen, toggleCart } from "../../store/cart/cart.slice";
+import {
+	selectIsOpen,
+	selectItemsCount,
+	toggleCart,
+} from "../../store/cart/cart.slice";
 import {
 	selectAccountIsOpen,
 	toggleAccount,
@@ -19,14 +25,13 @@ import {
 import {
 	selectWishListIsOpen,
 	toggleWishList,
+	closeWishListTab,
 } from "../../store/wish-list/wish-list.slice";
-
-const transitionStyles = {
-	entering: { transform: "translateX(0%)" },
-	entered: { transform: "translateX(0%)" },
-	exiting: { transform: "translateX(100%)" },
-	exited: { transform: "translateX(100%)" },
-};
+import {
+	selectIsMobileNavTabOpen,
+	toggleMobileNavTab,
+} from "../../store/nav/nav.slice";
+import MobileNav from "./mobile-nav";
 
 const NavBar = () => {
 	const dispatch = useDispatch();
@@ -35,254 +40,131 @@ const NavBar = () => {
 	const cartIsOpen = useSelector(selectIsOpen);
 	const wishListIsOpen = useSelector(selectWishListIsOpen);
 	const accountIsOpen = useSelector(selectAccountIsOpen);
+	const isMobileNavTabOpen = useSelector(selectIsMobileNavTabOpen);
+
+	const cartItemsCount = useSelector(selectItemsCount);
 
 	const wishListButtonRef = useRef(null);
 	const cartButtonRef = useRef(null);
 	const accountButtonRef = useRef(null);
 	const themeButtonRef = useRef(null);
-
-	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+	const mobileNavButtonRef = useRef(null);
 
 	return (
-		<div className="bg-white dark:bg-neutral-800 shadow-lg shadow-gray-9001">
+		<div className="fixed left-0 right-0 z-50 md:static bg-white dark:bg-neutral-800 shadow-lg shadow-gray-9001">
 			<nav className="max-w-6xl w-full flex justify-between items-center flex-row mx-auto sm:px-10 px-2">
 				<Link href="/">
-					{theme === "dark" ? (
-						<img
-							className="h-12 sm:h-16 p-2"
-							src="./fifthTeesDark.png"
-							alt=""
-						/>
-					) : (
-						<img className="h-12 sm:h-16 p-2" src="./fifthTees.png" alt="" />
-					)}
+					<img
+						className="h-12 hidden dark:block md:h-16 p-2"
+						src="./fifthTeesDark.png"
+						alt=""
+					/>
+					<img
+						className="h-12 dark:hidden md:h-16 p-2"
+						src="./fifthTees.png"
+						alt=""
+					/>
 				</Link>
-				<button
-					className="flex md:hidden border1 flex-col space-y-1 p-4"
-					onClick={() => {
-						setIsMobileMenuOpen(!isMobileMenuOpen);
-					}}
-				>
-					<span className="bg-orange-900 dark:bg-red-100 h-0.5 rounded-full w-5"></span>
-					<span className="bg-orange-900 dark:bg-red-100 h-0.5 rounded-full w-5"></span>
-					<span className="bg-orange-900 dark:bg-red-100 h-0.5 rounded-full w-5"></span>
-				</button>
-				<Transition
-					in={isMobileMenuOpen}
-					timeout={500}
-					mountOnEnter={true}
-					unmountOnExit={true}
-				>
-					{(state) => (
-						<div
-							style={{
-								transitionProperty: "all",
-								transitionDuration: "500ms",
-								...transitionStyles[state],
-							}}
-							className="fixed right-0 top-0 h-screen1 bg-gray-100 dark:bg-neutral-800 rounded-xl shadow-xl z-40 md:hidden"
-						>
-							<div className="flex flex-col space-y-4 p-8 font-poppinstext-black dark:text-white">
-								<button
-									onClick={() => {
-										setIsMobileMenuOpen(false);
-									}}
-									className="border1 flex p-2 justify-end"
-								>
-									<i className="fa-lg fa-solid fa-xmark"></i>
-								</button>
-								<Link
-									href="/products"
-									onClick={() => {
-										setIsMobileMenuOpen(false);
-									}}
-								>
-									<p className="p-2 hover:bg-gray-300 rounded-xl">
-										<p>All Products</p>
-									</p>
-								</Link>
-								<Link
-									href="/t-shirts"
-									onClick={() => {
-										setIsMobileMenuOpen(false);
-									}}
-								>
-									<p className="p-2">
-										<p>T-Shirts</p>
-									</p>
-								</Link>
-								<Link
-									href="/stickers"
-									onClick={() => {
-										setIsMobileMenuOpen(false);
-									}}
-								>
-									<p className="p-2">
-										<p>Stickers</p>
-									</p>
-								</Link>
-								<Link
-									href="/cart"
-									onClick={() => {
-										setIsMobileMenuOpen(false);
-									}}
-								>
-									<div className="p-2 flex flex-row items-center space-x-2 text-sm">
-										<i className="fa-lg fa-solid fa-cart-shopping"></i>
-										<p className="text-base">My Cart</p>
-									</div>
-								</Link>
-								<Link
-									href="/wish-list"
-									onClick={() => {
-										setIsMobileMenuOpen(false);
-									}}
-								>
-									<div className="p-2 flex flex-row items-center space-x-2 text-sm">
-										<i className="fa-lg fa-solid fa-heart"></i>
-										<p className="text-base">Wish List</p>
-									</div>
-								</Link>
-								<Link
-									href="/account"
-									onClick={() => {
-										setIsMobileMenuOpen(false);
-									}}
-								>
-									<div className="p-2 flex flex-row items-center space-x-2 text-sm">
-										<i className="fa-lg fa-solid fa-user"></i>
-										<p className="text-base">Account</p>
-									</div>
-								</Link>
-								<button
-									onClick={() => {
-										theme === "dark" ? setTheme("light") : setTheme("dark");
-									}}
-								>
-									<div className="p-2 flex flex-row items-center space-x-2 text-sm">
-										{theme === "dark" ? (
-											<i className="fa-lg fa-solid fa-moon -scale-x-100 rotate-[20deg]"></i>
-										) : (
-											<i className="fa-lg fa-solid fa-sun"></i>
-										)}{" "}
-										{theme === "dark" ? (
-											<p>Dark mode</p>
-										) : (
-											<p>Light mode</p>
-										)}
-									</div>
-								</button>
-							</div>
-						</div>
-					)}
-				</Transition>
-				<div className="hidden md:flex items-center">
-					<div className="font-medium text-orange-900 dark:text-white flex items-center space-x-2 mr-4">
-						<Link href="/products">
-							<p className="relative flex px-5 items-center justify-center h-12 rounded-full hover:bg-gray-100 dark:hover:bg-neutral-700 group duration-300 font-poppins text-sm">
-								All Products
-							</p>
-						</Link>
-						<Link href="/t-shirts">
-							<p className="relative flex px-5 items-center justify-center h-12 rounded-full hover:bg-gray-100 dark:hover:bg-neutral-700 group duration-300 font-poppins text-sm">
-								T-Shirts
-							</p>
-						</Link>
-						<Link href="/stickers">
-							<p className="relative flex px-5 items-center justify-center h-12 rounded-full hover:bg-gray-100 dark:hover:bg-neutral-700 group duration-300 font-poppins text-sm">
-								Stickers
-							</p>
-						</Link>
+				<div className="flex items-center">
+					<div className="hidden md:flex font-medium text-orange-900 dark:text-white items-center space-x-1 mr-4">
+						<NavLink href="/products">All Products</NavLink>
+						<NavLink href="/t-shirts">T-Shirts</NavLink>
+						<NavLink href="/stickers">Stickers</NavLink>
 					</div>
-					<div className="text-orange-800 dark:text-white flex items-center space-x-2">
+					<div className="text-orange-800 dark:text-white flex items-center md:space-x-2 space-x-1">
 						<div className="relative">
-							<button
-								ref={wishListButtonRef}
+							<NavButton
+								label="Wish List"
+								buttonRef={wishListButtonRef}
 								onClick={() => {
 									dispatch(toggleWishList());
 								}}
-								className="relative flex items-center justify-center w-12 h-12 rounded-full hover:bg-gray-100 dark:hover:bg-neutral-700 group duration-300"
 							>
-								<i className="fa-lg fa-solid fa-heart"></i>
-								<div className="opacity-0 text-center w-max p-1 px-2 text-xs top-12 absolute bg-yellow-900 text-white rounded-xl group-hover:opacity-100 duration-300">
-									Wish List
-								</div>
-							</button>
-							{wishListIsOpen && (
-								<div className="bg-white dark:bg-neutral-800 top-16 right-0 absolute w-max z-50 rounded-md shadow-2xl">
-									<WishList
-										wishListButtonRef={wishListButtonRef}
-										themeButtonRef={themeButtonRef}
-									/>
-								</div>
-							)}
+								<i className="fa-md text-base md:text-xl fa-solid fa-heart"></i>
+							</NavButton>
+							<NavTab isOpen={wishListIsOpen}>
+								<WishList
+									wishListButtonRef={wishListButtonRef}
+									themeButtonRef={themeButtonRef}
+								/>
+							</NavTab>
 						</div>
 						<div className="relative">
-							<button
-								ref={cartButtonRef}
+							<NavButton
+								label="Cart"
+								buttonRef={cartButtonRef}
 								onClick={() => {
 									dispatch(toggleCart());
 								}}
-								className="relative flex items-center justify-center w-12 h-12 rounded-full hover:bg-gray-100 dark:hover:bg-neutral-700 group duration-300"
 							>
-								<i className="fa-lg fa-solid fa-cart-shopping"></i>
-								<div className="opacity-0 text-center w-max p-1 px-2 text-xs top-12 absolute bg-yellow-900 text-white rounded-xl group-hover:opacity-100 duration-300">
-									Cart
-								</div>
-							</button>
-							{cartIsOpen && (
-								<div className="bg-white dark:bg-neutral-800 top-16 right-0 absolute w-max z-50 rounded-md shadow-2xl">
-									<Cart
-										cartButtonRef={cartButtonRef}
-										themeButtonRef={themeButtonRef}
-									/>
-								</div>
-							)}
+								<i className="fa-md text-base md:text-xl fa-solid fa-cart-shopping"></i>
+								{cartItemsCount >= 1 ? (
+									<div className="absolute right-0.5 bottom-1 h-4 min-w-[1rem] p-[0.1rem] rounded-full bg-orange-700 dark:bg-neutral-300 text-white dark:text-black text-[0.7rem] flex items-center justify-center font-bold tracking-tighter">
+										{cartItemsCount}
+									</div>
+								) : null}
+							</NavButton>
+							<NavTab isOpen={cartIsOpen}>
+								<Cart
+									cartButtonRef={cartButtonRef}
+									themeButtonRef={themeButtonRef}
+								/>
+							</NavTab>
 						</div>
 						<div className="relative">
-							<button
-								ref={accountButtonRef}
+							<NavButton
+								label="Account"
+								buttonRef={accountButtonRef}
 								onClick={() => {
 									dispatch(toggleAccount());
 								}}
-								className="relative flex items-center justify-center w-12 h-12 rounded-full hover:bg-gray-100 dark:hover:bg-neutral-700 group duration-300"
 							>
-								<i className="fa-lg fa-solid fa-user"></i>
-								<div className="opacity-0 text-center w-max p-1 px-2 text-xs top-12 absolute bg-yellow-900 text-white rounded-xl group-hover:opacity-100 duration-300">
-									Account
-								</div>
-							</button>
-							{accountIsOpen && (
-								<div className="bg-white dark:bg-neutral-800 top-16 right-0 absolute w-max z-50 rounded-md shadow-2xl max-w-sm">
-									<Account
-										accountButtonRef={accountButtonRef}
-										themeButtonRef={themeButtonRef}
-									/>
-								</div>
-							)}
+								<i className="fa-md text-base md:text-xl fa-solid fa-user"></i>
+							</NavButton>
+							<NavTab isOpen={accountIsOpen}>
+								<Account
+									accountButtonRef={accountButtonRef}
+									themeButtonRef={themeButtonRef}
+								/>
+							</NavTab>
 						</div>
-						<div className="relative">
-							<button
-								ref={themeButtonRef}
+						<div className="hidden md:block relative">
+							<NavButton
+								label="Switch to dark mode"
+								className="dark:hidden"
+								buttonRef={themeButtonRef}
 								onClick={() => {
-									theme === "dark" ? setTheme("light") : setTheme("dark");
+									setTheme("dark");
 								}}
-								className="relative flex items-center justify-center w-12 h-12 rounded-full hover:bg-gray-100 dark:hover:bg-neutral-700 group duration-300"
 							>
-								{theme === "dark" ? (
-									<i className="fa-lg fa-solid fa-moon -scale-x-100 rotate-[20deg]"></i>
-								) : (
-									<i className="fa-lg fa-solid fa-sun"></i>
-								)}
-								<div className="opacity-0 text-center w-max p-1 px-2 text-xs top-12 absolute bg-yellow-900 text-white rounded-xl group-hover:opacity-100 duration-300">
-									{theme === "dark" ? (
-										<p>Switch to light mode</p>
-									) : (
-										<p>Switch to dark mode</p>
-									)}
-								</div>
-							</button>
+								<i className="fa-md text-base md:text-xl fa-solid fa-sun -scale-x-100 rotate-[20deg]"></i>
+							</NavButton>
+							<NavButton
+								label="Switch to light mode"
+								className="hidden dark:flex"
+								buttonRef={themeButtonRef}
+								onClick={() => {
+									setTheme("light");
+								}}
+							>
+								<i className="fa-md text-base md:text-xl fa-solid fa-moon -scale-x-100 rotate-[20deg]"></i>
+							</NavButton>
 						</div>
+						<div className="md:hidden relative">
+							<NavButton
+								label="Menu"
+								buttonRef={mobileNavButtonRef}
+								onClick={() => {
+									dispatch(toggleMobileNavTab());
+								}}
+							>
+								<i className="fa-md fa-solid fa-bars"></i>
+							</NavButton>
+							<NavTab isOpen={isMobileNavTabOpen}>
+								<MobileNav mobileNavButtonRef={mobileNavButtonRef} />
+							</NavTab>
+						</div>
+						{/* <MobileNav className="block md:hidden" /> */}
 					</div>
 				</div>
 			</nav>

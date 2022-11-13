@@ -1,10 +1,11 @@
-"use client"
+"use client";
 
 import { useSelector, useDispatch } from "react-redux";
 import {
 	selectItems,
 	selectTotalPrice,
 	toggleCart,
+	closeCart,
 } from "../../store/cart/cart.slice";
 
 import { useRef, useEffect } from "react";
@@ -23,6 +24,7 @@ const Cart = (props) => {
 
 	useEffect(() => {
 		function handleClickOutside(event) {
+			console.log("cartref", cartButtonRef);
 			if (
 				ref.current &&
 				!ref.current.contains(event.target) &&
@@ -30,7 +32,7 @@ const Cart = (props) => {
 				!themeButtonRef.current.contains(event.target)
 			) {
 				// alert("You clicked outside of me!");
-				dispatch(toggleCart());
+				dispatch(closeCart());
 			}
 		}
 		document.addEventListener("mousedown", handleClickOutside);
@@ -58,7 +60,12 @@ const Cart = (props) => {
 				<div className="flex items-center justify-center flex-col w-60 h-60 space-y-4">
 					<div className="">Your Cart is empty.</div>
 					<Link href="/products">
-						<p className="bg-black rounded-full p-2 px-3 text-white shadow-xl" onClick={()=>{dispatch(toggleCart())}}>
+						<p
+							className="bg-black rounded-full p-2 px-3 text-white shadow-xl"
+							onClick={() => {
+								dispatch(toggleCart());
+							}}
+						>
 							Shop Now
 						</p>
 					</Link>
