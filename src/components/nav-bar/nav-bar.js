@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useTheme } from "next-themes";
+import { usePathname } from "next/navigation";
 
 import Cart from "../cart/cart";
 import WishList from "../wish-list/wish-list";
@@ -36,6 +37,7 @@ import MobileNav from "./mobile-nav";
 const NavBar = () => {
 	const dispatch = useDispatch();
 	const { theme, setTheme } = useTheme();
+	const pathname = usePathname();
 
 	const cartIsOpen = useSelector(selectIsOpen);
 	const wishListIsOpen = useSelector(selectWishListIsOpen);
@@ -51,124 +53,129 @@ const NavBar = () => {
 	const mobileNavButtonRef = useRef(null);
 
 	return (
-		<div className="fixed left-0 right-0 z-50 md:static bg-white dark:bg-neutral-800 shadow-lg shadow-gray-9001">
-			<nav className="max-w-6xl w-full flex justify-between items-center flex-row mx-auto sm:px-10 px-2">
-				<Link href="/">
-					<img
-						className="h-12 hidden dark:block md:h-16 p-2"
-						src="./fifthTeesDark.png"
-						alt=""
-					/>
-					<img
-						className="h-12 dark:hidden md:h-16 p-2"
-						src="./fifthTees.png"
-						alt=""
-					/>
-				</Link>
-				<div className="flex items-center">
-					<div className="hidden md:flex font-medium text-orange-900 dark:text-white items-center space-x-1 mr-4">
-						<NavLink href="/products">All Products</NavLink>
-						<NavLink href="/t-shirts">T-Shirts</NavLink>
-						<NavLink href="/stickers">Stickers</NavLink>
+		<>
+			<div className="fixed top-0 left-0 right-0 z-50 md:static bg-white dark:bg-neutral-800 shadow-lg shadow-gray-9001">
+				<nav className="max-w-6xl w-full flex justify-between items-center flex-row mx-auto sm:px-10 px-2">
+					<Link href="/">
+						<img
+							className="h-12 hidden dark:block md:h-16 p-2"
+							src="./fifthTeesDark.png"
+							alt=""
+						/>
+						<img
+							className="h-12 dark:hidden md:h-16 p-2"
+							src="./fifthTees.png"
+							alt=""
+						/>
+					</Link>
+					<div className="flex items-center">
+						<div className="hidden md:flex font-medium text-orange-900 dark:text-white items-center space-x-1 mr-4">
+							<NavLink href="/products">All Products</NavLink>
+							<NavLink href="/t-shirts">T-Shirts</NavLink>
+							<NavLink href="/stickers">Stickers</NavLink>
+						</div>
+						<div className="text-orange-800 dark:text-white flex items-center md:space-x-2 space-x-1">
+							<div className="relative">
+								<NavButton
+									label="Wish List"
+									buttonRef={wishListButtonRef}
+									onClick={() => {
+										dispatch(toggleWishList());
+									}}
+								>
+									<i className="fa-md text-base md:text-xl fa-solid fa-heart"></i>
+								</NavButton>
+								<NavTab isOpen={wishListIsOpen}>
+									<WishList
+										wishListButtonRef={wishListButtonRef}
+										themeButtonRef={themeButtonRef}
+									/>
+								</NavTab>
+							</div>
+							<div className="relative">
+								<NavButton
+									label="Cart"
+									buttonRef={cartButtonRef}
+									onClick={() => {
+										dispatch(toggleCart());
+									}}
+								>
+									<i className="fa-md text-base md:text-xl fa-solid fa-cart-shopping"></i>
+									{cartItemsCount >= 1 ? (
+										<div className="absolute right-0.5 bottom-1 h-4 min-w-[1rem] p-[0.1rem] rounded-full bg-orange-700 dark:bg-neutral-300 text-white dark:text-black text-[0.7rem] flex items-center justify-center font-bold tracking-tighter">
+											{cartItemsCount}
+										</div>
+									) : null}
+								</NavButton>
+								<NavTab isOpen={cartIsOpen}>
+									<Cart
+										cartButtonRef={cartButtonRef}
+										themeButtonRef={themeButtonRef}
+									/>
+								</NavTab>
+							</div>
+							<div className="relative">
+								<NavButton
+									label="Account"
+									buttonRef={accountButtonRef}
+									onClick={() => {
+										dispatch(toggleAccount());
+									}}
+								>
+									<i className="fa-md text-base md:text-xl fa-solid fa-user"></i>
+								</NavButton>
+								<NavTab isOpen={accountIsOpen}>
+									<Account
+										accountButtonRef={accountButtonRef}
+										themeButtonRef={themeButtonRef}
+									/>
+								</NavTab>
+							</div>
+							<div className="hidden md:block relative">
+								<NavButton
+									label="Switch to dark mode"
+									className="dark:hidden"
+									buttonRef={themeButtonRef}
+									onClick={() => {
+										setTheme("dark");
+									}}
+								>
+									<i className="fa-md text-base md:text-xl fa-solid fa-sun -scale-x-100 rotate-[20deg]"></i>
+								</NavButton>
+								<NavButton
+									label="Switch to light mode"
+									className="hidden dark:flex"
+									buttonRef={themeButtonRef}
+									onClick={() => {
+										setTheme("light");
+									}}
+								>
+									<i className="fa-md text-base md:text-xl fa-solid fa-moon -scale-x-100 rotate-[20deg]"></i>
+								</NavButton>
+							</div>
+							<div className="md:hidden relative">
+								<NavButton
+									label="Menu"
+									buttonRef={mobileNavButtonRef}
+									onClick={() => {
+										dispatch(toggleMobileNavTab());
+									}}
+								>
+									<i className="fa-md fa-solid fa-bars"></i>
+								</NavButton>
+								<NavTab isOpen={isMobileNavTabOpen}>
+									<MobileNav mobileNavButtonRef={mobileNavButtonRef} />
+								</NavTab>
+							</div>
+							{/* <MobileNav className="block md:hidden" /> */}
+						</div>
 					</div>
-					<div className="text-orange-800 dark:text-white flex items-center md:space-x-2 space-x-1">
-						<div className="relative">
-							<NavButton
-								label="Wish List"
-								buttonRef={wishListButtonRef}
-								onClick={() => {
-									dispatch(toggleWishList());
-								}}
-							>
-								<i className="fa-md text-base md:text-xl fa-solid fa-heart"></i>
-							</NavButton>
-							<NavTab isOpen={wishListIsOpen}>
-								<WishList
-									wishListButtonRef={wishListButtonRef}
-									themeButtonRef={themeButtonRef}
-								/>
-							</NavTab>
-						</div>
-						<div className="relative">
-							<NavButton
-								label="Cart"
-								buttonRef={cartButtonRef}
-								onClick={() => {
-									dispatch(toggleCart());
-								}}
-							>
-								<i className="fa-md text-base md:text-xl fa-solid fa-cart-shopping"></i>
-								{cartItemsCount >= 1 ? (
-									<div className="absolute right-0.5 bottom-1 h-4 min-w-[1rem] p-[0.1rem] rounded-full bg-orange-700 dark:bg-neutral-300 text-white dark:text-black text-[0.7rem] flex items-center justify-center font-bold tracking-tighter">
-										{cartItemsCount}
-									</div>
-								) : null}
-							</NavButton>
-							<NavTab isOpen={cartIsOpen}>
-								<Cart
-									cartButtonRef={cartButtonRef}
-									themeButtonRef={themeButtonRef}
-								/>
-							</NavTab>
-						</div>
-						<div className="relative">
-							<NavButton
-								label="Account"
-								buttonRef={accountButtonRef}
-								onClick={() => {
-									dispatch(toggleAccount());
-								}}
-							>
-								<i className="fa-md text-base md:text-xl fa-solid fa-user"></i>
-							</NavButton>
-							<NavTab isOpen={accountIsOpen}>
-								<Account
-									accountButtonRef={accountButtonRef}
-									themeButtonRef={themeButtonRef}
-								/>
-							</NavTab>
-						</div>
-						<div className="hidden md:block relative">
-							<NavButton
-								label="Switch to dark mode"
-								className="dark:hidden"
-								buttonRef={themeButtonRef}
-								onClick={() => {
-									setTheme("dark");
-								}}
-							>
-								<i className="fa-md text-base md:text-xl fa-solid fa-sun -scale-x-100 rotate-[20deg]"></i>
-							</NavButton>
-							<NavButton
-								label="Switch to light mode"
-								className="hidden dark:flex"
-								buttonRef={themeButtonRef}
-								onClick={() => {
-									setTheme("light");
-								}}
-							>
-								<i className="fa-md text-base md:text-xl fa-solid fa-moon -scale-x-100 rotate-[20deg]"></i>
-							</NavButton>
-						</div>
-						<div className="md:hidden relative">
-							<NavButton
-								label="Menu"
-								buttonRef={mobileNavButtonRef}
-								onClick={() => {
-									dispatch(toggleMobileNavTab());
-								}}
-							>
-								<i className="fa-md fa-solid fa-bars"></i>
-							</NavButton>
-							<NavTab isOpen={isMobileNavTabOpen}>
-								<MobileNav mobileNavButtonRef={mobileNavButtonRef} />
-							</NavTab>
-						</div>
-						{/* <MobileNav className="block md:hidden" /> */}
-					</div>
-				</div>
-			</nav>
-		</div>
+				</nav>
+			</div>
+			<div
+				className={`h-12 md:hidden ${pathname === "/" ? "tall:hidden" : ""}`}
+			></div>
+		</>
 	);
 };
 

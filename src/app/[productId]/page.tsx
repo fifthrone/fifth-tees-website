@@ -5,6 +5,9 @@ import ProductFeatures from "../../components/product-features/product-features"
 import AddToWishListButton from "../../components/wish-list/add-to-wish-list-button";
 import AddToCartButton from "../../components/cart/add-to-cart-button";
 import SizeGuide from "../../components/size-guide/size-guide";
+import Breadcrumb from "../../components/breadcrumb/breadcrumb";
+import BreadcrumbItem from "../../components/breadcrumb/breadcrumb-item";
+
 
 import {
 	getData,
@@ -123,24 +126,34 @@ const ProductPage = async ({ params }: ProductPageProps) => {
 		},
 	];
 
-	// useEffect(() => {
-	// 	dispatch(clearProduct);
-	// 	if (router.isReady) {
-	// 		dispatch(fetchProductAsync(id));
-	// 	}
-	// }, [router.isReady, id]);
+	const typeToHrefMap={
+		"T-Shirt":"/t-shirts",
+		"Sticker":"/stickers",
+	}
 
 	return (
 		<>
+			<div className="px-2 sm:px-10 max-w-6xl mx-auto">
+				<Breadcrumb className="pl-2 py-4">
+					<BreadcrumbItem href="/" className="hover:text-neutral-600 dark:hover:text-neutral-300 duration-200 transition">
+						<i className="fa-solid fa-house"></i>
+					</BreadcrumbItem>
+					<BreadcrumbItem href="/products">Products</BreadcrumbItem>
+					<BreadcrumbItem href={typeToHrefMap[type]}>{type}s</BreadcrumbItem>
+					<BreadcrumbItem>{title}</BreadcrumbItem>
+				</Breadcrumb>
+			</div>
 			{product && (
 				<div className="flex flex-col items-center justify-center max-w-6xl mx-auto sm:px-10 px-2 border1 pb-4">
-					<div className="w-full bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl mt-2 sm:mt-8 p-6 sm:p-12">
+					<div className="w-full bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-6 sm:p-12">
 						<div className="border1 grid gap-14 md:grid-cols-2  auto-rows-min">
 							<div className="md:pt-12 space-y-2 md:space-y-4 border1 border-black">
 								<div className="text-xl sm:text-3xl font-poppins font-semibold">
 									{title} {type}
 								</div>
-								<div className="text-xs sm:text-base font-light">{product.type}</div>
+								<div className="text-xs sm:text-base font-light">
+									{product.type}
+								</div>
 								<div className="text-lg sm:text-2xl font-poppins font-semibold">
 									${product.price}
 								</div>

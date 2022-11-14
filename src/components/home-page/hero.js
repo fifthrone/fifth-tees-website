@@ -28,8 +28,8 @@ const Hero = (props) => {
 
 	return (
 		<>
-			<div className="hidden tall:block relative w-full h-[calc(1440px+100vh)] border1">
-				<div className="tall:sticky border1 top-0 w-full md:h-screen min-1h-[800px]">
+			<div className="xborder hidden tall:block relative w-full h-[calc(1440px+100vh)]">
+				<div className="tall:sticky xborder top-0 w-full md:h-screen min-1h-[800px]">
 					<div className="h-12 md:hidden"></div>
 					<div className="sm:py-8 h-[calc(100vh-3rem)] md:h-screen">
 						<div className="relative w-full h-full sm:rounded-[50px] border1 border-white flex items-center justify-center overflow-hidden sm:shadow-[0_0_20px_rgba(0,0,0,0.5)]">
@@ -99,11 +99,11 @@ const Hero = (props) => {
 					<div
 						className={`relative w-full h-full 1rounded-[50px] sm:rounded-[50px] border-0 border-white flex items-center justify-center overflow-hidden sm:shadow-[0_0_20px_rgba(0,0,0,0.5)] bg-gradient-to-br ${
 							[
-								"from-orange-600 to-blue-300",
-								"from-blue-300 to-purple-300",
-								"from-purple-300 to-green-300",
-								"from-green-300 to-red-300",
-								"from-red-300 to-amber-300",
+								"from-orange-600 to-blue-300 dark:from-orange-800 dark:to-blue-700",
+								"from-blue-300 to-purple-300 dark:from-blue-700 dark:to-purple-700",
+								"from-purple-300 to-green-300 dark:from-purple-700 dark:to-green-700",
+								"from-green-300 to-red-300 dark:from-green-700 dark:to-red-700",
+								"from-red-300 to-amber-300 dark:from-red-700 dark:to-amber-700",
 							][index]
 						}`}
 					>
