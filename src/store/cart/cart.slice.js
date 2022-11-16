@@ -1,4 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
+import {
+	clearUserCart,
+	updateUserCart,
+	setFirestoreUserCartItems,
+} from "../../utils/firebase/firebase.utils";
+import { selectUser } from "../account/account.slice";
 
 const initialState = {
 	isOpen: false,
@@ -12,6 +18,9 @@ const cartSlice = createSlice({
 		toggleCart: (state) => {
 			state.isOpen = !state.isOpen;
 		},
+		openCart: (state) => {
+			state.isOpen = true;
+		},
 		closeCart: (state) => {
 			state.isOpen = false;
 		},
@@ -21,7 +30,7 @@ const cartSlice = createSlice({
 	},
 });
 
-export const { toggleCart, closeCart, setItems } = cartSlice.actions;
+export const { toggleCart, openCart, closeCart, setItems } = cartSlice.actions;
 
 export const selectIsOpen = (state) => state.cart.isOpen;
 
@@ -40,10 +49,7 @@ export const selectTotalPrice = (state) => {
 export const selectItemsCount = (state) => {
 	const allItems = state.cart.items;
 
-	const count = allItems.reduce(
-		(acc, currentItem) => acc + currentItem.qty,
-		0
-	);
+	const count = allItems.reduce((acc, currentItem) => acc + currentItem.qty, 0);
 
 	return count;
 };
@@ -64,12 +70,13 @@ export const addItems = (item) => (dispatch, getState) => {
 				? { ...currentItem, qty: currentItem.qty + 1 }
 				: currentItem
 		);
-		dispatch(setItems(newItems));
+		dispatch(setCartAndFirestoreCartItems(newItems));
+		console.log("post");
 		return;
 	}
 
 	const newItems = [...currentItems, item];
-	dispatch(setItems(newItems));
+	dispatch(setCartAndFirestoreCartItems(newItems));
 	return;
 };
 
@@ -86,11 +93,35 @@ export const removeItems = (item) => (dispatch, getState) => {
 		[]
 	);
 
-	dispatch(setItems(newItems));
+	dispatch(setCartAndFirestoreCartItems(newItems));
 };
 
 export const clearItems = () => (dispatch) => {
-	dispatch(setItems([]));
+	dispatch(setCartAndFirestoreCartItems([]));
 };
+
+export const setCartAndFirestoreCartItems =
+	(items) => async (dispatch, getState) => {
+		dispatch(setItems(items));
+
+		const currentUser = selectUser(getState());
+		// console.log("currenUser", currentUser);
+		if (currentUser) {
+			// console.log("currenUser", currentUser);
+			const currentItems = selectItems(getState());
+			const lastUpdatedAt = new Date();
+
+			const userCartItems = currentItems.map((item) => {
+				return {
+					id: item.id,
+					size: item.size,
+					qty: item.qty,
+					lastUpdatedAt,
+				};
+			});
+
+			setFirestoreUserCartItems(currentUser.uid, userCartItems)
+		}
+	};
 
 export default cartSlice.reducer;

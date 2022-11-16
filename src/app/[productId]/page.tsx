@@ -8,7 +8,6 @@ import SizeGuide from "../../components/size-guide/size-guide";
 import Breadcrumb from "../../components/breadcrumb/breadcrumb";
 import BreadcrumbItem from "../../components/breadcrumb/breadcrumb-item";
 
-
 import {
 	getData,
 	getProduct,
@@ -126,16 +125,19 @@ const ProductPage = async ({ params }: ProductPageProps) => {
 		},
 	];
 
-	const typeToHrefMap={
-		"T-Shirt":"/t-shirts",
-		"Sticker":"/stickers",
-	}
+	const typeToHrefMap = {
+		"T-Shirt": "/t-shirts",
+		Sticker: "/stickers",
+	};
 
 	return (
 		<>
 			<div className="px-2 sm:px-10 max-w-6xl mx-auto">
 				<Breadcrumb className="pl-2 py-4">
-					<BreadcrumbItem href="/" className="hover:text-neutral-600 dark:hover:text-neutral-300 duration-200 transition">
+					<BreadcrumbItem
+						href="/"
+						className="hover:text-neutral-600 dark:hover:text-neutral-300 duration-200 transition"
+					>
 						<i className="fa-solid fa-house"></i>
 					</BreadcrumbItem>
 					<BreadcrumbItem href="/products">Products</BreadcrumbItem>

@@ -7,6 +7,17 @@ import sizeReducer from "./size/size.slice";
 import accountReducer from "./account/account.slice";
 import navReducer from "./nav/nav.slice";
 
+// import { persistStore, persistReducer } from "redux-persist";
+// import storage from "redux-persist/lib/storage";
+
+// const persistConfig = {
+// 	key: "root",
+// 	storage,
+// 	blacklist: ["account"],
+// };
+
+// const persistedReducer = per
+
 export const store = configureStore({
 	reducer: {
 		products: productsReducer,

@@ -4,24 +4,36 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { useState } from "react";
 
-import { addItems, toggleCart } from "../../store/cart/cart.slice";
+import {
+	addItems,
+	postData,
+	selectItems,
+	openCart,
+	toggleCart,
+} from "../../store/cart/cart.slice";
 import { selectSize } from "../../store/size/size.slice";
 
-const wait = async (ms) => (
-	new Promise((resolve) => setTimeout(resolve, ms))
-);
+import { updateUserCart } from "../../utils/firebase/firebase.utils";
+import { selectUser } from "../../store/account/account.slice";
+
+const wait = async (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const AddToCartButton = (props) => {
 	const { product, className } = props;
+
+	const dispatch = useDispatch();
 	const { type, size } = product;
 	const tShirtSize = useSelector(selectSize);
 
 	const [buttonState, setButtonState] = useState("await");
-	const dispatch = useDispatch();
+
+	const user = useSelector(selectUser);
+	const cartItems = useSelector(selectItems);
 
 	const clickHandler = async () => {
 		setButtonState("loading");
 		await wait(700);
+
 		dispatch(
 			addItems({
 				...product,
@@ -29,9 +41,19 @@ const AddToCartButton = (props) => {
 				qty: 1,
 			})
 		);
-		dispatch(toggleCart());
+		dispatch(openCart());
+		// dispatch(postData());
+
 		setButtonState("added");
 		await wait(1000);
+		// if (user) {
+		// 	try {
+		// 		await updateUserCart(user.uid, cartItems);
+		// 		console.log("updated cart");
+		// 	} catch (error) {
+		// 		console.log("error updating the cart", error.message);
+		// 	}
+		// }
 		setButtonState("await");
 	};
 

@@ -8,9 +8,7 @@ import {
 	createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.utils";
 
-import {
-	setUser,
-} from "../../store/account/account.slice";
+import { setUser } from "../../store/account/account.slice";
 
 const UserSubscriber = ({ children }) => {
 	const dispatch = useDispatch();
@@ -20,7 +18,7 @@ const UserSubscriber = ({ children }) => {
 			if (user) {
 				createUserDocumentFromAuth(user);
 				console.log(user);
-				dispatch(setUser(user.displayName));
+				dispatch(setUser({ displayName: user.displayName, uid: user.uid }));
 			} else {
 				dispatch(setUser(null));
 			}

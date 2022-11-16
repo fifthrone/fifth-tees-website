@@ -9,6 +9,8 @@ import {
 	where,
 	writeBatch,
 	doc,
+	runTransaction,
+	deleteDoc,
 } from "firebase/firestore";
 import {
 	getAuth,
@@ -20,7 +22,10 @@ import {
 	signOut,
 	onAuthStateChanged,
 } from "firebase/auth";
+
 import { ALL_PRODUCTS, FEATURED, HERO } from "../../products-data";
+
+import { debounce } from "../common.utils";
 
 import { Product } from "../../ts/types";
 
@@ -44,6 +49,7 @@ export const addProduct = async () => {
 		await setDoc(doc(productRef, product.id), product);
 	}
 };
+
 export const addHero = async () => {
 	HERO.forEach(async (item, index) => {
 		await setDoc(doc(collection(db, "hero"), index.toString()), item);
@@ -126,6 +132,29 @@ export const signInWithGooglePopup = () =>
 
 export const signInWithGoogleRedirect = () =>
 	signInWithRedirect(auth, googleProvider);
+
+//user cart
+export const setFirestoreUserCartItems = debounce(async (userUid, cartItems) => {
+	try {
+		const userCartSnapshot = await getDocs(
+			collection(db, `users/${userUid}/cart`)
+		);
+
+		userCartSnapshot.forEach(async (cartDoc) => {
+			await deleteDoc(doc(db, "users", userUid, "cart", cartDoc.id));
+		});
+
+		cartItems.forEach(async (item) => {
+			const cartItemId = `${item.id}-${item.size}`;
+
+			await setDoc(doc(db, "users", userUid, "cart", cartItemId), item);
+		});
+
+		console.log("clear successfully committed!");
+	} catch (e) {
+		console.log("clear failed: ", e);
+	}
+});
 
 export const createUserDocumentFromAuth = async (
 	userAuth,

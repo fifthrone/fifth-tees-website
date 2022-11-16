@@ -41,7 +41,7 @@ const Account = (props) => {
 	return (
 		<div className="md:w-96 max-w-xs" ref={ref}>
 			<div className="flex items-center justify-center flex-col space-y-8 p-8">
-				{user ? <div>Welcome! {user}</div> : null}
+				{user ? <div>Welcome! {user.displayName}</div> : null}
 				{user ? (
 					<button
 						onClick={() => {

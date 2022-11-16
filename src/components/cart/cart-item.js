@@ -17,7 +17,6 @@ const CartItem = ({ item }) => {
 		relatedId,
 		qty,
 	} = item;
-	console.log(item);
 
 	return (
 		<div className="flex flex-row space-x-3">
@@ -34,16 +33,16 @@ const CartItem = ({ item }) => {
 					onClick={() => {
 						dispatch(addItems({ ...item, qty: 1 }));
 					}}
-					className="bg-gray-200 dark:bg-neutral-600 w-8 h-8 p-1 rounded-full  text-black dark:text-white"
+					className="bg-gray-100 dark:bg-neutral-700 w-8 h-8 p-1 rounded-full  text-black dark:text-white flex items-center justify-center"
 				>
 					+
 				</button>
-				<div className="text-black dark:text-white">{qty}</div>
+				<div className="text-black text-lg dark:text-white">{qty}</div>
 				<button
 					onClick={() => {
 						dispatch(removeItems(item));
 					}}
-					className="bg-gray-200 dark:bg-neutral-600 w-8 h-8 p-1 rounded-full text-black dark:text-white"
+					className="bg-gray-100 dark:bg-neutral-700 w-8 h-8 p-1 rounded-full text-black dark:text-white flex items-center justify-center"
 				>
 					-
 				</button>

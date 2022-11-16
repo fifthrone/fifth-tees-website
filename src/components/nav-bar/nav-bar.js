@@ -131,11 +131,10 @@ const NavBar = () => {
 									/>
 								</NavTab>
 							</div>
-							<div className="hidden md:block relative">
+							<div ref={themeButtonRef} className="hidden md:block relative">
 								<NavButton
 									label="Switch to dark mode"
 									className="dark:hidden"
-									buttonRef={themeButtonRef}
 									onClick={() => {
 										setTheme("dark");
 									}}
@@ -145,7 +144,6 @@ const NavBar = () => {
 								<NavButton
 									label="Switch to light mode"
 									className="hidden dark:flex"
-									buttonRef={themeButtonRef}
 									onClick={() => {
 										setTheme("light");
 									}}
