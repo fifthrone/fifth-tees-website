@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import {
 	clearUserCart,
 	updateUserCart,
-	setFirestoreUserCartItems,
+	setFirestoreUserSubcollection,
 } from "../../utils/firebase/firebase.utils";
 import { selectUser } from "../account/account.slice";
 
@@ -71,7 +71,6 @@ export const addItems = (item) => (dispatch, getState) => {
 				: currentItem
 		);
 		dispatch(setCartAndFirestoreCartItems(newItems));
-		console.log("post");
 		return;
 	}
 
@@ -120,7 +119,7 @@ export const setCartAndFirestoreCartItems =
 				};
 			});
 
-			setFirestoreUserCartItems(currentUser.uid, userCartItems)
+			setFirestoreUserSubcollection(currentUser.uid, "cart", userCartItems)
 		}
 	};
 

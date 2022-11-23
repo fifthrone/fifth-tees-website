@@ -62,11 +62,8 @@ const HeroTransition = (props) => {
 		outPosition,
 		transitionStyle,
 		delay,
-		mountOnEnter,
-		unmountOnExit,
 		children,
-		onEntered,
-		onExit,
+		...otherProps
 	} = props;
 
 	const nodeRef = useRef(null);
@@ -91,11 +88,8 @@ const HeroTransition = (props) => {
 		<Transition
 			in={toggleTransition}
 			timeout={700 + delay}
-			mountOnEnter={mountOnEnter}
-			unmountOnExit={unmountOnExit}
-			onEntered={onEntered}
-			onExit={onExit}
 			nodeRef={nodeRef}
+			{...otherProps}
 		>
 			{(state) => (
 				<div

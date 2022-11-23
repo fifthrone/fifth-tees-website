@@ -127,7 +127,7 @@ const ProductPage = async ({ params }: ProductPageProps) => {
 
 	const typeToHrefMap = {
 		"T-Shirt": "/t-shirts",
-		Sticker: "/stickers",
+		"Sticker": "/stickers",
 	};
 
 	return (

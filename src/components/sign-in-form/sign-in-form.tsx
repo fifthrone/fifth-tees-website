@@ -10,6 +10,8 @@ import {
 	signInAuthUserWithEmailAndPassword,
 	signInWithGooglePopup,
 	createUserDocumentFromAuth,
+	getFirestoreUserSubcollection,
+	getProduct,
 } from "../../utils/firebase/firebase.utils";
 import Link from "next/link";
 
@@ -18,14 +20,24 @@ import {
 	selectUser,
 	openAccountTab,
 } from "../../store/account/account.slice";
+import { addItems } from "../../store/cart/cart.slice";
+import { addWishListItems } from "../../store/wish-list/wish-list.slice";
+
+import { useAppDispatch } from "../../store/hook";
 
 const defaultFormFields = {
 	email: "",
 	password: "",
 };
+const demoFormFields = {
+	email: "@gmail.com",
+	password: "",
+};
 
 const SignInForm = () => {
 	const dispatch = useDispatch();
+	const appDispatch = useAppDispatch();
+
 	const router = useRouter();
 	const pathname = usePathname();
 
@@ -36,13 +48,49 @@ const SignInForm = () => {
 		setFormFields(defaultFormFields);
 	};
 
+	const updateCartAndWishListOnSignIn = async (userUid) => {
+		const userCartItems = await getFirestoreUserSubcollection(userUid, "cart");
+		const userWishListItems = await getFirestoreUserSubcollection(
+			userUid,
+			"wishList"
+		);
+
+		userCartItems.forEach(async (item) => {
+			const itemDetails = await getProduct(item.id);
+
+			const cartItem = {
+				...itemDetails,
+				size: item.size,
+				qty: item.qty,
+			};
+
+			appDispatch(addItems(cartItem));
+		});
+
+		userWishListItems.forEach(async (item) => {
+			const itemDetails = await getProduct(item.id);
+
+			const wishListItem = {
+				...itemDetails,
+			};
+
+			appDispatch(addWishListItems(wishListItem));
+		});
+	};
+
 	const signInWithGoogle = async () => {
-		const res = await signInWithGooglePopup();
-		console.log(res);
-		if (pathname === "/account") {
-			console.log("redirect trigger");
-			router.back();
-			dispatch(openAccountTab());
+		try {
+			const user = await signInWithGooglePopup();
+
+			updateCartAndWishListOnSignIn(user.uid);
+
+			if (pathname === "/account") {
+				console.log("redirect trigger");
+				router.back();
+				dispatch(openAccountTab());
+			}
+		} catch (error) {
+			console.log("user sign in failed", error);
 		}
 	};
 
@@ -50,8 +98,16 @@ const SignInForm = () => {
 		event.preventDefault();
 
 		try {
-			await signInAuthUserWithEmailAndPassword(email, password);
+			const user = await signInAuthUserWithEmailAndPassword(email, password);
 			resetFormFields();
+
+			updateCartAndWishListOnSignIn(user.uid);
+
+			if (pathname === "/account") {
+				console.log("redirect trigger");
+				router.back();
+				dispatch(openAccountTab());
+			}
 		} catch (error) {
 			console.log("user sign in failed", error);
 		}

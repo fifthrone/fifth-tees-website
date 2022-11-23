@@ -20,7 +20,7 @@ const WishList = (props) => {
 
 	useEffect(() => {
 		function handleClickOutside(event) {
-			console.log("wishref", wishListButtonRef);
+			// console.log("wishref", wishListButtonRef);
 			if (
 				ref.current &&
 				!ref.current.contains(event.target) &&
@@ -47,7 +47,7 @@ const WishList = (props) => {
 				</div>
 			) : (
 				<div className="flex items-center justify-center flex-col w-60 h-60 space-y-4">
-					<div className="">Your Wish List is empty.</div>
+					<div className="">Your wish List is empty.</div>
 					<Link href="/products">
 						<p
 							className="bg-black rounded-full p-2 px-3 text-white shadow-xl"

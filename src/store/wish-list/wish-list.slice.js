@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { setItems } from "../cart/cart.slice";
+import { selectUser } from "../account/account.slice";
+
+import { setFirestoreUserSubcollection } from "../../utils/firebase/firebase.utils";
 
 const initialState = {
 	items: [],
@@ -39,8 +41,8 @@ export const addWishListItems = (item) => (dispatch, getState) => {
 	);
 
 	existingItem
-		? dispatch(setWishListItems(currentItems))
-		: dispatch(setWishListItems([item, ...currentItems]));
+		? dispatch(setWishListAndFirestoreWishListItems(currentItems))
+		: dispatch(setWishListAndFirestoreWishListItems([item, ...currentItems]));
 };
 
 export const removeWishListItems = (item) => (dispatch, getState) => {
@@ -52,11 +54,33 @@ export const removeWishListItems = (item) => (dispatch, getState) => {
 		[]
 	);
 
-	dispatch(setWishListItems(newItems));
+	dispatch(setWishListAndFirestoreWishListItems(newItems));
 };
 
 export const clearWishListItems = () => (dispatch) => {
-	dispatch(setWishListItems([]));
+	dispatch(setWishListAndFirestoreWishListItems([]));
 };
+
+export const setWishListAndFirestoreWishListItems =
+	(items) => async (dispatch, getState) => {
+		dispatch(setWishListItems(items));
+
+		const currentUser = selectUser(getState());
+		// console.log("currenUser", currentUser);
+		if (currentUser) {
+			// console.log("currenUser", currentUser);
+			const currentItems = selectWishListItems(getState());
+			const lastUpdatedAt = new Date();
+
+			const userWishListItems = currentItems.map((item) => {
+				return {
+					id: item.id,
+					lastUpdatedAt,
+				};
+			});
+
+			setFirestoreUserSubcollection(currentUser.uid, "wishList", userWishListItems)
+		}
+	};
 
 export default wishListSlice.reducer;

@@ -21,7 +21,7 @@ const NavButton = ({
 		>
 			{children}
 			{label ? (
-				<div className="opacity-0 text-center w-max p-1 px-2 text-xs top-12 absolute bg-yellow-900 text-white rounded-xl group-hover:opacity-100 duration-300">
+				<div className="hidden group-hover:block opacity-0 text-center w-max p-1 px-2 text-xs top-12 absolute bg-yellow-900 text-white rounded-xl group-hover:opacity-100 duration-300">
 					{label}
 				</div>
 			) : null}

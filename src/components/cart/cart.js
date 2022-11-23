@@ -24,7 +24,7 @@ const Cart = (props) => {
 
 	useEffect(() => {
 		function handleClickOutside(event) {
-			console.log("cartref", cartButtonRef);
+			// console.log("cartref", cartButtonRef);
 			if (
 				ref.current &&
 				!ref.current.contains(event.target) &&
@@ -46,8 +46,8 @@ const Cart = (props) => {
 			{items.length ? (
 				<div className="space-y-3 pb-1">
 					<h2 className="p-2 text-black dark:text-white">My Cart</h2>
-					{items.map((item) => (
-						<CartItem key={item.id} item={item} />
+					{items.map((item, index) => (
+						<CartItem key={`${item.id}-${item.size}`} item={item} />
 					))}
 					<p className="text-right w-full p-2 px-4 text-gray-500 dark:text-white font-md font-poppins">
 						Total: HK${totalPrice}
@@ -58,7 +58,7 @@ const Cart = (props) => {
 				</div>
 			) : (
 				<div className="flex items-center justify-center flex-col w-60 h-60 space-y-4">
-					<div className="">Your Cart is empty.</div>
+					<div className="">Your cart is empty.</div>
 					<Link href="/products">
 						<p
 							className="bg-black rounded-full p-2 px-3 text-white shadow-xl"

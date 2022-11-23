@@ -127,34 +127,56 @@ googleProvider.setCustomParameters({
 
 export const auth = getAuth();
 
-export const signInWithGooglePopup = () =>
-	signInWithPopup(auth, googleProvider);
+export const signInWithGooglePopup = async () => {
+	const result = await signInWithPopup(auth, googleProvider);
+	const user = result.user;
+	return user;
+};
 
-export const signInWithGoogleRedirect = () =>
+export const signInWithGoogleRedirect = async () =>
 	signInWithRedirect(auth, googleProvider);
 
 //user cart
-export const setFirestoreUserCartItems = debounce(async (userUid, cartItems) => {
+export const setFirestoreUserSubcollection = debounce(
+	async (userUid, subcollectionKey, items) => {
+		try {
+			const userSubcollectionSnapshot = await getDocs(
+				collection(db, `users/${userUid}/${subcollectionKey}`)
+			);
+
+			userSubcollectionSnapshot.forEach(async (subcollectionDoc) => {
+				await deleteDoc(
+					doc(db, "users", userUid, subcollectionKey, subcollectionDoc.id)
+				);
+			});
+
+			items.forEach(async (item) => {
+				const itemId = `${item.id}-${item.size}`;
+
+				await setDoc(doc(db, "users", userUid, subcollectionKey, itemId), item);
+			});
+
+			console.log("clear successfully committed!");
+		} catch (e) {
+			console.log("clear failed: ", e);
+		}
+	}
+);
+
+export const getFirestoreUserSubcollection = async (userUid, subcollectionKey) => {
 	try {
-		const userCartSnapshot = await getDocs(
-			collection(db, `users/${userUid}/cart`)
+		const userSubcollectionSnapshot = await getDocs(
+			collection(db, `users/${userUid}/${subcollectionKey}`)
+		);
+		const userSubcollectionItems = userSubcollectionSnapshot.docs.map((docSnapshot) =>
+			docSnapshot.data()
 		);
 
-		userCartSnapshot.forEach(async (cartDoc) => {
-			await deleteDoc(doc(db, "users", userUid, "cart", cartDoc.id));
-		});
-
-		cartItems.forEach(async (item) => {
-			const cartItemId = `${item.id}-${item.size}`;
-
-			await setDoc(doc(db, "users", userUid, "cart", cartItemId), item);
-		});
-
-		console.log("clear successfully committed!");
+		return userSubcollectionItems;
 	} catch (e) {
-		console.log("clear failed: ", e);
+		console.log("get items fails: ", e);
 	}
-});
+};
 
 export const createUserDocumentFromAuth = async (
 	userAuth,
@@ -194,7 +216,14 @@ export const createAuthUserWithEmailAndPassword = async (email, password) => {
 export const signInAuthUserWithEmailAndPassword = async (email, password) => {
 	if (!email || !password) return;
 
-	return await signInWithEmailAndPassword(auth, email, password);
+	const userCredential = await signInWithEmailAndPassword(
+		auth,
+		email,
+		password
+	);
+	const user = userCredential.user;
+
+	return user;
 };
 
 export const signOutUser = async () => await signOut(auth);

@@ -12,7 +12,7 @@ import { getData } from "../../utils/firebase/firebase.utils";
 // 	preferredRegion = "auto";
 
 const getP = async () => {
-	await new Promise((rs) => setTimeout(rs, 2000));
+	// await new Promise((rs) => setTimeout(rs, 2000));
 	return await getData("products");
 };
 
