@@ -4,7 +4,6 @@ import {
 	removeWishListItems,
 	selectWishListItemIds,
 } from "../../store/wish-list/wish-list.slice";
-import { selectProductById } from "../../store/products/products.slice";
 import Link from "next/link";
 
 const ProductCardClean = ({ product }) => {

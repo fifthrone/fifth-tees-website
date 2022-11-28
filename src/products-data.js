@@ -20,6 +20,7 @@ export const ALL_PRODUCTS = [
 		],
 		redbubbleUrl:
 			"https://www.redbubble.com/i/t-shirt/Coffee-Matters-Science-T-shirt-by-FifthTees/104556924.FB110",
+		tags: ["Food", "Meme", "Funny"],
 	},
 	{
 		id: "dad-lifts-dinosaur-tshirt", //2
@@ -42,6 +43,7 @@ export const ALL_PRODUCTS = [
 		],
 		redbubbleUrl:
 			"https://www.redbubble.com/i/t-shirt/Dad-Lifts-Dinosaur-Deadlifting-Cute-Jr-T-shirt-by-FifthTees/102442393.FB110",
+		tags: ["Kids", "Family", "Funny"],
 	},
 	{
 		id: "trust-me-im-a-dogtor-tshirt",
@@ -62,6 +64,7 @@ export const ALL_PRODUCTS = [
 			"trust-me-im-a-dogtor-tshirt",
 			"friends-and-beer-is-all-i-need-tshirt",
 		],
+		tags: ["Dog", "Meme", "Funny"],
 	},
 	{
 		id: "friends-and-beer-is-all-i-need-tshirt", //4
@@ -84,6 +87,7 @@ export const ALL_PRODUCTS = [
 		],
 		redbubbleUrl:
 			"https://www.redbubble.com/i/t-shirt/Swole-Doge-Dogtor-Meme-Shiba-Inu-Dog-by-FifthTees/84185429.FB110",
+		tags: ["Friendship", "Meme", "Funny"],
 	},
 	{
 		id: "geez-tshirt",
@@ -106,6 +110,7 @@ export const ALL_PRODUCTS = [
 		],
 		redbubbleUrl:
 			"https://www.redbubble.com/i/t-shirt/Geez-Oh-Geez-Catchphrase-by-FifthTees/105149909.IJ6L0",
+		tags: ["Meme", "Funny"],
 	},
 	{
 		id: "learn-geometry-and-eat-more-pizza-tshirt", //6
@@ -128,6 +133,7 @@ export const ALL_PRODUCTS = [
 		],
 		redbubbleUrl:
 			"https://www.redbubble.com/i/t-shirt/Big-Cheese-Pizza-Slice-Learn-Geometry-and-Mathematics-by-FifthTees/83541434.UIIS2",
+		tags: ["Math", "Meme", "Funny"],
 	},
 	{
 		id: "hippo-dont-care-tshirt",
@@ -150,6 +156,7 @@ export const ALL_PRODUCTS = [
 		],
 		redbubbleUrl:
 			"https://www.redbubble.com/i/t-shirt/Hippo-Meme-Cute-Hippo-Don-t-Care-T-shirt-by-FifthTees/81759085.FB110",
+		tags: ["Animal", "Meme", "Funny"],
 	},
 	{
 		id: "just-a-girl-who-loves-siberian-husky-tshirt", //8
@@ -172,6 +179,7 @@ export const ALL_PRODUCTS = [
 		],
 		redbubbleUrl:
 			"https://www.redbubble.com/i/t-shirt/Just-a-girl-who-loves-Siberian-Husky-Dog-Lover-T-shirt-by-FifthTees/93946408.FB110",
+		tags: ["Dog"],
 	},
 	{
 		id: "you-melt-my-ice-cream-tshirt",
@@ -194,6 +202,7 @@ export const ALL_PRODUCTS = [
 		],
 		redbubbleUrl:
 			"https://www.redbubble.com/i/t-shirt/Cute-Ice-Cream-Melting-You-Melt-My-Ice-Cream-by-FifthTees/84184050.UIIS2",
+		tags: ["Food", "Funny"],
 	},
 	{
 		id: "outlaw-cowboy-minimal-tshirt", //10
@@ -216,6 +225,7 @@ export const ALL_PRODUCTS = [
 		],
 		redbubbleUrl:
 			"https://www.redbubble.com/i/t-shirt/Outlaw-Cowboy-Minimal-Logo-for-dark-background-by-FifthTees/108192124.FB110",
+		tags: [],
 	},
 	{
 		id: "outlaw-cowboy-tshirt",
@@ -238,6 +248,7 @@ export const ALL_PRODUCTS = [
 		],
 		redbubbleUrl:
 			"https://www.redbubble.com/i/t-shirt/Outlaw-Cowboy-T-shirt-black-background-by-FifthTees/103764901.FB110",
+		tags: [],
 	},
 	{
 		id: "pizza-ghost-sticker",
@@ -261,6 +272,7 @@ export const ALL_PRODUCTS = [
 		],
 		redbubbleUrl:
 			"https://www.redbubble.com/i/sticker/Funny-Cartoon-Halloween-Pizza-Ghost-with-Extra-Melting-Cheese-by-FifthTees/82790285.EJUG5",
+		tags: ["Food", "Pizza"],
 	},
 	{
 		id: "just-a-girl-who-loves-shiba-inu-tshirt",
@@ -283,6 +295,7 @@ export const ALL_PRODUCTS = [
 		],
 		redbubbleUrl:
 			"https://www.redbubble.com/i/t-shirt/Just-a-girl-who-loves-Shiba-Inu-Dog-Lover-T-shirt-by-FifthTees/93827055.FB110",
+		tags: ["Dog"],
 	},
 	{
 		id: "just-a-girl-who-loves-staffordshire-bull-terrier-tshirt", //14
@@ -305,6 +318,7 @@ export const ALL_PRODUCTS = [
 		],
 		redbubbleUrl:
 			"https://www.redbubble.com/i/t-shirt/Just-a-girl-who-loves-Staffordshire-Bull-Terrier-Dog-Lover-T-shirt-by-FifthTees/93953454.FB110",
+		tags: ["Dog"],
 	},
 	{
 		id: "trick-or-chesse-tshirt",
@@ -327,6 +341,7 @@ export const ALL_PRODUCTS = [
 		],
 		redbubbleUrl:
 			"https://www.redbubble.com/i/t-shirt/Funny-Cartoon-Halloween-Pizza-Ghost-with-Extra-Melting-Cheese-Trick-or-Cheese-by-FifthTees/82790714.UIIS2",
+		tags: ["Food", "Cheese", "Pizza", "Funny"],
 	},
 	{
 		id: "just-a-girl-who-loves-trigg-hound-tshirt", //16
@@ -349,6 +364,7 @@ export const ALL_PRODUCTS = [
 		],
 		redbubbleUrl:
 			"https://www.redbubble.com/i/t-shirt/Just-a-girl-who-loves-Trigg-Hound-Dog-Lover-T-shirt-by-FifthTees/93954400.FB110",
+		tags: ["Dog"],
 	},
 	{
 		id: "wet-owl-sticker",
@@ -372,6 +388,7 @@ export const ALL_PRODUCTS = [
 		],
 		redbubbleUrl:
 			"https://www.redbubble.com/i/sticker/Wet-Owl-Meme-Drawing-by-FifthTees/108887669.EJUG5",
+		tags: ["Animal", "Meme", "Funny"],
 	},
 	{
 		id: "wet-owl-tshirt", //18
@@ -394,6 +411,7 @@ export const ALL_PRODUCTS = [
 		],
 		redbubbleUrl:
 			"https://www.redbubble.com/i/t-shirt/Wet-Owl-Meme-Drawing-by-FifthTees/108887669.IJ6L0",
+		tags: ["Animal", "Meme", "Funny"],
 	},
 ];
 

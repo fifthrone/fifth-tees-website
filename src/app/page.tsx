@@ -1,7 +1,10 @@
 import Hero from "../components/home-page/hero";
 import FeaturedSection from "../components/home-page/featured-section";
 
-import { getData, getProducts } from "../utils/firebase/firebase.utils";
+import {
+	getData,
+	getProducts,
+} from "../utils/firebase/firebase.utils";
 
 // export const dynamic = 'auto',
 //   dynamicParams = true,
@@ -11,7 +14,6 @@ import { getData, getProducts } from "../utils/firebase/firebase.utils";
 //   preferredRegion = 'auto'
 
 // 'auto' | 'force-dynamic' | 'error' | 'force-static'
-
 
 const getProductsMap = async (collectionKey: string) => {
 	const featured = await getData(collectionKey);
@@ -25,7 +27,7 @@ const getProductsMap = async (collectionKey: string) => {
 
 		return product;
 	});
-	return Promise.all(promises)
+	return Promise.all(promises);
 };
 
 const Home = async () => {

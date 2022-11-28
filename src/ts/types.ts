@@ -11,4 +11,5 @@ export interface Product {
 	otherTypeId: string;
 	relatedId: string[];
 	redbubbleUrl: string;
+	tag: string[];
 }

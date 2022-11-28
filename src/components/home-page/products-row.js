@@ -1,8 +1,6 @@
 "use client"
 
 import ProductCard from "../product-card/product-card";
-import { fetchProductsAsync } from "../../store/products/products.slice";
-import { selectProducts } from "../../store/products/products.slice";
 import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 

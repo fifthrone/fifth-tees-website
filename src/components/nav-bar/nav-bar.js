@@ -32,7 +32,9 @@ import {
 	selectIsMobileNavTabOpen,
 	toggleMobileNavTab,
 } from "../../store/nav/nav.slice";
+
 import MobileNav from "./mobile-nav";
+import { resetTag } from "../../store/tag/tag.slice";
 
 const NavBar = () => {
 	const dispatch = useDispatch();
@@ -70,9 +72,30 @@ const NavBar = () => {
 					</Link>
 					<div className="flex items-center">
 						<div className="hidden md:flex font-medium text-orange-900 dark:text-white items-center space-x-1 mr-4">
-							<NavLink href="/products">All Products</NavLink>
-							<NavLink href="/t-shirts">T-Shirts</NavLink>
-							<NavLink href="/stickers">Stickers</NavLink>
+							<NavLink
+								href="/products"
+								onClick={() => {
+									dispatch(resetTag());
+								}}
+							>
+								All Products
+							</NavLink>
+							<NavLink
+								href="/t-shirts"
+								onClick={() => {
+									dispatch(resetTag());
+								}}
+							>
+								T-Shirts
+							</NavLink>
+							<NavLink
+								href="/stickers"
+								onClick={() => {
+									dispatch(resetTag());
+								}}
+							>
+								Stickers
+							</NavLink>
 						</div>
 						<div className="text-orange-800 dark:text-white flex items-center md:space-x-2 space-x-1">
 							<div className="relative">

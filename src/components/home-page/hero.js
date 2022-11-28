@@ -8,6 +8,10 @@ import { Parallax } from "react-scroll-parallax";
 import HeroTransition from "../home-page/hero-transition";
 import HeroSection from "../home-page/hero-section";
 
+import { useDispatch } from "react-redux";
+
+import { setTag } from "../../store/tag/tag.slice";
+
 const Hero = (props) => {
 	const { hero } = props;
 
@@ -17,6 +21,8 @@ const Hero = (props) => {
 		const position = window.pageYOffset;
 		setScrollPosition(position);
 	};
+
+	const dispatch = useDispatch();
 
 	useEffect(() => {
 		window.addEventListener("scroll", handleScroll);
@@ -72,7 +78,20 @@ const Hero = (props) => {
 								<div className="h-1 w-1 rounded-full bg-white"></div>
 								<p className="tracking-wide">Stickers</p>
 							</div>
-							<Link href={"/products"}>
+							<Link
+								href={"/products"}
+								onClick={() => {
+									if (scrollPosition <= 550) {
+										dispatch(setTag("Meme"));
+										return;
+									}
+									if (scrollPosition <= 1050) {
+										dispatch(setTag("Dog"));
+										return;
+									}
+									dispatch(setTag("Food"));
+								}}
+							>
 								<p className="absolute top-[41%] text-white text-2xl p-2 px-6 bg-gray-900 rounded-full hover:-translate-y-1 duration-200 shadow-xl hover:shadow-2xl border1">
 									Shop All
 								</p>

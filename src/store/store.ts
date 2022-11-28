@@ -1,10 +1,9 @@
-import productsReducer from "./products/products.slice";
-import productReducer from "./product/product.slice";
 import cartReducer from "./cart/cart.slice";
 import wishListReducer from "./wish-list/wish-list.slice";
 import sizeReducer from "./size/size.slice";
 import accountReducer from "./account/account.slice";
 import navReducer from "./nav/nav.slice";
+import tagReducer from "./tag/tag.slice";
 
 import {
 	configureStore,
@@ -38,13 +37,12 @@ const accountPersistConfig = {
 };
 
 const rootReducer = combineReducers({
-	products: productsReducer,
-	product: productReducer,
 	cart: cartReducer,
 	wishList: wishListReducer,
 	size: sizeReducer,
 	account: persistReducer(accountPersistConfig, accountReducer),
 	nav: navReducer,
+	tag: tagReducer,
 });
 
 const persistedReducer = persistReducer(rootPersistConfig, rootReducer);
