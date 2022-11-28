@@ -56,18 +56,23 @@ const SignInForm = () => {
 		);
 
 		userCartItems.forEach(async (item) => {
+			//compare first
+			//useSelector(selectItems)
+			
 			const itemDetails = await getProduct(item.id);
-
+			
 			const cartItem = {
 				...itemDetails,
 				size: item.size,
 				qty: item.qty,
 			};
-
+			
 			appDispatch(addItems(cartItem));
 		});
-
+		
 		userWishListItems.forEach(async (item) => {
+			//compare first
+
 			const itemDetails = await getProduct(item.id);
 
 			const wishListItem = {

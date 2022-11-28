@@ -21,7 +21,7 @@ const NavTab = (props) => {
 				<div
 					ref={nodeRef}
 					className={`fixed w-max right-0 md:top-16 top-12 bg-white dark:bg-neutral-800 rounded-bl-3xl md:rounded-lg z-40 transition-all duration-500 md:transition-none md:duration-0 md:translate-x-0 border-t-0 md:border-0 dark:border-neutral-900 shadow-lg1 
-					shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25),inset_0px_10px_8px_-11px_rgba(0,0,0,0.4)] md:shadow-lg ${
+					shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25),inset_0px_10px_8px_-11px_rgba(0,0,0,0.4)] md:shadow-[0_25px_80px_-10px_rgba(0,0,0,0.7)] ${
 						state === "entering"
 							? "translate-x-0"
 							: state === "entered"
