@@ -16,7 +16,7 @@ const Tags = (props) => {
 
 	return (
 		<div
-			className={`flex flex-row flex-wrap py-0 items-center justify-start gap-2 ${className}`}
+			className={`flex flex-row flex-wrap py-0 items-center justify-start gap-1 sm:gap-2 ${className}`}
 		>
 			<div className="text-gray-500 text-xl">#</div>
 			{availableTags.map((tag) => (

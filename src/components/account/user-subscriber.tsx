@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import {
 	onAuthStateChangedListener,
 	createUserDocumentFromAuth,
-	getFirestoreUserCartItems,
 } from "../../utils/firebase/firebase.utils";
 
 import { setUser } from "../../store/account/account.slice";
