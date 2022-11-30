@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import FooterLink from "./footer-link";
 
 const Footer = () => {
@@ -8,7 +9,13 @@ const Footer = () => {
 				{/* <div className="mt-8 border-t-[1px] border-gray-400 w-full"></div> */}
 				<div className="py-8 flex flex-col md:flex-row space-y-16 md:space-y-0 justify-center border1">
 					<div className="flex flex-row space-x-8 items-center justify-center w-full border1">
-						<img className="h-28 object-contain" src="Avatar.png" alt="" />
+						<Image
+							className="h-28 w-auto object-contain"
+							src="/Avatar.png"
+							alt=""
+							width={200}
+							height={200}
+						/>
 						<div className="flex flex-col space-y-2">
 							<h2 className="font-semibold text-2xl font-poppins">
 								Fifth Tees
@@ -19,10 +26,12 @@ const Footer = () => {
 									rel="noopener noreferrer"
 									target="_blank"
 								>
-									<img
-										className="h-8 object-contain hover:scale-105 duration-500"
-										src="instagramLogo.png"
+									<Image
+										className="h-8 w-auto object-contain hover:scale-105 duration-500"
+										src="/instagramLogo.png"
 										alt="instagram"
+										width={50}
+										height={50}
 									/>
 								</a>
 								<a
@@ -30,10 +39,12 @@ const Footer = () => {
 									rel="noopener noreferrer"
 									target="_blank"
 								>
-									<img
-										className="h-8 object-contain hover:scale-105 duration-500"
-										src="redbubbleLogo.png"
+									<Image
+										className="h-8 w-auto object-contain hover:scale-105 duration-500"
+										src="/redbubbleLogo.png"
 										alt="redbubble"
+										width={50}
+										height={50}
 									/>
 								</a>
 							</div>
@@ -47,8 +58,8 @@ const Footer = () => {
 								</p>
 								<FooterLink href="/t-shirts">T-Shirts</FooterLink>
 								<FooterLink href="/stickers">Stickers</FooterLink>
-								<FooterLink href="/t-shirts">Meme</FooterLink>
-								<FooterLink href="/t-shirts">Pets</FooterLink>
+								<FooterLink href="/products" tag="Meme">Meme</FooterLink>
+								<FooterLink href="/products" tag="Animal">Pets &amp; Animals</FooterLink>
 							</div>
 						</div>
 						<div className="flex items-center justify-center w-full border1 h-full text-gray-600 dark:text-neutral-400">

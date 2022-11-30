@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Parallax } from "react-scroll-parallax";
 
 import HeroTransition from "../home-page/hero-transition";
@@ -103,9 +104,11 @@ const Hero = (props) => {
 					className="absolute top-[700px] -left-28"
 					translateY={[0, -100]}
 				>
-					<img
-						className="h-96 hover:-rotate-1 duration-500"
-						src="PizzaSticker.png"
+					<Image
+						className="h-96 hover:-rotate-1 duration-500 w-auto"
+						src="/PizzaSticker.png"
+						width={450}
+						height={540}
 						alt=""
 					/>
 				</Parallax>

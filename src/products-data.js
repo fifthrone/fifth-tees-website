@@ -64,7 +64,7 @@ export const ALL_PRODUCTS = [
 			"trust-me-im-a-dogtor-tshirt",
 			"friends-and-beer-is-all-i-need-tshirt",
 		],
-		tags: ["Dog", "Meme", "Funny"],
+		tags: ["Dog", "Meme", "Funny", "Animal"],
 	},
 	{
 		id: "friends-and-beer-is-all-i-need-tshirt", //4
@@ -179,7 +179,7 @@ export const ALL_PRODUCTS = [
 		],
 		redbubbleUrl:
 			"https://www.redbubble.com/i/t-shirt/Just-a-girl-who-loves-Siberian-Husky-Dog-Lover-T-shirt-by-FifthTees/93946408.FB110",
-		tags: ["Dog"],
+		tags: ["Dog", "Animal"],
 	},
 	{
 		id: "you-melt-my-ice-cream-tshirt",
@@ -295,7 +295,7 @@ export const ALL_PRODUCTS = [
 		],
 		redbubbleUrl:
 			"https://www.redbubble.com/i/t-shirt/Just-a-girl-who-loves-Shiba-Inu-Dog-Lover-T-shirt-by-FifthTees/93827055.FB110",
-		tags: ["Dog"],
+		tags: ["Dog", "Animal"],
 	},
 	{
 		id: "just-a-girl-who-loves-staffordshire-bull-terrier-tshirt", //14
@@ -318,7 +318,7 @@ export const ALL_PRODUCTS = [
 		],
 		redbubbleUrl:
 			"https://www.redbubble.com/i/t-shirt/Just-a-girl-who-loves-Staffordshire-Bull-Terrier-Dog-Lover-T-shirt-by-FifthTees/93953454.FB110",
-		tags: ["Dog"],
+		tags: ["Dog", "Animal"],
 	},
 	{
 		id: "trick-or-chesse-tshirt",
@@ -364,7 +364,7 @@ export const ALL_PRODUCTS = [
 		],
 		redbubbleUrl:
 			"https://www.redbubble.com/i/t-shirt/Just-a-girl-who-loves-Trigg-Hound-Dog-Lover-T-shirt-by-FifthTees/93954400.FB110",
-		tags: ["Dog"],
+		tags: ["Dog", "Animal"],
 	},
 	{
 		id: "wet-owl-sticker",

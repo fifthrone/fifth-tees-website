@@ -1,4 +1,6 @@
-"use client"
+"use client";
+
+import Image from "next/image";
 
 import { useEffect, useState } from "react";
 
@@ -11,20 +13,29 @@ const ImageGallery = ({ imageUrls }) => {
 
 	return (
 		<div className="flex flex-col border1 items-center justify-center space-y-4">
-			<img className="rounded-2xl" src={currentImageUrl} alt="" />
+			<Image
+				className="rounded-2xl"
+				src={`/${currentImageUrl}`}
+				alt=""
+				width={500}
+				height={500}
+				priority={true}
+			/>
 			<div className="flex flex-row items-center justify-center space-x-4">
 				{imageUrls.map((imageUrl) => (
 					<div
 						key={imageUrl}
 						onClick={() => {
-                            setCurrentImageUrl(imageUrl)
-                        }}
+							setCurrentImageUrl(imageUrl);
+						}}
 						className="flex flex-col items-center-justify-center space-y-2 group"
 					>
-						<img
-							className="h-14 rounded-md"
-							src={imageUrl}
+						<Image
+							className="h-14 w-auto rounded-md"
+							src={`/${imageUrl}`}
 							alt=""
+							width={100}
+							height={100}
 						/>
 						<div
 							className={

@@ -8,6 +8,8 @@ import SizeGuide from "../../components/size-guide/size-guide";
 import Breadcrumb from "../../components/breadcrumb/breadcrumb";
 import BreadcrumbItem from "../../components/breadcrumb/breadcrumb-item";
 
+import Image from "next/image";
+
 import {
 	getData,
 	getProduct,
@@ -127,7 +129,7 @@ const ProductPage = async ({ params }: ProductPageProps) => {
 
 	const typeToHrefMap = {
 		"T-Shirt": "/t-shirts",
-		"Sticker": "/stickers",
+		Sticker: "/stickers",
 	};
 
 	return (
@@ -194,7 +196,13 @@ const ProductPage = async ({ params }: ProductPageProps) => {
 									href={redbubbleUrl}
 									className="bg-red-900 rounded-xl w-full py-3 text-white font-poppins flex flex-row items-center justify-center space-x-2 px-2 hover:bg-red-800"
 								>
-									<img className="h-12" src="redbubbleLogo.png" alt="" />
+									<Image
+										className="h-12 w-auto"
+										src="/redbubbleLogo.png"
+										alt="Redbubble"
+										width={50}
+										height={50}
+									/>
 									<p>Buy it on Redbubble</p>
 								</a>
 							</div>

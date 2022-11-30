@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter, usePathname } from "next/navigation";
 
+import Image from "next/image";
+
 import FormInput from "../form-input/form-input";
 
 import {
@@ -58,18 +60,18 @@ const SignInForm = () => {
 		userCartItems.forEach(async (item) => {
 			//compare first
 			//useSelector(selectItems)
-			
+
 			const itemDetails = await getProduct(item.id);
-			
+
 			const cartItem = {
 				...itemDetails,
 				size: item.size,
 				qty: item.qty,
 			};
-			
+
 			appDispatch(addItems(cartItem));
 		});
-		
+
 		userWishListItems.forEach(async (item) => {
 			//compare first
 
@@ -161,7 +163,13 @@ const SignInForm = () => {
 						type="button"
 						onClick={signInWithGoogle}
 					>
-						<img className="h-5" src="googleLogo.png" alt="G" />
+						<Image
+							className="h-5 w-auto"
+							src="/googleLogo.png"
+							alt="G"
+							width={50}
+							height={50}
+						/>
 						<p>Sign In With Google</p>
 					</button>
 				</div>

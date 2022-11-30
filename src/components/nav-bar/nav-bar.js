@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 
 import { useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -59,15 +60,19 @@ const NavBar = () => {
 			<div className="fixed top-0 left-0 right-0 z-50 md:static bg-white dark:bg-neutral-800 shadow-lg shadow-gray-9001">
 				<nav className="max-w-6xl w-full flex justify-between items-center flex-row mx-auto sm:px-10 px-2">
 					<Link href="/">
-						<img
-							className="h-12 hidden dark:block md:h-16 p-2"
-							src="./fifthTeesDark.png"
-							alt=""
+						<Image
+							className="h-12 hidden dark:block md:h-16 p-2 w-auto"
+							src="/fifthTeesDark.png"
+							alt="Fifth Tees"
+							width={500}
+							height={500}
 						/>
-						<img
-							className="h-12 dark:hidden md:h-16 p-2"
-							src="./fifthTees.png"
-							alt=""
+						<Image
+							className="h-12 dark:hidden md:h-16 p-2 w-auto"
+							src="/fifthTees.png"
+							alt="Fifth Tees"
+							width={500}
+							height={500}
 						/>
 					</Link>
 					<div className="flex items-center">

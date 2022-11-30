@@ -5,6 +5,7 @@ import {
 	selectWishListItemIds,
 } from "../../store/wish-list/wish-list.slice";
 import Link from "next/link";
+import Image from "next/image";
 
 const ProductCardClean = ({ product }) => {
 	// const product = useSelector(selectProductById(productId));
@@ -16,9 +17,11 @@ const ProductCardClean = ({ product }) => {
 
 	return (
 		<div className="relative p-5 w-full h-full rounded-3xl shadow-xl -z-20 bg-gray-700">
-			<img
+			<Image
 				className="absolute bottom-0 -right-5 rotate-2 -z-10 w-[230px]"
-				src={imageMaskedUrl}
+				src={`/${imageMaskedUrl}`}
+				height={500}
+				width={500}
 				alt=""
 			/>
 			<button

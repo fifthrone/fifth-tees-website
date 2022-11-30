@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import TextFormatter from "../text-formatter/text-formatter";
 import WishListButtonSimple from "../ui/wish-list-button-simple";
 
@@ -12,15 +13,15 @@ const ProductCard = (props) => {
 				<WishListButtonSimple product={product} />
 				<Link href={`/${id}`}>
 					<div className="p-2 sm:p-3 flex flex-col bg-white dark:bg-neutral-600 rounded-2xl shadow-lg space-y-3 relative">
-						<img
-							src={imageUrl}
+						<Image
+							src={`/${imageUrl}`}
 							alt="t-shirt"
+							width={500}
+							height={500}
 							className="rounded-xl object-contain hover:scale-100 duration-200"
 						/>
 						<div className="px-2 space-y-1 font-poppins">
-							<TextFormatter className="">
-								{`${title} ${type} `}
-							</TextFormatter>
+							<TextFormatter className="">{`${title} ${type} `}</TextFormatter>
 							<p className="text-gray-600 dark:text-neutral-300 text-sm">
 								HK${price}
 							</p>

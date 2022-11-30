@@ -1,6 +1,8 @@
 import { useDispatch } from "react-redux";
 import { addItems, removeItems } from "../../store/cart/cart.slice";
 
+import Image from "next/image";
+
 const CartItem = ({ item }) => {
 	const dispatch = useDispatch();
 
@@ -20,7 +22,13 @@ const CartItem = ({ item }) => {
 
 	return (
 		<div className="flex flex-row space-x-3">
-			<img className="w-24 rounded-md" src={imageUrl} alt="" />
+			<Image
+				className="w-24 h-auto rounded-md"
+				src={`/${imageUrl}`}
+				alt=""
+				width={200}
+				height={200}
+			/>
 			<div className="w-36 text-md space-y-2">
 				<h2 className=" text-black dark:text-white">{title}</h2>
 				<p className="text-sm text-gray-500 dark:text-neutral-300 font-bold">
