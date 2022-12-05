@@ -7,7 +7,7 @@ const AccountPage = () => {
 			<div className="mt-8 bg-white dark:bg-neutral-800 p-8 rounded-3xl flex flex-col sm:flex-row items-center1 justify-center sm:space-x-8 shadow-xl space-y-12 sm:space-y-0">
 				<SignUpForm />
 				<div className="border-l"></div>
-        <hr className="sm:hidden" />
+				<hr className="sm:hidden" />
 				<SignInForm />
 			</div>
 		</div>

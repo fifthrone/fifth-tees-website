@@ -16,12 +16,12 @@ const ProductCardClean = ({ product }) => {
 	const isInWishList = wishListItemsIndex.includes(id);
 
 	return (
-		<div className="relative p-5 w-full h-full rounded-3xl shadow-xl -z-20 bg-gray-700">
+		<div className="relative p-3 sm:p-5 w-full h-full rounded-xl sm:rounded-3xl shadow-xl -z-20 bg-gray-700">
 			<Image
-				className="absolute bottom-0 -right-5 rotate-2 -z-10 w-[230px]"
+				className="absolute bottom-5 sm:bottom-0 -right-5 rotate-2 -z-10 xw-[530px] w-auto h-auto max-h-52 tall:max-h-full"
 				src={`/${imageMaskedUrl}`}
-				height={500}
-				width={500}
+				height={300}
+				width={300}
 				alt=""
 			/>
 			<button
@@ -30,7 +30,7 @@ const ProductCardClean = ({ product }) => {
 						? dispatch(removeWishListItems(product))
 						: dispatch(addWishListItems(product));
 				}}
-				className="absolute top-5 right-5 z-50"
+				className="absolute top-3 right-3 sm:top-5 sm:right-5 z-50"
 			>
 				{isInWishList ? (
 					<i className="text-red-400 fa-solid fa-heart scale-100 hover:scale-110 duration-200"></i>
@@ -40,7 +40,7 @@ const ProductCardClean = ({ product }) => {
 			</button>
 			<div className="w-[calc(100%-25px)]">
 				<Link href={`/${id}`}>
-					<p className="text-white font-poppins font-semibold  leading-tight text-md w-[calc(100%-25px)] hover:underline">
+					<p className="text-white font-poppins font-semibold leading-tight text-xs sm:text-base w-[calc(100%-25px)] hover:underline">
 						{title}
 					</p>
 				</Link>
@@ -48,11 +48,11 @@ const ProductCardClean = ({ product }) => {
 			<h3 className="text-white pt-2 text-xs font-poppins font-extralight">
 				{type}
 			</h3>
-			<h3 className="text-white pt-2 font-poppins font-semibold text-sm">
+			<h3 className="text-white pt-2 font-poppins font-semibold text-xs sm:text-sm">
 				{`$${price}`}
 			</h3>
 			<Link href={`/${id}`}>
-				<p className="absolute p-1 px-5 bg-white bottom-5 left-5 rounded-full font-poppins text-black font-semibold text-md hover:-translate-y-0.5 duration-200 shadow-xl hover:shadow-2xl">
+				<p className="absolute p-1 px-3 sm:px-5 bg-white bottom-3 sm:bottom-5 left-3 sm:left-5 rounded-full font-poppins text-black font-semibold text-md hover:-translate-y-0.5 duration-200 shadow-xl hover:shadow-2xl">
 					Buy
 				</p>
 			</Link>

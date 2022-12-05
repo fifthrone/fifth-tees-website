@@ -28,7 +28,7 @@ const ProductsRow = (props) => {
 				<i className="text-gray-500 fa-xl fa-solid fa-angle-right"></i>
 			</button>
 			<div
-				className="flex flex-row w-full overflow-x-scroll scroll-smooth scrollbar-hide space-x-4 pt-1 pb-4"
+				className="flex flex-row w-full overflow-x-scroll scroll-smooth scrollbar-hide space-x-1.5 sm:space-x-4 pt-1 pb-4"
 				ref={ref}
 			>
 				{products &&

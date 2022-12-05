@@ -57,7 +57,7 @@ const NavBar = () => {
 
 	return (
 		<>
-			<div className="fixed top-0 left-0 right-0 z-50 md:static bg-white dark:bg-neutral-800 shadow-lg shadow-gray-9001">
+			<div className="fixed top-0 left-0 right-0 z-50 bg-white/70 dark:bg-neutral-800/70 shadow-lg shadow-gray-9001 backdrop-blur-md">
 				<nav className="max-w-6xl w-full flex justify-between items-center flex-row mx-auto sm:px-10 px-2">
 					<Link href="/">
 						<Image
@@ -199,7 +199,8 @@ const NavBar = () => {
 				</nav>
 			</div>
 			<div
-				className={`h-12 md:hidden ${pathname === "/" ? "tall:hidden" : ""}`}
+				className={`h-12 md:h-16 ${pathname === "/" ? "tall:hidden" : ""}`}
+				// className="h-12 md:h-16"
 			></div>
 		</>
 	);

@@ -1,10 +1,6 @@
 import Hero from "../components/home-page/hero";
 import FeaturedSection from "../components/home-page/featured-section";
-
-import {
-	getData,
-	getProducts,
-} from "../utils/firebase/firebase.utils";
+import { getData, getProducts } from "../utils/firebase/firebase.utils";
 
 // export const dynamic = 'auto',
 //   dynamicParams = true,
@@ -39,15 +35,15 @@ const Home = async () => {
 			{/* <p className="fixed z-40">{scrollPosition}</p> */}
 			<div
 				id="hero"
-				className="flex flex-col items-center justify-center max-w-6xl mx-auto sm:px-10 px-0"
+				className="relative"
+				// className="flex flex-col items-center justify-center max-w-6xl mx-auto sm:px-10 px-0"
 			>
 				<Hero hero={hero} />
+				{featured.length &&
+					featured.map(({ title, products }) => (
+						<FeaturedSection key={title} title={title} products={products} />
+					))}
 			</div>
-
-			{featured.length &&
-				featured.map(({ title, products }) => (
-					<FeaturedSection key={title} title={title} products={products} />
-				))}
 		</>
 	);
 };
