@@ -22,6 +22,7 @@ const Hero = (props) => {
 
 	const handleScroll = () => {
 		const position = window.pageYOffset;
+		console.log(position)
 		setScrollPosition(position);
 	};
 
@@ -35,7 +36,7 @@ const Hero = (props) => {
 
 	return (
 		<>
-			<div className="fixed overflow-hidden inset-0 hidden tall:block">
+			<div className="fixed overflow-hidden inset-0 hidden tall:block -z-40">
 				<HeroTransition
 					className="-z-40 left-0 top-0 h-[300vh] w-[300vw]"
 					scrollPosition={scrollPosition}
@@ -89,6 +90,7 @@ const Hero = (props) => {
 									width={300}
 									height={300}
 									alt=""
+									priority
 								/>
 							</FadeInOutTransition>
 						</Parallax>
@@ -277,6 +279,7 @@ const Hero = (props) => {
 					/>
 				</Parallax>
 			</div> */}
+			<div className="w-full h-12 md:h-16 tall:hidden"></div>
 			{hero.map(({ title, products }, index) => (
 				<div
 					key={title}

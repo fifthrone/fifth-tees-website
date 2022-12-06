@@ -134,6 +134,7 @@ const ProductPage = async ({ params }: ProductPageProps) => {
 
 	return (
 		<>
+			<div className="w-full h-12 md:h-16"></div>
 			<div className="px-2 sm:px-10 max-w-6xl mx-auto">
 				<Breadcrumb className="pl-2 py-4">
 					<BreadcrumbItem

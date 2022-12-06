@@ -10,6 +10,7 @@ const TShirtsPage = async () => {
 
 	return (
 		<>
+			<div className="w-full h-12 md:h-16"></div>
 			<div className="px-2 sm:px-10 max-w-6xl mx-auto space-y-4">
 				<Breadcrumb className="pl-2 pt-4 py-0">
 					<BreadcrumbItem
@@ -21,7 +22,7 @@ const TShirtsPage = async () => {
 					<BreadcrumbItem href="/products">Products</BreadcrumbItem>
 					<BreadcrumbItem>T-Shirts</BreadcrumbItem>
 				</Breadcrumb>
-				<Tags className="pl-2"/>
+				<Tags className="pl-2" />
 				<div className="xborder flex flex-col items-center justify-center ">
 					<ProductListing products={tShirts} />
 				</div>

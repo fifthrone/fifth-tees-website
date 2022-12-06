@@ -4,7 +4,7 @@ import FooterLink from "./footer-link";
 
 const Footer = () => {
 	return (
-		<div className="mt-12 sm:mt-24 bg-white dark:bg-neutral-800 shadow-[0_-1px_20px_rgba(0,0,0,0.25)]">
+		<div className="mt-12 sm:mt-24 bg-white dark:bg-neutral-800 shadow-[0_-1px_20px_rgba(0,0,0,0.25)] z-40">
 			<div className="max-w-6xl px-10 mx-auto">
 				{/* <div className="mt-8 border-t-[1px] border-gray-400 w-full"></div> */}
 				<div className="py-8 flex flex-col md:flex-row space-y-16 md:space-y-0 justify-center border1">
@@ -68,8 +68,8 @@ const Footer = () => {
 									Account
 								</p>
 								<FooterLink href="/account">Create Account</FooterLink>
-								<FooterLink href="/">Contact Us</FooterLink>
-								<FooterLink href="/">Order History</FooterLink>
+								{/* <FooterLink href="/">Contact Us</FooterLink>
+								<FooterLink href="/">Order History</FooterLink> */}
 							</div>
 						</div>
 					</div>

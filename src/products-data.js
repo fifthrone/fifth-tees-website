@@ -231,7 +231,7 @@ export const ALL_PRODUCTS = [
 		id: "outlaw-cowboy-tshirt",
 		imageUrl: "productImages/outlawCowboyTshirt.jpg",
 		imageMaskedUrl: "productImages/outlawCowboyTshirtMasked.png",
-		imageModelUrl: "productImages/outlawCowboyTshirtTshirt.jpg",
+		imageModelUrl: "productImages/outlawCowboyTshirtModel.jpg",
 		price: 120,
 		title: "Outlaw Cowboy",
 		description: "",

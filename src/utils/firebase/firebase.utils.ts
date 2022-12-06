@@ -87,6 +87,26 @@ export const getData = async (collectionKey: string) => {
 
 	return data;
 };
+
+export const getDisplayName = async (uid: string) => {
+	try {
+		const userDocRef = doc(db, "users", uid);
+
+		const userSnapshot = await getDoc(userDocRef);
+
+		// console.log("snapshot", userSnapshot.data().displayName);
+
+		const displayName = userSnapshot.data().displayName;
+
+		console.log("dis", displayName, typeof displayName);
+
+		return displayName;
+	} catch (e) {
+		console.log("cannot get displayname:", e);
+		return "";
+	}
+};
+
 export const getProduct = async (id: string): Promise<Product> => {
 	const productRef = collection(db, "products");
 	const q = query(productRef, where("id", "==", id));
@@ -163,13 +183,16 @@ export const setFirestoreUserSubcollection = debounce(
 	}
 );
 
-export const getFirestoreUserSubcollection = async (userUid, subcollectionKey) => {
+export const getFirestoreUserSubcollection = async (
+	userUid,
+	subcollectionKey
+) => {
 	try {
 		const userSubcollectionSnapshot = await getDocs(
 			collection(db, `users/${userUid}/${subcollectionKey}`)
 		);
-		const userSubcollectionItems = userSubcollectionSnapshot.docs.map((docSnapshot) =>
-			docSnapshot.data()
+		const userSubcollectionItems = userSubcollectionSnapshot.docs.map(
+			(docSnapshot) => docSnapshot.data()
 		);
 
 		return userSubcollectionItems;

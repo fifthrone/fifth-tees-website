@@ -77,17 +77,40 @@ const HeroSection = (props) => {
 						<div className="text-white w-full flex items-center justify-center">
 							<Link
 								href={"/products"}
-								className="p-2 px-6 text-2xl rounded-full hover:-translate-y-1 duration-200 shadow-xl hover:shadow-2xl bg-gray-900 mtall:mt-4"
+								className="p-2 px-6 text-2xl hidden tall:block rounded-full hover:-translate-y-1 duration-200 shadow-xl hover:shadow-2xl bg-gray-900 mtall:mt-4"
 								onClick={() => {
-									if (scrollPosition <= 550) {
+									if (title === "Meme") {
 										dispatch(setTag("Meme"));
 										return;
 									}
-									if (scrollPosition <= 1050) {
+									if (title === "Dog") {
 										dispatch(setTag("Dog"));
 										return;
 									}
-									dispatch(setTag("Food"));
+									if (title === "Foodie") {
+										dispatch(setTag("Food"));
+										return;
+									}
+								}}
+							>
+								Shop All
+							</Link>
+							<Link
+								href={"/products"}
+								className="p-1 px-4 sm:p-2 sm:px-6 tall:hidden text-lg sm:text-2xl rounded-full hover:-translate-y-1 duration-200 shadow-xl hover:shadow-2xl bg-gray-900 mtall:mt-4"
+								onClick={() => {
+									if (title === "Meme") {
+										dispatch(setTag("Meme"));
+										return;
+									}
+									if (title === "Dog") {
+										dispatch(setTag("Dog"));
+										return;
+									}
+									if (title === "Foodie") {
+										dispatch(setTag("Food"));
+										return;
+									}
 								}}
 							>
 								Shop All
@@ -97,7 +120,7 @@ const HeroSection = (props) => {
 				) : null}
 			</div>
 			<div
-				className="absolute bottom-0 w-full xborder p-6 px-[max(2rem,50vw-33.5rem)] flex flex-row space-x-3 sm:space-x-6 overflow-x-scroll scroll-smooth scrollbar-hide"
+				className="absolute bottom-0 w-full xborder p-6 px-3 sm:px-[max(2rem,50vw-33.5rem)] flex flex-row space-x-3 sm:space-x-6 overflow-x-scroll scroll-smooth scrollbar-hide"
 				ref={ref}
 			>
 				{products.length &&

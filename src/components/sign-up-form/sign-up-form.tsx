@@ -37,14 +37,15 @@ const SignUpForm = () => {
 				email,
 				password
 			);
-
 			await createUserDocumentFromAuth(user, { displayName });
 			resetFormFields();
+			alert("Sign up succeed");
 		} catch (error) {
 			if (error.code === "auth/email-already-in-use") {
-				alert("Cannot create user, email already in use");
+				alert("Cannot create user, email already in use.");
 			} else {
 				console.log("user creation encountered an error", error);
+				alert("Sign up fail, please try again.");
 			}
 		}
 	};
@@ -99,10 +100,13 @@ const SignUpForm = () => {
 					name="confirmPassword"
 					value={confirmPassword}
 				/>
+				<button
+					className="p-2 w-full bg-black rounded-xl text-white"
+					type="submit"
+				>
+					Sign Up
+				</button>
 			</form>
-			<button className="p-2 bg-black rounded-xl text-white" type="submit">
-				Sign Up
-			</button>
 		</div>
 	);
 };

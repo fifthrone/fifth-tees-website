@@ -32,8 +32,8 @@ const defaultFormFields = {
 	password: "",
 };
 const demoFormFields = {
-	email: "@gmail.com",
-	password: "",
+	email: "demo.fifth.tees@gmail.com",
+	password: "Abcd1234",
 };
 
 const SignInForm = () => {
@@ -43,7 +43,7 @@ const SignInForm = () => {
 	const router = useRouter();
 	const pathname = usePathname();
 
-	const [formFields, setFormFields] = useState(defaultFormFields);
+	const [formFields, setFormFields] = useState(demoFormFields);
 	const { email, password } = formFields;
 
 	const resetFormFields = () => {
@@ -98,6 +98,8 @@ const SignInForm = () => {
 			}
 		} catch (error) {
 			console.log("user sign in failed", error);
+			alert("An error occured during sign in, please try again");
+
 		}
 	};
 
@@ -117,6 +119,11 @@ const SignInForm = () => {
 			}
 		} catch (error) {
 			console.log("user sign in failed", error);
+			if (error.code === "auth/wrong-password") {
+				alert("Incorrect email or password");
+			} else if (error.code === "auth/user-not-found") {
+				alert("Incorrect email or password");
+			}
 		}
 	};
 
@@ -148,11 +155,17 @@ const SignInForm = () => {
 					name="password"
 					value={password}
 				/>
-				<div className="flex flex-col space-y-4">
+				<div className="flex flex-col space-y-2">
 					<button className="p-2 bg-black rounded-xl text-white" type="submit">
 						Sign In
 					</button>
-					<div className="flex flex-row items-center space-x-2">
+					<button
+						className="p-2 bg-green-400 rounded-xl text-green-800 font-semibold"
+						type="submit"
+					>
+						Demo Sign In
+					</button>
+					<div className="flex flex-row items-center space-x-2 py-2">
 						<hr className="w-full border-gray-300" />
 						<p className="text-gray-400 text-sm">or</p>
 						<hr className="w-full border-gray-300" />

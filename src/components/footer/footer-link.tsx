@@ -17,6 +17,7 @@ const FooterLink = (props) => {
 			onClick={() => {
 				dispatch(setTag(tag));
 			}}
+			scroll={true}
 		>
 			{children}
 		</Link>

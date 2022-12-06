@@ -2,7 +2,11 @@
 
 import { useSelector, useDispatch } from "react-redux";
 
-import { toggleAccount, selectUser, closeAccountTab } from "../../store/account/account.slice";
+import {
+	toggleAccount,
+	selectUser,
+	closeAccountTab,
+} from "../../store/account/account.slice";
 
 import { useRef, useEffect } from "react";
 
@@ -39,25 +43,32 @@ const Account = (props) => {
 	}, [ref]);
 
 	return (
-		<div className="md:w-96 max-w-xs" ref={ref}>
-			<div className="flex items-center justify-center flex-col space-y-8 p-8">
-				{user ? <div>Welcome! {user.displayName}</div> : null}
-				{user ? (
-					<button
-						onClick={() => {
-							signOutUser();
-						}}
-					>
-						Sign Out
-					</button>
-				) : (
-					<>
-						<SignInForm />
-						{/* <SignUpForm /> */}
-					</>
-				)}
+		<>
+			<div className="md:w-96 max-w-xs" ref={ref}>
+				<div className="flex items-center justify-center flex-col space-y-8 p-6">
+					{user ? (
+						<div className="font-semibold text-lg">
+							Welcome! {user.displayName}
+						</div>
+					) : null}
+					{user ? (
+						<button
+							onClick={() => {
+								signOutUser();
+							}}
+							className="w-full text-red-400 hover:underline"
+						>
+							Sign Out
+						</button>
+					) : (
+						<>
+							<SignInForm />
+							{/* <SignUpForm /> */}
+						</>
+					)}
+				</div>
 			</div>
-		</div>
+		</>
 	);
 };
 

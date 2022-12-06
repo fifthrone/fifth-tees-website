@@ -198,10 +198,10 @@ const NavBar = () => {
 					</div>
 				</nav>
 			</div>
-			<div
-				className={`h-12 md:h-16 ${pathname === "/" ? "tall:hidden" : ""}`}
+			{/* <div
+				className={`w-full h-12 md:h-16 ${pathname === "/" ? "tall:hidden" : ""}`}
 				// className="h-12 md:h-16"
-			></div>
+			></div> */}
 		</>
 	);
 };

@@ -2,6 +2,7 @@ const BgFadeOutTransition = (props) => {
 	const { scrollPosition, startPosition, endPosition, children } = props;
 
 	let opacity = 1;
+	let display = "block";
 
 	if (scrollPosition < startPosition) {
 		opacity = 1;
@@ -10,12 +11,16 @@ const BgFadeOutTransition = (props) => {
 			1 - (scrollPosition - startPosition) / (endPosition - startPosition);
 	} else if (endPosition < scrollPosition) {
 		opacity = 0;
+		display = "none";
 	}
 
 	// console.log(opacity)
 
 	return (
-		<div className="w-full h-full" style={{ opacity: opacity }}>
+		<div
+			className="w-full h-full"
+			style={{ opacity: opacity, display: display }}
+		>
 			{children}
 		</div>
 	);

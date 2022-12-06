@@ -52,7 +52,12 @@ const Cart = (props) => {
 					<p className="text-right w-full p-2 px-4 text-gray-500 dark:text-white font-md font-poppins">
 						Total: HK${totalPrice}
 					</p>
-					<button className="w-full bg-orange-400 dark:bg-orange-600 p-3 rounded-xl text-white text-center hover:bg-orange-200 hover:text-orange-600 duration-200 shadow-lg">
+					<button
+						className="w-full bg-orange-400 p-3 rounded-xl text-white text-center hover:bg-orange-200 hover:text-orange-600 duration-200 shadow-lg"
+						onClick={() => {
+							alert("Checkout feature coming soon");
+						}}
+					>
 						Check Out
 					</button>
 				</div>

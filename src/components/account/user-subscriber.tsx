@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
 	onAuthStateChangedListener,
 	createUserDocumentFromAuth,
+	getDisplayName,
 } from "../../utils/firebase/firebase.utils";
 
 import { setUser } from "../../store/account/account.slice";
@@ -17,7 +18,8 @@ const UserSubscriber = ({ children }) => {
 		const unsubscribe = onAuthStateChangedListener(async (user) => {
 			if (user) {
 				createUserDocumentFromAuth(user);
-				dispatch(setUser({ displayName: user.displayName, uid: user.uid }));
+				const displayName = await getDisplayName(user.uid);
+				dispatch(setUser({ displayName: displayName, uid: user.uid }));
 			} else {
 				dispatch(setUser(null));
 			}
