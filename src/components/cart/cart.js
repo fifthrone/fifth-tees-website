@@ -44,7 +44,7 @@ const Cart = (props) => {
 	return (
 		<div ref={ref} className="p-4">
 			{items.length ? (
-				<div className="space-y-3 pb-1">
+				<div className="space-y-3 pb-1 max-h-[calc(100vh-7rem)] overflow-scroll scrollbar-hide rounded-xl">
 					<h2 className="p-2 text-black dark:text-white">My Cart</h2>
 					{items.map((item, index) => (
 						<CartItem key={`${item.id}-${item.size}`} item={item} />

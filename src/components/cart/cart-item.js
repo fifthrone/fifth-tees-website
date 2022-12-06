@@ -1,7 +1,10 @@
+"use client";
+
 import { useDispatch } from "react-redux";
-import { addItems, removeItems } from "../../store/cart/cart.slice";
+import { addItems, removeItems, closeCart } from "../../store/cart/cart.slice";
 
 import Image from "next/image";
+import Link from "next/link";
 
 const CartItem = ({ item }) => {
 	const dispatch = useDispatch();
@@ -22,15 +25,30 @@ const CartItem = ({ item }) => {
 
 	return (
 		<div className="flex flex-row space-x-3">
-			<Image
-				className="w-24 h-auto rounded-md"
-				src={`/${imageUrl}`}
-				alt=""
-				width={200}
-				height={200}
-			/>
+			<Link
+				href={`/${id}`}
+				onClick={() => {
+					dispatch(closeCart());
+				}}
+			>
+				<Image
+					className="w-24 h-auto rounded-md hover:scale-105 duration-300"
+					src={`/${imageUrl}`}
+					alt=""
+					width={200}
+					height={200}
+				/>
+			</Link>
 			<div className="w-36 text-md space-y-2">
-				<h2 className=" text-black dark:text-white">{title}</h2>
+				<Link
+					href={`/${id}`}
+					className="hover:underline text-black dark:text-white"
+					onClick={() => {
+						dispatch(closeCart());
+					}}
+				>
+					{title}
+				</Link>
 				<p className="text-sm text-gray-500 dark:text-neutral-300 font-bold">
 					HK${price}
 				</p>

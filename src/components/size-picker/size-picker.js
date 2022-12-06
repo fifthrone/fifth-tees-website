@@ -15,7 +15,7 @@ const SizePicker = () => {
 	}, []);
 
 	return (
-		<div className="flex flex-row flex-wrap gap-x-4 gap-y-1">
+		<div className="flex flex-row flex-wrap gap-x-1 sm:gap-x-4 gap-y-1">
 			{sizes.map((size) => (
 				<button
 					key={size}

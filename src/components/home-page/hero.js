@@ -22,7 +22,7 @@ const Hero = (props) => {
 
 	const handleScroll = () => {
 		const position = window.pageYOffset;
-		console.log(position)
+		// console.log(position)
 		setScrollPosition(position);
 	};
 

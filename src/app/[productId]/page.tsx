@@ -151,7 +151,7 @@ const ProductPage = async ({ params }: ProductPageProps) => {
 			{product && (
 				<div className="flex flex-col items-center justify-center max-w-6xl mx-auto sm:px-10 px-2 border1 pb-4">
 					<div className="w-full bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-6 sm:p-12">
-						<div className="border1 grid gap-14 md:grid-cols-2  auto-rows-min">
+						<div className="border1 grid gap-4 sm:gap-14 md:grid-cols-2  auto-rows-min">
 							<div className="md:pt-12 space-y-2 md:space-y-4 border1 border-black">
 								<div className="text-xl sm:text-3xl font-poppins font-semibold">
 									{title} {type}
@@ -183,13 +183,13 @@ const ProductPage = async ({ params }: ProductPageProps) => {
 								<ImageGallery imageUrls={[imageUrl, imageModelUrl]} />
 							</div>
 							<div className="border1 md:row-span-1 space-y-4">
-								<div className="grid grid-cols-1 md:grid-cols-5 gap-4 font-poppins">
+								<div className="grid xgrid-cols-1 grid-cols-5 gap-4 font-poppins">
 									<AddToCartButton
-										className="md:col-span-3"
+										className="col-span-3"
 										product={product}
 									/>
 									<AddToWishListButton
-										className="md:col-span-2"
+										className="col-span-2"
 										product={product}
 									/>
 								</div>
@@ -208,7 +208,7 @@ const ProductPage = async ({ params }: ProductPageProps) => {
 								</a>
 							</div>
 						</div>
-						<div className="border-t-2 border-gray-300 my-12"></div>
+						<div className="border-t-2 border-gray-300 my-8 sm:my-12"></div>
 						<div className="grid gap-6 md:grid-cols-4 font-poppins">
 							<div className="font-semibold text-xl">Description</div>
 							<div className="col-span-3 space-y-2">
@@ -222,8 +222,8 @@ const ProductPage = async ({ params }: ProductPageProps) => {
 								<p>Note: If you like your hoodies baggy go 2 sizes up</p>
 							</div>
 						</div>
-						<div className="border-t-2 border-gray-300 my-12"></div>
-						<div className="grid gap-6 md:grid-cols-4 font-poppins mb-8">
+						<div className="border-t-2 border-gray-300 my-8 sm:my-12"></div>
+						<div className="grid gap-6 md:grid-cols-4 font-poppins mb-4 sm:mb-8">
 							<div className="font-semibold text-xl">Features</div>
 							<div className="col-span-3">
 								<ProductFeatures type={type} />

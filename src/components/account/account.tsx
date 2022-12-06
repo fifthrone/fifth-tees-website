@@ -44,7 +44,7 @@ const Account = (props) => {
 
 	return (
 		<>
-			<div className="md:w-96 max-w-xs" ref={ref}>
+			<div className="md:w-96 max-w-xs max-h-[calc(100vh-6rem)] overflow-scroll scrollbar-hide rounded-xl" ref={ref}>
 				<div className="flex items-center justify-center flex-col space-y-8 p-6">
 					{user ? (
 						<div className="font-semibold text-lg">
