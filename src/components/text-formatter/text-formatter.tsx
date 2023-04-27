@@ -2,8 +2,14 @@
 
 import { useIsOverflow } from "../hook/useIsOverflow";
 import { useRef } from "react";
+import { JsxElement } from "typescript";
 
-const TextFormatter = (props) => {
+interface TextFormatterProps {
+	children: string;
+	className?: string;
+}
+
+const TextFormatter = (props: TextFormatterProps) => {
 	const { children, className } = props;
 
 	const ref = useRef(null);

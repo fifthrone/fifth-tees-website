@@ -4,14 +4,23 @@ import React, { useRef, useState } from "react";
 // import { Transition } from "react-transition-group";
 import { Transition } from "@headlessui/react";
 
-const HeroTransitionHl = (props) => {
+interface HeroTransitionHlProps {
+	scrollPosition: number;
+	inPosition: number;
+	outPosition: number;
+	index: number;
+	children: JSX.Element;
+	className?: string;
+}
+
+const HeroTransitionHl = (props: HeroTransitionHlProps) => {
 	const {
 		scrollPosition,
 		inPosition,
 		outPosition,
-		transitionStyle,
 		index,
 		children,
+		className,
 		...otherProps
 	} = props;
 
@@ -60,6 +69,7 @@ const HeroTransitionHl = (props) => {
 					? "-translate-x-[100vw]"
 					: "translate-x-[100vw]"
 			}
+			className={className}
 			{...otherProps}
 		>
 			{children}

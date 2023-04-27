@@ -1,6 +1,12 @@
+import { Product } from "../../ts/types";
 import ProductsRow from "./products-row";
 
-const FeaturedSection = (props) => {
+interface FeaturedSectionProps {
+	title: string;
+	products: Product[];
+}
+
+const FeaturedSection = (props: FeaturedSectionProps) => {
 	const { title, products } = props;
 
 	return (
@@ -10,7 +16,7 @@ const FeaturedSection = (props) => {
 					{title}
 				</h1>
 			</div>
-			<ProductsRow products={products}/>
+			<ProductsRow products={products} />
 		</>
 	);
 };

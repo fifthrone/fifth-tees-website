@@ -26,7 +26,7 @@ const UserSubscriber = ({ children }) => {
 		});
 
 		return unsubscribe;
-	}, []);
+	}, [dispatch]);
 
 	return <>{children}</>;
 };

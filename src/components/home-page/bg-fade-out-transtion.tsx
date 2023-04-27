@@ -1,4 +1,11 @@
-const BgFadeOutTransition = (props) => {
+interface BgFadeOutTransitionProps {
+	scrollPosition: number;
+	startPosition: number;
+	endPosition: number;
+	children: JSX.Element;
+}
+
+const BgFadeOutTransition = (props: BgFadeOutTransitionProps) => {
 	const { scrollPosition, startPosition, endPosition, children } = props;
 
 	let opacity = 1;

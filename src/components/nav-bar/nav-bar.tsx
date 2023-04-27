@@ -36,9 +36,10 @@ import {
 
 import MobileNav from "./mobile-nav";
 import { resetTag } from "../../store/tag/tag.slice";
+import { AppDispatch } from "../../store/store";
 
 const NavBar = () => {
-	const dispatch = useDispatch();
+	const dispatch = useDispatch<AppDispatch>();
 	const { theme, setTheme } = useTheme();
 	const pathname = usePathname();
 
@@ -49,11 +50,11 @@ const NavBar = () => {
 
 	const cartItemsCount = useSelector(selectItemsCount);
 
-	const wishListButtonRef = useRef(null);
-	const cartButtonRef = useRef(null);
-	const accountButtonRef = useRef(null);
-	const themeButtonRef = useRef(null);
-	const mobileNavButtonRef = useRef(null);
+	const wishListButtonRef = useRef<HTMLButtonElement | null>(null);
+	const cartButtonRef = useRef<HTMLButtonElement | null>(null);
+	const accountButtonRef = useRef<HTMLButtonElement | null>(null);
+	const themeButtonRef = useRef<HTMLButtonElement | null>(null);
+	const mobileNavButtonRef = useRef<HTMLButtonElement | null>(null);
 
 	return (
 		<>
@@ -128,12 +129,14 @@ const NavBar = () => {
 										dispatch(toggleCart());
 									}}
 								>
-									<i className="fa-md text-base md:text-xl fa-solid fa-cart-shopping"></i>
-									{cartItemsCount >= 1 ? (
-										<div className="absolute right-0.5 bottom-1 h-4 min-w-[1rem] p-[0.1rem] rounded-full bg-orange-700 dark:bg-neutral-300 text-white dark:text-black text-[0.7rem] flex items-center justify-center font-bold tracking-tighter">
-											{cartItemsCount}
-										</div>
-									) : null}
+									<>
+										<i className="fa-md text-base md:text-xl fa-solid fa-cart-shopping"></i>
+										{cartItemsCount >= 1 ? (
+											<div className="absolute right-0.5 bottom-1 h-4 min-w-[1rem] p-[0.1rem] rounded-full bg-orange-700 dark:bg-neutral-300 text-white dark:text-black text-[0.7rem] flex items-center justify-center font-bold tracking-tighter">
+												{cartItemsCount}
+											</div>
+										) : null}
+									</>
 								</NavButton>
 								<NavTab isOpen={cartIsOpen}>
 									<Cart
@@ -159,10 +162,11 @@ const NavBar = () => {
 									/>
 								</NavTab>
 							</div>
-							<div ref={themeButtonRef} className="hidden md:block relative">
+							<div className="hidden md:block relative">
 								<NavButton
 									label="Switch to dark mode"
 									className="dark:hidden"
+									buttonRef={themeButtonRef}
 									onClick={() => {
 										setTheme("dark");
 									}}

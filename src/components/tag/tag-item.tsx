@@ -3,7 +3,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setTag, selectTag } from "../../store/tag/tag.slice";
 
-const TagItem = (props) => {
+interface TagItemProps {
+	tag: string;
+}
+
+const TagItem = (props: TagItemProps) => {
 	const { tag } = props;
 
 	const dispatch = useDispatch();

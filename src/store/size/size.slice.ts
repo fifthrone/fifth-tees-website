@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { AppDispatch, RootState } from "../store";
 
 const initialState = {
 	size: "M",
@@ -16,9 +17,9 @@ const sizeSlice = createSlice({
 
 export const { setSize } = sizeSlice.actions;
 
-export const selectSize = (state) => state.size.size;
+export const selectSize = (state: RootState) => state.size.size;
 
-export const resetSize = () => (dispatch) => {
+export const resetSize = () => (dispatch: AppDispatch) => {
 	dispatch(setSize("M"));
 };
 

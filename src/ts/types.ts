@@ -8,8 +8,17 @@ export interface Product {
 	type: string;
 	size?: string;
 	description: string;
-	otherTypeId: string;
+	otherTypeId: string[];
 	relatedId: string[];
 	redbubbleUrl: string;
-	tag: string[];
+	tags: string[];
+}
+
+export interface CartItem extends Product {
+	qty: number;
+}
+
+export interface FeaturedItem {
+	title: string;
+	productIds: string[];
 }

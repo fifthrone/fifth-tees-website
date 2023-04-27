@@ -49,7 +49,7 @@ const MobileNav = (props) => {
 		return () => {
 			document.removeEventListener("mousedown", handleClickOutside);
 		};
-	}, [ref]);
+	}, [ref, dispatch, mobileNavButtonRef]);
 
 	return (
 		<div

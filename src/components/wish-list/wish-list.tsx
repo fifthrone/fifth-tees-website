@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, MutableRefObject } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
 	closeWishListTab,
@@ -11,7 +11,12 @@ import {
 import WishListItem from "./wish-list-item";
 import Link from "next/link";
 
-const WishList = (props) => {
+interface WishListProps {
+	wishListButtonRef: MutableRefObject<HTMLButtonElement>;
+	themeButtonRef: MutableRefObject<HTMLButtonElement>;
+}
+
+const WishList = (props: WishListProps) => {
 	const { wishListButtonRef, themeButtonRef } = props;
 
 	const items = useSelector(selectWishListItems);
@@ -25,7 +30,7 @@ const WishList = (props) => {
 				ref.current &&
 				!ref.current.contains(event.target) &&
 				!wishListButtonRef.current.contains(event.target) &&
-				!themeButtonRef.current.contains(event.target) 
+				!themeButtonRef.current.contains(event.target)
 			) {
 				dispatch(closeWishListTab());
 			}
@@ -34,7 +39,7 @@ const WishList = (props) => {
 		return () => {
 			document.removeEventListener("mousedown", handleClickOutside);
 		};
-	}, [ref]);
+	}, [ref, dispatch, themeButtonRef, wishListButtonRef]);
 
 	return (
 		<div ref={ref} className="p-4">

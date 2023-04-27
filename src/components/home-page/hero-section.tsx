@@ -7,12 +7,21 @@ import HeroTransitionHl from "./hero-transition-hl";
 import { useRef, useState } from "react";
 import { useIsOverflow } from "../hook/useIsOverflow";
 import ProductCardClean from "../product-card/product-card-clean";
-import TitleTransition from "../home-page/title-transition";
+import TitleTransition from "./title-transition";
 
 import { useDispatch } from "react-redux";
 import { setTag } from "../../store/tag/tag.slice";
+import { Product } from "../../ts/types";
 
-const HeroSection = (props) => {
+interface HeroSectionProps {
+	scrollPosition: number;
+	title: string;
+	products: Product[];
+	inPosition: number;
+	outPosition: number;
+}
+
+const HeroSection = (props: HeroSectionProps) => {
 	const { scrollPosition, title, products, inPosition, outPosition } = props;
 
 	const dispatch = useDispatch();
@@ -158,22 +167,22 @@ const HeroSection = (props) => {
 							scrollPosition={scrollPosition}
 							inPosition={inPosition}
 							outPosition={outPosition}
-							transitionStyle="slideHorizontal"
+							// transitionStyle="slideHorizontal"
 							index={index}
-							afterEnter={
-								index === products.length - 1
-									? () => {
-											setIsSectionCardsEntered(true);
-									  }
-									: () => {}
-							}
-							afterLeave={
-								index === products.length - 1
-									? () => {
-											setIsSectionCardsEntered(false);
-									  }
-									: () => {}
-							}
+							// afterEnter={
+							// 	index === products.length - 1
+							// 		? () => {
+							// 				setIsSectionCardsEntered(true);
+							// 		  }
+							// 		: () => {}
+							// }
+							// afterLeave={
+							// 	index === products.length - 1
+							// 		? () => {
+							// 				setIsSectionCardsEntered(false);
+							// 		  }
+							// 		: () => {}
+							// }
 						>
 							<ProductCardClean product={product} />
 						</HeroTransitionHl>

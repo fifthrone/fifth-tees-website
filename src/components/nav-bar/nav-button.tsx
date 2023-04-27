@@ -1,22 +1,28 @@
 "use client";
 
-// interface NavButtonProps {
-// 	label?: string
-// 	className?: string,
-// 	children:
-// }
+import { MutableRefObject } from "react";
+
+interface NavButtonProps {
+	label?: string;
+	className?: string;
+	children: JSX.Element;
+	buttonRef?: MutableRefObject<HTMLButtonElement>;
+	onClick: () => void;
+}
 
 const NavButton = ({
 	label = null,
 	className,
 	children,
 	buttonRef = null,
+	onClick,
 	...otherProps
-}) => {
+}: NavButtonProps) => {
 	return (
 		<button
 			className={`relative flex items-center justify-center p-3 rounded-full hover:bg-gray-100 dark:hover:bg-neutral-700 group duration-300 ${className}`}
 			ref={buttonRef}
+			onClick={onClick}
 			{...otherProps}
 		>
 			{children}

@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { RootState } from "../store";
 
 const initialState = {
 	accountIsOpen: false,
@@ -24,10 +25,12 @@ const accountSlice = createSlice({
 	},
 });
 
-export const { toggleAccount, openAccountTab, closeAccountTab, setUser } = accountSlice.actions;
+export const { toggleAccount, openAccountTab, closeAccountTab, setUser } =
+	accountSlice.actions;
 
-export const selectAccountIsOpen = (state) => state.account.accountIsOpen;
+export const selectAccountIsOpen = (state: RootState) =>
+	state.account.accountIsOpen;
 
-export const selectUser = (state) => state.account.user;
+export const selectUser = (state: RootState) => state.account.user;
 
 export default accountSlice.reducer;

@@ -54,6 +54,16 @@ const transitionStyles = {
 	},
 };
 
+interface HeroTransition {
+	className?: string;
+	scrollPosition: number;
+	inPosition: number;
+	outPosition: number;
+	transitionStyle: string;
+	delay: number;
+	children: JSX.Element;
+}
+
 const HeroTransition = (props) => {
 	const {
 		className,
@@ -68,7 +78,9 @@ const HeroTransition = (props) => {
 
 	const nodeRef = useRef(null);
 
-	const [toggleTransition, setToggleTransition] = useState();
+	const [toggleTransition, setToggleTransition] = useState<boolean | null>(
+		null
+	);
 
 	if (toggleTransition && scrollPosition < inPosition) {
 		setToggleTransition(false);

@@ -3,16 +3,17 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { resetSize, selectSize, setSize } from "../../store/size/size.slice";
+import { AppDispatch } from "../../store/store";
 
 const SizePicker = () => {
 	const sizes = ["S", "M", "L", "XL", "2XL"];
 
-	const dispatch = useDispatch();
+	const dispatch = useDispatch<AppDispatch>();
 	const currentSize = useSelector(selectSize);
 
 	useEffect(() => {
 		dispatch(resetSize());
-	}, []);
+	}, [dispatch]);
 
 	return (
 		<div className="flex flex-row flex-wrap gap-x-1 sm:gap-x-4 gap-y-1">

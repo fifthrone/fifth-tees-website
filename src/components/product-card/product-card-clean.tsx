@@ -6,12 +6,18 @@ import {
 } from "../../store/wish-list/wish-list.slice";
 import Link from "next/link";
 import Image from "next/image";
+import { AppDispatch } from "../../store/store";
+import { Product } from "../../ts/types";
 
-const ProductCardClean = ({ product }) => {
+interface ProductCardCleanProps {
+	product: Product;
+}
+
+const ProductCardClean = ({ product }: ProductCardCleanProps) => {
 	// const product = useSelector(selectProductById(productId));
 	const { id, imageMaskedUrl, price, title, type } = product;
 
-	const dispatch = useDispatch();
+	const dispatch = useDispatch<AppDispatch>();
 	const wishListItemsIndex = useSelector(selectWishListItemIds);
 	const isInWishList = wishListItemsIndex.includes(id);
 

@@ -6,16 +6,24 @@ import Link from "next/link";
 import Image from "next/image";
 import { Parallax } from "react-scroll-parallax";
 
-import HeroTransition from "../home-page/hero-transition";
-import HeroSection from "../home-page/hero-section";
+import HeroTransition from "./hero-transition";
+import HeroSection from "./hero-section";
 import BgFadeOutTransition from "./bg-fade-out-transtion";
 import FadeInOutTransition from "./fade-in-out-transition";
 
 import { useDispatch } from "react-redux";
 
 import { setTag } from "../../store/tag/tag.slice";
+import { Product } from "../../ts/types";
 
-const Hero = (props) => {
+interface HeroProps {
+	hero: {
+		title: string;
+		products: Product[];
+	}[];
+}
+
+const Hero = (props: HeroProps) => {
 	const { hero } = props;
 
 	const [scrollPosition, setScrollPosition] = useState(0);

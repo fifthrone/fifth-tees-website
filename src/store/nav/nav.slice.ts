@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { RootState } from "../store";
 
 const initialState = {
 	isMobileNavTabOpen: false,
@@ -20,8 +21,10 @@ const navSlice = createSlice({
 	},
 });
 
-export const { toggleMobileNavTab, openMobileNavTab, closeMobileNavTab } = navSlice.actions;
+export const { toggleMobileNavTab, openMobileNavTab, closeMobileNavTab } =
+	navSlice.actions;
 
-export const selectIsMobileNavTabOpen = (state) => state.nav.isMobileNavTabOpen;
+export const selectIsMobileNavTabOpen = (state: RootState) =>
+	state.nav.isMobileNavTabOpen;
 
 export default navSlice.reducer;

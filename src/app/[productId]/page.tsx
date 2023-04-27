@@ -64,6 +64,9 @@ const ProductPage = async ({ params }: ProductPageProps) => {
 				"trust-me-im-a-dogtor-tshirt",
 				"friends-and-beer-is-all-i-need-tshirt",
 			],
+			redbubbleUrl:
+				"https://www.redbubble.com/i/t-shirt/Coffee-Matters-Science-T-shirt-by-FifthTees/104556924.FB110",
+			tags: ["Food", "Meme", "Funny"],
 		},
 		{
 			id: "dad-lifts-dinosaur-tshirt", //2
@@ -84,6 +87,9 @@ const ProductPage = async ({ params }: ProductPageProps) => {
 				"trust-me-im-a-dogtor-tshirt",
 				"friends-and-beer-is-all-i-need-tshirt",
 			],
+			redbubbleUrl:
+				"https://www.redbubble.com/i/t-shirt/Dad-Lifts-Dinosaur-Deadlifting-Cute-Jr-T-shirt-by-FifthTees/102442393.FB110",
+			tags: ["Kids", "Family", "Funny"],
 		},
 		{
 			id: "trust-me-im-a-dogtor-tshirt",
@@ -104,6 +110,9 @@ const ProductPage = async ({ params }: ProductPageProps) => {
 				"trust-me-im-a-dogtor-tshirt",
 				"friends-and-beer-is-all-i-need-tshirt",
 			],
+			redbubbleUrl:
+				"https://www.redbubble.com/i/t-shirt/Swole-Doge-Dogtor-Meme-Shiba-Inu-Dog-by-FifthTees/84185429.FB110",
+			tags: ["Dog", "Meme", "Funny", "Animal"],
 		},
 		{
 			id: "friends-and-beer-is-all-i-need-tshirt", //4
@@ -124,6 +133,9 @@ const ProductPage = async ({ params }: ProductPageProps) => {
 				"trust-me-im-a-dogtor-tshirt",
 				"friends-and-beer-is-all-i-need-tshirt",
 			],
+			redbubbleUrl:
+				"https://www.redbubble.com/i/t-shirt/Swole-Doge-Dogtor-Meme-Shiba-Inu-Dog-by-FifthTees/84185429.FB110",
+			tags: ["Friendship", "Meme", "Funny"],
 		},
 	];
 
@@ -184,10 +196,7 @@ const ProductPage = async ({ params }: ProductPageProps) => {
 							</div>
 							<div className="border1 md:row-span-1 space-y-4">
 								<div className="grid xgrid-cols-1 grid-cols-5 gap-4 font-poppins">
-									<AddToCartButton
-										className="col-span-3"
-										product={product}
-									/>
+									<AddToCartButton className="col-span-3" product={product} />
 									<AddToWishListButton
 										className="col-span-2"
 										product={product}
@@ -195,6 +204,8 @@ const ProductPage = async ({ params }: ProductPageProps) => {
 								</div>
 								<a
 									href={redbubbleUrl}
+									target="_blank"
+									rel="noopener noreferrer"
 									className="bg-red-900 rounded-xl w-full py-3 text-white font-poppins flex flex-row items-center justify-center space-x-2 px-2 hover:bg-red-800"
 								>
 									<Image

@@ -2,7 +2,11 @@
 
 import TagItem from "./tag-item";
 
-const Tags = (props) => {
+interface TagsProps {
+	className?: string;
+}
+
+const Tags = (props: TagsProps) => {
 	const { className } = props;
 	const availableTags = [
 		"Meme",

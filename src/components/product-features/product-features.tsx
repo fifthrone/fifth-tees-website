@@ -1,4 +1,8 @@
-const ProductFeatures = (props) => {
+interface ProductFeaturesProps {
+	type: string;
+}
+
+const ProductFeatures = (props: ProductFeaturesProps) => {
 	const { type } = props;
 
 	return (

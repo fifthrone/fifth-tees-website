@@ -5,8 +5,13 @@ import ProductCard from "../product-card/product-card";
 import { useSelector } from "react-redux";
 
 import { selectTag } from "../../store/tag/tag.slice";
+import { Product } from "../../ts/types";
 
-const ProductListing = (props) => {
+interface ProductListingProps {
+	products: Product[];
+}
+
+const ProductListing = (props: ProductListingProps) => {
 	const { products } = props;
 
 	const currentTag = useSelector(selectTag);

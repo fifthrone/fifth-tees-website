@@ -27,7 +27,7 @@ import { ALL_PRODUCTS, FEATURED, HERO } from "../../products-data";
 
 import { debounce } from "../common.utils";
 
-import { Product } from "../../ts/types";
+import { FeaturedItem, Product } from "../../ts/types";
 
 const firebaseConfig = {
 	apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -83,8 +83,22 @@ export const getData = async (collectionKey: string) => {
 	const q = query(collectionRef);
 
 	const querySnapshot = await getDocs(q);
-	const data = querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
 
+	const data = querySnapshot.docs.map((docSnapshot) =>
+		docSnapshot.data()
+	) as Product[];
+	return data;
+};
+
+export const getFeatureOrHeroData = async (collectionKey: string) => {
+	const collectionRef = collection(db, collectionKey);
+	const q = query(collectionRef);
+
+	const querySnapshot = await getDocs(q);
+
+	const data = querySnapshot.docs.map((docSnapshot) =>
+		docSnapshot.data()
+	) as FeaturedItem[];
 	return data;
 };
 
@@ -119,12 +133,14 @@ export const getProduct = async (id: string): Promise<Product> => {
 	return products[0];
 };
 
-export const getProducts = async (ids: string) => {
+export const getProducts = async (ids: string[]) => {
 	const productRef = collection(db, "products");
 	const q = query(productRef, where("id", "in", ids));
 
 	const querySnapshot = await getDocs(q);
-	const products = querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
+	const products = querySnapshot.docs.map((docSnapshot) =>
+		docSnapshot.data()
+	) as Product[];
 
 	return products;
 };
@@ -134,7 +150,9 @@ export const getProductsByType = async (type: string) => {
 	const q = query(productRef, where("type", "==", type));
 
 	const querySnapshot = await getDocs(q);
-	const products = querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
+	const products = querySnapshot.docs.map((docSnapshot) =>
+		docSnapshot.data()
+	) as Product[];
 
 	return products;
 };

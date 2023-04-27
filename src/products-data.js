@@ -64,6 +64,8 @@ export const ALL_PRODUCTS = [
 			"trust-me-im-a-dogtor-tshirt",
 			"friends-and-beer-is-all-i-need-tshirt",
 		],
+		redbubbleUrl:
+			"https://www.redbubble.com/i/t-shirt/Swole-Doge-Dogtor-Meme-Shiba-Inu-Dog-by-FifthTees/84185429.FB110",
 		tags: ["Dog", "Meme", "Funny", "Animal"],
 	},
 	{

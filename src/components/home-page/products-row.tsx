@@ -1,15 +1,23 @@
-"use client"
+"use client";
 
 import ProductCard from "../product-card/product-card";
-import { useEffect, useRef } from "react";
+import { MutableRefObject, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Product } from "../../ts/types";
 
-const ProductsRow = (props) => {
+interface ProductsRowProps {
+	products: Product[];
+}
+
+const ProductsRow = (props: ProductsRowProps) => {
 	const { products } = props;
 
-	const ref = useRef(null);
+	const ref = useRef<HTMLDivElement | null>(null);
 
-	const scroll = (ref, scrollOffset) => {
+	const scroll = (
+		ref: MutableRefObject<HTMLDivElement>,
+		scrollOffset: number
+	) => {
 		ref.current.scrollLeft += scrollOffset;
 	};
 

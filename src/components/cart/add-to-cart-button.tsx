@@ -6,22 +6,30 @@ import { useState } from "react";
 
 import {
 	addItems,
-	postData,
+	// postData,
 	selectItems,
 	openCart,
 	toggleCart,
 } from "../../store/cart/cart.slice";
 import { selectSize } from "../../store/size/size.slice";
 
-import { updateUserCart } from "../../utils/firebase/firebase.utils";
+// import { updateUserCart } from "../../utils/firebase/firebase.utils";
 import { selectUser } from "../../store/account/account.slice";
+import { AppDispatch, AppThunk } from "../../store/store";
+import { Product } from "../../ts/types";
 
-const wait = async (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+interface AddToCartButtonProps {
+	product: Product;
+	className: string;
+}
 
-const AddToCartButton = (props) => {
+const wait = async (ms: number) =>
+	new Promise((resolve) => setTimeout(resolve, ms));
+
+const AddToCartButton = (props: AddToCartButtonProps) => {
 	const { product, className } = props;
 
-	const dispatch = useDispatch();
+	const dispatch = useDispatch<AppDispatch>();
 	const { type, size } = product;
 	const tShirtSize = useSelector(selectSize);
 

@@ -4,7 +4,11 @@ import Image from "next/image";
 
 import { useEffect, useState } from "react";
 
-const ImageGallery = ({ imageUrls }) => {
+interface ImageGalleryProps {
+	imageUrls: string[];
+}
+
+const ImageGallery = ({ imageUrls }: ImageGalleryProps) => {
 	const [currentImageUrl, setCurrentImageUrl] = useState("");
 
 	useEffect(() => {

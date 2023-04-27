@@ -1,6 +1,12 @@
 import Hero from "../components/home-page/hero";
 import FeaturedSection from "../components/home-page/featured-section";
-import { getData, getProducts } from "../utils/firebase/firebase.utils";
+import {
+	addProduct,
+	getData,
+	getFeatureOrHeroData,
+	getProducts,
+} from "../utils/firebase/firebase.utils";
+import { Product } from "../ts/types";
 
 // export const dynamic = 'auto',
 //   dynamicParams = true,
@@ -12,7 +18,7 @@ import { getData, getProducts } from "../utils/firebase/firebase.utils";
 // 'auto' | 'force-dynamic' | 'error' | 'force-static'
 
 const getProductsMap = async (collectionKey: string) => {
-	const featured = await getData(collectionKey);
+	const featured = await getFeatureOrHeroData(collectionKey);
 	const promises = featured.map(async ({ title, productIds }) => {
 		const products = await getProducts(productIds);
 

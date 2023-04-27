@@ -5,9 +5,15 @@ import { addItems, removeItems, closeCart } from "../../store/cart/cart.slice";
 
 import Image from "next/image";
 import Link from "next/link";
+import { AppDispatch } from "../../store/store";
+import { CartItem, Product } from "../../ts/types";
 
-const CartItem = ({ item }) => {
-	const dispatch = useDispatch();
+interface CartItemProps {
+	item: CartItem;
+}
+
+const CartItem = ({ item }: CartItemProps) => {
+	const dispatch = useDispatch<AppDispatch>();
 
 	const {
 		id,

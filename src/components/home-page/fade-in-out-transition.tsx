@@ -1,53 +1,44 @@
-const TitleTransition = (props) => {
-	const { scrollPosition, inPosition, outPosition, children, className } =
-		props;
+interface FadeInOutTransitionProps {
+	scrollPosition: number;
+	inPosition: number;
+	outPosition: number;
+	children: JSX.Element;
+}
 
-	const fadeDuration = 60;
-	const translateAmount = 150;
-	let display = "block";
+const FadeInOutTransition = (props: FadeInOutTransitionProps) => {
+	const { scrollPosition, inPosition, outPosition, children } = props;
+
+	const fadeDuration = 100;
 	let opacity = 1;
-	let y = 0;
+	let display = "block";
 
 	if (scrollPosition < inPosition - fadeDuration) {
 		opacity = 0;
-		y = translateAmount;
 		display = "none";
 	} else if (
 		inPosition - fadeDuration <= scrollPosition &&
 		scrollPosition < inPosition
 	) {
 		opacity = (scrollPosition - (inPosition - fadeDuration)) / fadeDuration;
-		y = (1 - opacity) * translateAmount;
 	} else if (inPosition <= scrollPosition && scrollPosition < outPosition) {
 		opacity = 1;
-		y = 0;
 	} else if (
 		outPosition <= scrollPosition &&
 		scrollPosition < outPosition + fadeDuration
 	) {
 		opacity = 1 - (scrollPosition - outPosition) / fadeDuration;
-		y = -(1 - opacity) * translateAmount;
 	} else if (outPosition <= scrollPosition) {
 		opacity = 0;
-		y = -translateAmount;
 		display = "none";
 	}
 
-	// console.log(opacity);
-	// console.log(y);
+	// console.log(opacity)
 
 	return (
-		<div
-			className={className}
-			style={{
-				opacity: opacity,
-				transform: `translateY(${y}px)`,
-				display: display,
-			}}
-		>
+		<div className="w-full h-full" style={{ opacity: opacity }}>
 			{children}
 		</div>
 	);
 };
 
-export default TitleTransition;
+export default FadeInOutTransition;

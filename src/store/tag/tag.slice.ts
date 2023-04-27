@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { AppThunk, RootState } from "../store";
 
 const initialState = {
 	tag: "",
@@ -16,9 +17,9 @@ const tagSlice = createSlice({
 
 export const { setTag } = tagSlice.actions;
 
-export const selectTag = (state) => state.tag.tag;
+export const selectTag = (state: RootState) => state.tag.tag;
 
-export const resetTag = () => (dispatch) => {
+export const resetTag = (): AppThunk => (dispatch) => {
 	dispatch(setTag(""));
 };
 

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useDispatch, useSelector } from "react-redux";
 
@@ -12,6 +12,8 @@ import {
 } from "../../store/wish-list/wish-list.slice";
 
 import styled, { keyframes } from "styled-components";
+import { AppDispatch } from "../../store/store";
+import { Product } from "../../ts/types";
 
 const grow = keyframes`
     from {
@@ -28,24 +30,29 @@ const GrowContainer = styled.i`
 	animation: ${grow} 400ms;
 `;
 
-const AddToWishListButton = (props) => {
+interface AddToWishListButtonProps {
+	product: Product;
+	className?: string;
+}
+
+const AddToWishListButton = (props: AddToWishListButtonProps) => {
 	const { product, className } = props;
 	const { id } = product;
 
-	const dispatch = useDispatch();
+	const dispatch = useDispatch<AppDispatch>();
 
 	const wishListItemsIds = useSelector(selectWishListItemIds);
 	const isInWishList = wishListItemsIds.includes(id);
 
 	const clickHandler = () => {
-        if (isInWishList) {
-            dispatch(removeWishListItems(product))
-        } else {
-            dispatch(addWishListItems(product));
-            setTimeout(() => {
-                dispatch(toggleWishList());
-            }, 500);
-        }
+		if (isInWishList) {
+			dispatch(removeWishListItems(product));
+		} else {
+			dispatch(addWishListItems(product));
+			setTimeout(() => {
+				dispatch(toggleWishList());
+			}, 500);
+		}
 	};
 
 	return (

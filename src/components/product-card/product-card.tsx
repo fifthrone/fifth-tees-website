@@ -2,8 +2,14 @@ import Link from "next/link";
 import Image from "next/image";
 import TextFormatter from "../text-formatter/text-formatter";
 import WishListButtonSimple from "../ui/wish-list-button-simple";
+import { Product } from "../../ts/types";
 
-const ProductCard = (props) => {
+interface ProductCardProps {
+	product: Product;
+	className?: string;
+}
+
+const ProductCard = (props: ProductCardProps) => {
 	const { product, className } = props;
 	const { id, imageUrl, price, title, type } = product;
 

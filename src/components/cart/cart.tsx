@@ -8,12 +8,17 @@ import {
 	closeCart,
 } from "../../store/cart/cart.slice";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, MutableRefObject } from "react";
 
 import CartItem from "./cart-item";
 import Link from "next/link";
 
-const Cart = (props) => {
+interface CartProps {
+	cartButtonRef: MutableRefObject<HTMLButtonElement>;
+	themeButtonRef: MutableRefObject<HTMLButtonElement>;
+}
+
+const Cart = (props: CartProps) => {
 	const { cartButtonRef, themeButtonRef } = props;
 
 	const ref = useRef(null);
@@ -39,7 +44,7 @@ const Cart = (props) => {
 		return () => {
 			document.removeEventListener("mousedown", handleClickOutside);
 		};
-	}, [ref]);
+	}, [ref, cartButtonRef, dispatch, themeButtonRef]);
 
 	return (
 		<div ref={ref} className="p-4">

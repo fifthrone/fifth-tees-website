@@ -8,11 +8,17 @@ import {
 
 import Image from "next/image";
 import Link from "next/link";
+import { AppDispatch } from "../../store/store";
+import { Product } from "../../ts/types";
 
-const WishListItem = ({ item }) => {
-	const dispatch = useDispatch();
+interface WishListItemProps {
+	item: Product;
+}
 
-	const { id, imageUrl, imageUrl2, title, price } = item;
+const WishListItem = ({ item }: WishListItemProps) => {
+	const dispatch = useDispatch<AppDispatch>();
+
+	const { id, imageUrl, title } = item;
 
 	return (
 		<div className="flex flex-row space-x-3">
