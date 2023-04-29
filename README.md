@@ -2,7 +2,6 @@
 
 A responsive, fully server-side rendered (SSR) e-commerce website built with Next.js, React, Redux Toolkit, Tailwind CSS, and Firebase. Feel free to check out the code or build the website!
 
-
 ## Features
 
 - User authentication and registration
@@ -12,7 +11,6 @@ A responsive, fully server-side rendered (SSR) e-commerce website built with Nex
 - Responsive design for mobile, tablet, and desktop devices
 - Real-time data synchronization using Firebase
 - Light and dark mode
-
 
 ## Getting Started
 
@@ -54,7 +52,6 @@ npm run start
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-
 ## Configuration
 
 ### Firebase setup
@@ -62,22 +59,13 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 Sign up for a Firebase account and create a new project. Set up Cloud Firestore database and authentication. Obtain your firebase configuration.
 
 Then, create a .env.local file in root dir for your environment variables including:
+
 - NEXT_PUBLIC_FIREBASE_API_KEY
 - NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
 - NEXT_PUBLIC_FIREBASE_PROJECT_ID
 - NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
 - NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
 - NEXT_PUBLIC_FIREBASE_APP_ID
-
-## Folder Structure
-
-- /public - Contains static assets, such as images and fonts
-- /src/app - Contains the main pages and routes of the application
-- /src/components - Contains all the reusable React components
-- /src/store - Contains Redux toolkit store and slices
-- /src/hooks - Contains custom hooks
-- /src/utils - Contains Firebase and utility functions
-- /src/products-data.js - Contains example of product data
 
 ### Firestore data structure:
 
@@ -107,3 +95,13 @@ Collection and fields:
 Example: src/product-data.js
 
 To add the data in product-data,js into your firestore database, call the addProduct, addHero and addFeatured function in firebase.utils.ts once.
+
+## Folder Structure
+
+- /public - Contains static assets, such as images and fonts
+- /src/app - Contains the main pages and routes of the application
+- /src/components - Contains all the reusable React components
+- /src/store - Contains Redux toolkit store and slices
+- /src/hooks - Contains custom hooks
+- /src/utils - Contains Firebase and utility functions
+- /src/products-data.js - Contains example of product data
