@@ -1,6 +1,6 @@
 # Fifth Tees
 
-A responsive, fully SSR (server side rendered) e-commerce website built with Next.js, React, Redux Toolkit, Tailwind CSS, and Firebase. Feel free to check out the code or build the website!
+A responsive, fully server-side rendered (SSR) e-commerce website built with Next.js, React, Redux Toolkit, Tailwind CSS, and Firebase. Feel free to check out the code or build the website!
 
 
 ## Features
@@ -60,6 +60,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ### Firebase setup
 
 Sign up for a Firebase account and create a new project. Set up Cloud Firestore database and authentication. Obtain your firebase configuration.
+
 Then, create a .env.local file in root dir for your environment variables including:
 - NEXT_PUBLIC_FIREBASE_API_KEY
 - NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
@@ -70,20 +71,19 @@ Then, create a .env.local file in root dir for your environment variables includ
 
 ## Folder Structure
 
-/public - Contains static assets, such as images and fonts
-/src/app - Contains the main pages and routes of the application
-/src/components - Contains all the reusable React components
-/src/store - Contains Redux toolkit store and slices
-/src/hooks - Contains custom hooks
-/src/utils - Contains Firebase and utility functions
-/src/products-data.js - Contains example of product data
+- /public - Contains static assets, such as images and fonts
+- /src/app - Contains the main pages and routes of the application
+- /src/components - Contains all the reusable React components
+- /src/store - Contains Redux toolkit store and slices
+- /src/hooks - Contains custom hooks
+- /src/utils - Contains Firebase and utility functions
+- /src/products-data.js - Contains example of product data
 
 ### Firestore data structure:
 
-Collection:
+Collection and fields:
 
 - `products` - all products
-  field:
   - `id`: string;
   - `imageUrl`: string;
   - `imageMaskedUrl`: string;
@@ -98,13 +98,12 @@ Collection:
   - `redbubbleUrl`: string;
   - `tags`: string[];
 - `hero` - products to show on hero section
-  field:
   - `title`: string;
   - `productIds`: string[];
 - `featured` - products to show on featured section
-  field:
   - `title`: string;
   - `productIds`: string[];
 
 Example: src/product-data.js
+
 To add the data in product-data,js into your firestore database, call the addProduct, addHero and addFeatured function in firebase.utils.ts once.
