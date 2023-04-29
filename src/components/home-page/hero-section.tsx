@@ -5,7 +5,7 @@ import Link from "next/link";
 import HeroTransition from "./hero-transition";
 import HeroTransitionHl from "./hero-transition-hl";
 import { useRef, useState } from "react";
-import { useIsOverflow } from "../hook/useIsOverflow";
+import { useIsOverflow } from "../../hook/useIsOverflow";
 import ProductCardClean from "../product-card/product-card-clean";
 import TitleTransition from "./title-transition";
 

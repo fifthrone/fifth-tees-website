@@ -1,6 +1,6 @@
 "use client";
 
-import { useIsOverflow } from "../hook/useIsOverflow";
+import { useIsOverflow } from "../../hook/useIsOverflow";
 import { useRef } from "react";
 import { JsxElement } from "typescript";
 
